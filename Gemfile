@@ -36,7 +36,7 @@ gem "slim-rails"
 
 gem 'bootstrap-sass'
 
-# gem 'table_print'
+gem 'table_print'
 
 # gem 'nokogiri'
 
@@ -89,8 +89,6 @@ gem 'awesome_nested_set', :git => 'https://github.com/collectiveidea/awesome_nes
 gem 'has_scope'
 
 gem 'faker'
-
-gem 'table_print'
 
 
 

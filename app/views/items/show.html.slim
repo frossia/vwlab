@@ -19,6 +19,33 @@
           span.fa.fa-shopping-cart.fa-lg>
           =' @item.price
           |руб.
+      .col-md-12
+        .row
+          .col-md-8
+            h5 Характеристики
+            table#specification
+              - 15.times do |x|
+                tr
+                  td.label
+                    span = Faker::Commerce.product_name
+                  td.value
+                    small = ['да','нет'][rand(2)]
+
+
+
+
+          .col-md-4
+            h5 Стоимость установки
+            table#specification
+              - Item.find(params[:id]).autos.each do |auto|
+                tr
+                  td.label
+                    span = auto.name
+                  td.value
+                    small
+                      =' @item.price + @item.install_hours * auto.manhour
+                      |руб.
+
         /- unless catalog_index
           p.t-r
             b =' @item.price + @item.install_hours * Auto.find(params[:id]).manhour
