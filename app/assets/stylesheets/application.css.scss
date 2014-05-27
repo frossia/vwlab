@@ -10,10 +10,14 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require bootstrap
- *= require ani
+ *= require_tree .
  *= require_self
  */
+
+@import "ani";
+@import "bootstrap";
+@import "bourbon";
+@import "active_admin/mixins";
 
 body, html, .container {
   height: 100%;
@@ -128,7 +132,7 @@ a.muted_link {
 
 #items {
   #item_autos.btn {
-    margin: 3px 0;
+//    margin: 3px 0;
   }
 }
 

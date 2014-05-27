@@ -15,10 +15,11 @@
           br
           small = item.description
         .col-md-3.col-lg-3.col-xs-12
-          a.btn.btn-warning.large.pull-right href='#'
-            span.fa.fa-shopping-cart.fa-lg>
-            =' item.price
-            |руб.
+          a href='#'
+            button.btn.btn-warning.large.pull-right
+              span.fa.fa-shopping-cart.fa-lg>
+              =' item.price
+              |руб.
           - unless catalog_index
             p.t-r
               b =' item.price + item.install_hours * Auto.find(params[:id]).manhour
@@ -31,12 +32,14 @@
           small
             i> Похожие товары для:
           - item.autos.each do |auto|
-            a#item_autos.btn.btn-default.btn-xs href='#{catalog_auto_url(item.catalogs.first, auto)}' =' auto.name
+            a href='#{catalog_auto_url(item.catalogs.first, auto)}'
+              button#item_autos.btn.btn-default.btn-xs = auto.name
 
           /- if admin_user_signed_in?
             a#item_autos.btn.btn-danger.btn-xs.pull-right href='#{edit_admin_item_url(item)}' Редактировать
 
-          a#item_autos.btn.btn-success.btn-xs.pull-right href='#{item_url(item)}' ПОДРОБНЕЕ
+          a href='#{item_url(item)}'
+            button#item_autos.btn.btn-success.btn-xs.pull-right ПОДРОБНЕЕ
 
           a#item_autos.btn.btn-link.btn-xs.muted_link.pull-right href='#{catalog_url(item.catalogs.first)}'
             i = item.catalogs.first.name

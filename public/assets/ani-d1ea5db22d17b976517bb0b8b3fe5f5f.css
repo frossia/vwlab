@@ -1,0 +1,3127 @@
+/*!
+Animate.css - http://daneden.me/animate
+Licensed under the MIT license
+
+Copyright (c) 2013 Daniel Eden
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+/* line 17, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+/* line 24, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.animated.hinge {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+}
+
+@-webkit-keyframes bounce {
+  /* line 30, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  /* line 35, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  40% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  /* line 40, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  60% {
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes bounce {
+  /* line 47, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  /* line 53, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  40% {
+    -webkit-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  /* line 59, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  60% {
+    -webkit-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}
+
+/* line 66, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.bounce {
+  -webkit-animation-name: bounce;
+  animation-name: bounce;
+}
+
+@-webkit-keyframes flash {
+  /* line 72, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+
+  /* line 76, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+@keyframes flash {
+  /* line 82, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+
+  /* line 86, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+/* line 91, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.flash {
+  -webkit-animation-name: flash;
+  animation-name: flash;
+}
+
+/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+@-webkit-keyframes pulse {
+  /* line 99, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  /* line 104, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  /* line 109, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  /* line 116, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  /* line 122, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  50% {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  /* line 128, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+/* line 135, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.pulse {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+
+@-webkit-keyframes shake {
+  /* line 141, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0%, 100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  /* line 146, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+
+  /* line 151, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+}
+
+@keyframes shake {
+  /* line 158, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0%, 100% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  /* line 164, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translateX(-10px);
+    -ms-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+
+  /* line 170, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translateX(10px);
+    -ms-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+}
+
+/* line 177, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.shake {
+  -webkit-animation-name: shake;
+  animation-name: shake;
+}
+
+@-webkit-keyframes swing {
+  /* line 183, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  20% {
+    -webkit-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }
+
+  /* line 188, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  40% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+
+  /* line 193, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  60% {
+    -webkit-transform: rotate(5deg);
+    transform: rotate(5deg);
+  }
+
+  /* line 198, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  80% {
+    -webkit-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+  }
+
+  /* line 203, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes swing {
+  /* line 210, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  20% {
+    -webkit-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }
+
+  /* line 216, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  40% {
+    -webkit-transform: rotate(-10deg);
+    -ms-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+
+  /* line 222, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  60% {
+    -webkit-transform: rotate(5deg);
+    -ms-transform: rotate(5deg);
+    transform: rotate(5deg);
+  }
+
+  /* line 228, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  80% {
+    -webkit-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+  }
+
+  /* line 234, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+
+/* line 241, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.swing {
+  -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
+  transform-origin: top center;
+  -webkit-animation-name: swing;
+  animation-name: swing;
+}
+
+@-webkit-keyframes tada {
+  /* line 250, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  /* line 255, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  10%, 20% {
+    -webkit-transform: scale(0.9) rotate(-3deg);
+    transform: scale(0.9) rotate(-3deg);
+  }
+
+  /* line 260, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  30%, 50%, 70%, 90% {
+    -webkit-transform: scale(1.1) rotate(3deg);
+    transform: scale(1.1) rotate(3deg);
+  }
+
+  /* line 265, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  40%, 60%, 80% {
+    -webkit-transform: scale(1.1) rotate(-3deg);
+    transform: scale(1.1) rotate(-3deg);
+  }
+
+  /* line 270, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: scale(1) rotate(0);
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes tada {
+  /* line 277, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  /* line 283, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  10%, 20% {
+    -webkit-transform: scale(0.9) rotate(-3deg);
+    -ms-transform: scale(0.9) rotate(-3deg);
+    transform: scale(0.9) rotate(-3deg);
+  }
+
+  /* line 289, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  30%, 50%, 70%, 90% {
+    -webkit-transform: scale(1.1) rotate(3deg);
+    -ms-transform: scale(1.1) rotate(3deg);
+    transform: scale(1.1) rotate(3deg);
+  }
+
+  /* line 295, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  40%, 60%, 80% {
+    -webkit-transform: scale(1.1) rotate(-3deg);
+    -ms-transform: scale(1.1) rotate(-3deg);
+    transform: scale(1.1) rotate(-3deg);
+  }
+
+  /* line 301, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: scale(1) rotate(0);
+    -ms-transform: scale(1) rotate(0);
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* line 308, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.tada {
+  -webkit-animation-name: tada;
+  animation-name: tada;
+}
+
+/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+@-webkit-keyframes wobble {
+  /* line 316, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  /* line 321, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  15% {
+    -webkit-transform: translateX(-25%) rotate(-5deg);
+    transform: translateX(-25%) rotate(-5deg);
+  }
+
+  /* line 326, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  30% {
+    -webkit-transform: translateX(20%) rotate(3deg);
+    transform: translateX(20%) rotate(3deg);
+  }
+
+  /* line 331, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  45% {
+    -webkit-transform: translateX(-15%) rotate(-3deg);
+    transform: translateX(-15%) rotate(-3deg);
+  }
+
+  /* line 336, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  60% {
+    -webkit-transform: translateX(10%) rotate(2deg);
+    transform: translateX(10%) rotate(2deg);
+  }
+
+  /* line 341, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  75% {
+    -webkit-transform: translateX(-5%) rotate(-1deg);
+    transform: translateX(-5%) rotate(-1deg);
+  }
+
+  /* line 346, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+@keyframes wobble {
+  /* line 353, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  /* line 359, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  15% {
+    -webkit-transform: translateX(-25%) rotate(-5deg);
+    -ms-transform: translateX(-25%) rotate(-5deg);
+    transform: translateX(-25%) rotate(-5deg);
+  }
+
+  /* line 365, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  30% {
+    -webkit-transform: translateX(20%) rotate(3deg);
+    -ms-transform: translateX(20%) rotate(3deg);
+    transform: translateX(20%) rotate(3deg);
+  }
+
+  /* line 371, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  45% {
+    -webkit-transform: translateX(-15%) rotate(-3deg);
+    -ms-transform: translateX(-15%) rotate(-3deg);
+    transform: translateX(-15%) rotate(-3deg);
+  }
+
+  /* line 377, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  60% {
+    -webkit-transform: translateX(10%) rotate(2deg);
+    -ms-transform: translateX(10%) rotate(2deg);
+    transform: translateX(10%) rotate(2deg);
+  }
+
+  /* line 383, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  75% {
+    -webkit-transform: translateX(-5%) rotate(-1deg);
+    -ms-transform: translateX(-5%) rotate(-1deg);
+    transform: translateX(-5%) rotate(-1deg);
+  }
+
+  /* line 389, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+/* line 396, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.wobble {
+  -webkit-animation-name: wobble;
+  animation-name: wobble;
+}
+
+@-webkit-keyframes bounceIn {
+  /* line 402, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+    transform: scale(0.3);
+  }
+
+  /* line 408, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+
+  /* line 414, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  70% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  /* line 419, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  /* line 426, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+    -ms-transform: scale(0.3);
+    transform: scale(0.3);
+  }
+
+  /* line 433, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+
+  /* line 440, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  70% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  /* line 446, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+/* line 453, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.bounceIn {
+  -webkit-animation-name: bounceIn;
+  animation-name: bounceIn;
+}
+
+@-webkit-keyframes bounceInDown {
+  /* line 459, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+
+  /* line 465, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  60% {
+    opacity: 1;
+    -webkit-transform: translateY(30px);
+    transform: translateY(30px);
+  }
+
+  /* line 471, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  80% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+
+  /* line 476, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceInDown {
+  /* line 483, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    -ms-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+
+  /* line 490, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  60% {
+    opacity: 1;
+    -webkit-transform: translateY(30px);
+    -ms-transform: translateY(30px);
+    transform: translateY(30px);
+  }
+
+  /* line 497, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  80% {
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+
+  /* line 503, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+/* line 510, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.bounceInDown {
+  -webkit-animation-name: bounceInDown;
+  animation-name: bounceInDown;
+}
+
+@-webkit-keyframes bounceInLeft {
+  /* line 516, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+
+  /* line 522, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(30px);
+    transform: translateX(30px);
+  }
+
+  /* line 528, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  80% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+
+  /* line 533, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounceInLeft {
+  /* line 540, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    -ms-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+
+  /* line 547, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(30px);
+    -ms-transform: translateX(30px);
+    transform: translateX(30px);
+  }
+
+  /* line 554, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  80% {
+    -webkit-transform: translateX(-10px);
+    -ms-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+
+  /* line 560, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+/* line 567, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.bounceInLeft {
+  -webkit-animation-name: bounceInLeft;
+  animation-name: bounceInLeft;
+}
+
+@-webkit-keyframes bounceInRight {
+  /* line 573, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+
+  /* line 579, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(-30px);
+    transform: translateX(-30px);
+  }
+
+  /* line 585, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  80% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+
+  /* line 590, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounceInRight {
+  /* line 597, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    -ms-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+
+  /* line 604, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(-30px);
+    -ms-transform: translateX(-30px);
+    transform: translateX(-30px);
+  }
+
+  /* line 611, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  80% {
+    -webkit-transform: translateX(10px);
+    -ms-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+
+  /* line 617, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+/* line 624, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.bounceInRight {
+  -webkit-animation-name: bounceInRight;
+  animation-name: bounceInRight;
+}
+
+@-webkit-keyframes bounceInUp {
+  /* line 630, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+    transform: translateY(2000px);
+  }
+
+  /* line 636, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  60% {
+    opacity: 1;
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  /* line 642, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  80% {
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px);
+  }
+
+  /* line 647, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceInUp {
+  /* line 654, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+    -ms-transform: translateY(2000px);
+    transform: translateY(2000px);
+  }
+
+  /* line 661, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  60% {
+    opacity: 1;
+    -webkit-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  /* line 668, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  80% {
+    -webkit-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    transform: translateY(10px);
+  }
+
+  /* line 674, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+/* line 681, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.bounceInUp {
+  -webkit-animation-name: bounceInUp;
+  animation-name: bounceInUp;
+}
+
+@-webkit-keyframes bounceOut {
+  /* line 687, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  /* line 692, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  25% {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+
+  /* line 697, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  /* line 703, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+    transform: scale(0.3);
+  }
+}
+
+@keyframes bounceOut {
+  /* line 711, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  /* line 717, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  25% {
+    -webkit-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+
+  /* line 723, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  /* line 730, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+    -ms-transform: scale(0.3);
+    transform: scale(0.3);
+  }
+}
+
+/* line 738, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.bounceOut {
+  -webkit-animation-name: bounceOut;
+  animation-name: bounceOut;
+}
+
+@-webkit-keyframes bounceOutDown {
+  /* line 744, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  /* line 749, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  20% {
+    opacity: 1;
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  /* line 755, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+    transform: translateY(2000px);
+  }
+}
+
+@keyframes bounceOutDown {
+  /* line 763, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  /* line 769, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  20% {
+    opacity: 1;
+    -webkit-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  /* line 776, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+    -ms-transform: translateY(2000px);
+    transform: translateY(2000px);
+  }
+}
+
+/* line 784, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.bounceOutDown {
+  -webkit-animation-name: bounceOutDown;
+  animation-name: bounceOutDown;
+}
+
+@-webkit-keyframes bounceOutLeft {
+  /* line 790, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  /* line 795, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  20% {
+    opacity: 1;
+    -webkit-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+
+  /* line 801, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+}
+
+@keyframes bounceOutLeft {
+  /* line 809, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  /* line 815, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  20% {
+    opacity: 1;
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+
+  /* line 822, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    -ms-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+}
+
+/* line 830, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.bounceOutLeft {
+  -webkit-animation-name: bounceOutLeft;
+  animation-name: bounceOutLeft;
+}
+
+@-webkit-keyframes bounceOutRight {
+  /* line 836, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  /* line 841, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  20% {
+    opacity: 1;
+    -webkit-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+
+  /* line 847, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+}
+
+@keyframes bounceOutRight {
+  /* line 855, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  /* line 861, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  20% {
+    opacity: 1;
+    -webkit-transform: translateX(-20px);
+    -ms-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+
+  /* line 868, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    -ms-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+}
+
+/* line 876, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.bounceOutRight {
+  -webkit-animation-name: bounceOutRight;
+  animation-name: bounceOutRight;
+}
+
+@-webkit-keyframes bounceOutUp {
+  /* line 882, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  /* line 887, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  20% {
+    opacity: 1;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  /* line 893, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+}
+
+@keyframes bounceOutUp {
+  /* line 901, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  /* line 907, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  20% {
+    opacity: 1;
+    -webkit-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  /* line 914, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    -ms-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+}
+
+/* line 922, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.bounceOutUp {
+  -webkit-animation-name: bounceOutUp;
+  animation-name: bounceOutUp;
+}
+
+@-webkit-keyframes fadeIn {
+  /* line 928, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+  }
+
+  /* line 932, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  /* line 938, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+  }
+
+  /* line 942, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 1;
+  }
+}
+
+/* line 947, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+@-webkit-keyframes fadeInDown {
+  /* line 953, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  /* line 959, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  /* line 967, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  /* line 974, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+/* line 982, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+@-webkit-keyframes fadeInDownBig {
+  /* line 988, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+
+  /* line 994, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDownBig {
+  /* line 1002, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    -ms-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+
+  /* line 1009, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+/* line 1017, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.fadeInDownBig {
+  -webkit-animation-name: fadeInDownBig;
+  animation-name: fadeInDownBig;
+}
+
+@-webkit-keyframes fadeInLeft {
+  /* line 1023, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+
+  /* line 1029, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  /* line 1037, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
+    -ms-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+
+  /* line 1044, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+/* line 1052, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
+
+@-webkit-keyframes fadeInLeftBig {
+  /* line 1058, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+
+  /* line 1064, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInLeftBig {
+  /* line 1072, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    -ms-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+
+  /* line 1079, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+/* line 1087, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.fadeInLeftBig {
+  -webkit-animation-name: fadeInLeftBig;
+  animation-name: fadeInLeftBig;
+}
+
+@-webkit-keyframes fadeInRight {
+  /* line 1093, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+
+  /* line 1099, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  /* line 1107, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+
+  /* line 1114, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+/* line 1122, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.fadeInRight {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+}
+
+@-webkit-keyframes fadeInRightBig {
+  /* line 1128, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+
+  /* line 1134, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRightBig {
+  /* line 1142, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    -ms-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+
+  /* line 1149, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+/* line 1157, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.fadeInRightBig {
+  -webkit-animation-name: fadeInRightBig;
+  animation-name: fadeInRightBig;
+}
+
+@-webkit-keyframes fadeInUp {
+  /* line 1163, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  /* line 1169, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  /* line 1177, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  /* line 1184, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+/* line 1192, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+@-webkit-keyframes fadeInUpBig {
+  /* line 1198, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+    transform: translateY(2000px);
+  }
+
+  /* line 1204, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUpBig {
+  /* line 1212, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+    -ms-transform: translateY(2000px);
+    transform: translateY(2000px);
+  }
+
+  /* line 1219, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+/* line 1227, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.fadeInUpBig {
+  -webkit-animation-name: fadeInUpBig;
+  animation-name: fadeInUpBig;
+}
+
+@-webkit-keyframes fadeOut {
+  /* line 1233, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 1;
+  }
+
+  /* line 1237, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  /* line 1243, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 1;
+  }
+
+  /* line 1247, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+  }
+}
+
+/* line 1252, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+@-webkit-keyframes fadeOutDown {
+  /* line 1258, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  /* line 1264, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+}
+
+@keyframes fadeOutDown {
+  /* line 1272, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  /* line 1279, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+}
+
+/* line 1287, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.fadeOutDown {
+  -webkit-animation-name: fadeOutDown;
+  animation-name: fadeOutDown;
+}
+
+@-webkit-keyframes fadeOutDownBig {
+  /* line 1293, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  /* line 1299, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+    transform: translateY(2000px);
+  }
+}
+
+@keyframes fadeOutDownBig {
+  /* line 1307, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  /* line 1314, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+    -ms-transform: translateY(2000px);
+    transform: translateY(2000px);
+  }
+}
+
+/* line 1322, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.fadeOutDownBig {
+  -webkit-animation-name: fadeOutDownBig;
+  animation-name: fadeOutDownBig;
+}
+
+@-webkit-keyframes fadeOutLeft {
+  /* line 1328, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  /* line 1334, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+}
+
+@keyframes fadeOutLeft {
+  /* line 1342, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  /* line 1349, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
+    -ms-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+}
+
+/* line 1357, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.fadeOutLeft {
+  -webkit-animation-name: fadeOutLeft;
+  animation-name: fadeOutLeft;
+}
+
+@-webkit-keyframes fadeOutLeftBig {
+  /* line 1363, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  /* line 1369, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+}
+
+@keyframes fadeOutLeftBig {
+  /* line 1377, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  /* line 1384, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    -ms-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+}
+
+/* line 1392, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.fadeOutLeftBig {
+  -webkit-animation-name: fadeOutLeftBig;
+  animation-name: fadeOutLeftBig;
+}
+
+@-webkit-keyframes fadeOutRight {
+  /* line 1398, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  /* line 1404, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+}
+
+@keyframes fadeOutRight {
+  /* line 1412, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  /* line 1419, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+}
+
+/* line 1427, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.fadeOutRight {
+  -webkit-animation-name: fadeOutRight;
+  animation-name: fadeOutRight;
+}
+
+@-webkit-keyframes fadeOutRightBig {
+  /* line 1433, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  /* line 1439, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+}
+
+@keyframes fadeOutRightBig {
+  /* line 1447, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  /* line 1454, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    -ms-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+}
+
+/* line 1462, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.fadeOutRightBig {
+  -webkit-animation-name: fadeOutRightBig;
+  animation-name: fadeOutRightBig;
+}
+
+@-webkit-keyframes fadeOutUp {
+  /* line 1468, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  /* line 1474, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeOutUp {
+  /* line 1482, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  /* line 1489, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+}
+
+/* line 1497, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.fadeOutUp {
+  -webkit-animation-name: fadeOutUp;
+  animation-name: fadeOutUp;
+}
+
+@-webkit-keyframes fadeOutUpBig {
+  /* line 1503, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  /* line 1509, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+}
+
+@keyframes fadeOutUpBig {
+  /* line 1517, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  /* line 1524, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    -ms-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+}
+
+/* line 1532, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.fadeOutUpBig {
+  -webkit-animation-name: fadeOutUpBig;
+  animation-name: fadeOutUpBig;
+}
+
+@-webkit-keyframes flip {
+  /* line 1538, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: perspective(400px) translateZ(0) rotateY(0) scale(1);
+    transform: perspective(400px) translateZ(0) rotateY(0) scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+
+  /* line 1545, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  40% {
+    -webkit-transform: perspective(400px) translateZ(150px) rotateY(170deg) scale(1);
+    transform: perspective(400px) translateZ(150px) rotateY(170deg) scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+
+  /* line 1552, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  50% {
+    -webkit-transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
+    transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  /* line 1559, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  80% {
+    -webkit-transform: perspective(400px) translateZ(0) rotateY(360deg) scale(0.95);
+    transform: perspective(400px) translateZ(0) rotateY(360deg) scale(0.95);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  /* line 1566, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: perspective(400px) translateZ(0) rotateY(360deg) scale(1);
+    transform: perspective(400px) translateZ(0) rotateY(360deg) scale(1);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+}
+
+@keyframes flip {
+  /* line 1575, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: perspective(400px) translateZ(0) rotateY(0) scale(1);
+    -ms-transform: perspective(400px) translateZ(0) rotateY(0) scale(1);
+    transform: perspective(400px) translateZ(0) rotateY(0) scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+
+  /* line 1583, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  40% {
+    -webkit-transform: perspective(400px) translateZ(150px) rotateY(170deg) scale(1);
+    -ms-transform: perspective(400px) translateZ(150px) rotateY(170deg) scale(1);
+    transform: perspective(400px) translateZ(150px) rotateY(170deg) scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+
+  /* line 1591, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  50% {
+    -webkit-transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
+    -ms-transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
+    transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  /* line 1599, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  80% {
+    -webkit-transform: perspective(400px) translateZ(0) rotateY(360deg) scale(0.95);
+    -ms-transform: perspective(400px) translateZ(0) rotateY(360deg) scale(0.95);
+    transform: perspective(400px) translateZ(0) rotateY(360deg) scale(0.95);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  /* line 1607, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: perspective(400px) translateZ(0) rotateY(360deg) scale(1);
+    -ms-transform: perspective(400px) translateZ(0) rotateY(360deg) scale(1);
+    transform: perspective(400px) translateZ(0) rotateY(360deg) scale(1);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+}
+
+/* line 1616, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.animated.flip {
+  -webkit-backface-visibility: visible;
+  -ms-backface-visibility: visible;
+  backface-visibility: visible;
+  -webkit-animation-name: flip;
+  animation-name: flip;
+}
+
+@-webkit-keyframes flipInX {
+  /* line 1625, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: perspective(400px) rotateX(90deg);
+    transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+
+  /* line 1631, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  40% {
+    -webkit-transform: perspective(400px) rotateX(-10deg);
+    transform: perspective(400px) rotateX(-10deg);
+  }
+
+  /* line 1636, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  70% {
+    -webkit-transform: perspective(400px) rotateX(10deg);
+    transform: perspective(400px) rotateX(10deg);
+  }
+
+  /* line 1641, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: perspective(400px) rotateX(0deg);
+    transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes flipInX {
+  /* line 1649, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: perspective(400px) rotateX(90deg);
+    -ms-transform: perspective(400px) rotateX(90deg);
+    transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+
+  /* line 1656, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  40% {
+    -webkit-transform: perspective(400px) rotateX(-10deg);
+    -ms-transform: perspective(400px) rotateX(-10deg);
+    transform: perspective(400px) rotateX(-10deg);
+  }
+
+  /* line 1662, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  70% {
+    -webkit-transform: perspective(400px) rotateX(10deg);
+    -ms-transform: perspective(400px) rotateX(10deg);
+    transform: perspective(400px) rotateX(10deg);
+  }
+
+  /* line 1668, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: perspective(400px) rotateX(0deg);
+    -ms-transform: perspective(400px) rotateX(0deg);
+    transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+/* line 1676, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.flipInX {
+  -webkit-backface-visibility: visible !important;
+  -ms-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  -webkit-animation-name: flipInX;
+  animation-name: flipInX;
+}
+
+@-webkit-keyframes flipInY {
+  /* line 1685, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: perspective(400px) rotateY(90deg);
+    transform: perspective(400px) rotateY(90deg);
+    opacity: 0;
+  }
+
+  /* line 1691, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  40% {
+    -webkit-transform: perspective(400px) rotateY(-10deg);
+    transform: perspective(400px) rotateY(-10deg);
+  }
+
+  /* line 1696, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  70% {
+    -webkit-transform: perspective(400px) rotateY(10deg);
+    transform: perspective(400px) rotateY(10deg);
+  }
+
+  /* line 1701, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: perspective(400px) rotateY(0deg);
+    transform: perspective(400px) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes flipInY {
+  /* line 1709, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: perspective(400px) rotateY(90deg);
+    -ms-transform: perspective(400px) rotateY(90deg);
+    transform: perspective(400px) rotateY(90deg);
+    opacity: 0;
+  }
+
+  /* line 1716, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  40% {
+    -webkit-transform: perspective(400px) rotateY(-10deg);
+    -ms-transform: perspective(400px) rotateY(-10deg);
+    transform: perspective(400px) rotateY(-10deg);
+  }
+
+  /* line 1722, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  70% {
+    -webkit-transform: perspective(400px) rotateY(10deg);
+    -ms-transform: perspective(400px) rotateY(10deg);
+    transform: perspective(400px) rotateY(10deg);
+  }
+
+  /* line 1728, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: perspective(400px) rotateY(0deg);
+    -ms-transform: perspective(400px) rotateY(0deg);
+    transform: perspective(400px) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+/* line 1736, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.flipInY {
+  -webkit-backface-visibility: visible !important;
+  -ms-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  -webkit-animation-name: flipInY;
+  animation-name: flipInY;
+}
+
+@-webkit-keyframes flipOutX {
+  /* line 1745, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: perspective(400px) rotateX(0deg);
+    transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+
+  /* line 1751, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: perspective(400px) rotateX(90deg);
+    transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flipOutX {
+  /* line 1759, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: perspective(400px) rotateX(0deg);
+    -ms-transform: perspective(400px) rotateX(0deg);
+    transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+
+  /* line 1766, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: perspective(400px) rotateX(90deg);
+    -ms-transform: perspective(400px) rotateX(90deg);
+    transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+}
+
+/* line 1774, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.flipOutX {
+  -webkit-animation-name: flipOutX;
+  animation-name: flipOutX;
+  -webkit-backface-visibility: visible !important;
+  -ms-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+}
+
+@-webkit-keyframes flipOutY {
+  /* line 1783, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: perspective(400px) rotateY(0deg);
+    transform: perspective(400px) rotateY(0deg);
+    opacity: 1;
+  }
+
+  /* line 1789, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: perspective(400px) rotateY(90deg);
+    transform: perspective(400px) rotateY(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flipOutY {
+  /* line 1797, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: perspective(400px) rotateY(0deg);
+    -ms-transform: perspective(400px) rotateY(0deg);
+    transform: perspective(400px) rotateY(0deg);
+    opacity: 1;
+  }
+
+  /* line 1804, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: perspective(400px) rotateY(90deg);
+    -ms-transform: perspective(400px) rotateY(90deg);
+    transform: perspective(400px) rotateY(90deg);
+    opacity: 0;
+  }
+}
+
+/* line 1812, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.flipOutY {
+  -webkit-backface-visibility: visible !important;
+  -ms-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  -webkit-animation-name: flipOutY;
+  animation-name: flipOutY;
+}
+
+@-webkit-keyframes lightSpeedIn {
+  /* line 1821, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: translateX(100%) skewX(-30deg);
+    transform: translateX(100%) skewX(-30deg);
+    opacity: 0;
+  }
+
+  /* line 1827, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  60% {
+    -webkit-transform: translateX(-20%) skewX(30deg);
+    transform: translateX(-20%) skewX(30deg);
+    opacity: 1;
+  }
+
+  /* line 1833, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  80% {
+    -webkit-transform: translateX(0%) skewX(-15deg);
+    transform: translateX(0%) skewX(-15deg);
+    opacity: 1;
+  }
+
+  /* line 1839, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: translateX(0%) skewX(0deg);
+    transform: translateX(0%) skewX(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes lightSpeedIn {
+  /* line 1847, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: translateX(100%) skewX(-30deg);
+    -ms-transform: translateX(100%) skewX(-30deg);
+    transform: translateX(100%) skewX(-30deg);
+    opacity: 0;
+  }
+
+  /* line 1854, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  60% {
+    -webkit-transform: translateX(-20%) skewX(30deg);
+    -ms-transform: translateX(-20%) skewX(30deg);
+    transform: translateX(-20%) skewX(30deg);
+    opacity: 1;
+  }
+
+  /* line 1861, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  80% {
+    -webkit-transform: translateX(0%) skewX(-15deg);
+    -ms-transform: translateX(0%) skewX(-15deg);
+    transform: translateX(0%) skewX(-15deg);
+    opacity: 1;
+  }
+
+  /* line 1868, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: translateX(0%) skewX(0deg);
+    -ms-transform: translateX(0%) skewX(0deg);
+    transform: translateX(0%) skewX(0deg);
+    opacity: 1;
+  }
+}
+
+/* line 1876, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.lightSpeedIn {
+  -webkit-animation-name: lightSpeedIn;
+  animation-name: lightSpeedIn;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+}
+
+@-webkit-keyframes lightSpeedOut {
+  /* line 1884, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: translateX(0%) skewX(0deg);
+    transform: translateX(0%) skewX(0deg);
+    opacity: 1;
+  }
+
+  /* line 1890, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: translateX(100%) skewX(-30deg);
+    transform: translateX(100%) skewX(-30deg);
+    opacity: 0;
+  }
+}
+
+@keyframes lightSpeedOut {
+  /* line 1898, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: translateX(0%) skewX(0deg);
+    -ms-transform: translateX(0%) skewX(0deg);
+    transform: translateX(0%) skewX(0deg);
+    opacity: 1;
+  }
+
+  /* line 1905, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: translateX(100%) skewX(-30deg);
+    -ms-transform: translateX(100%) skewX(-30deg);
+    transform: translateX(100%) skewX(-30deg);
+    opacity: 0;
+  }
+}
+
+/* line 1913, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.lightSpeedOut {
+  -webkit-animation-name: lightSpeedOut;
+  animation-name: lightSpeedOut;
+  -webkit-animation-timing-function: ease-in;
+  animation-timing-function: ease-in;
+}
+
+@-webkit-keyframes rotateIn {
+  /* line 1921, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform: rotate(-200deg);
+    transform: rotate(-200deg);
+    opacity: 0;
+  }
+
+  /* line 1929, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rotateIn {
+  /* line 1939, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform: rotate(-200deg);
+    -ms-transform: rotate(-200deg);
+    transform: rotate(-200deg);
+    opacity: 0;
+  }
+
+  /* line 1949, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+/* line 1960, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.rotateIn {
+  -webkit-animation-name: rotateIn;
+  animation-name: rotateIn;
+}
+
+@-webkit-keyframes rotateInDownLeft {
+  /* line 1966, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+
+  /* line 1974, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rotateInDownLeft {
+  /* line 1984, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform-origin: left bottom;
+    -ms-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+
+  /* line 1994, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform-origin: left bottom;
+    -ms-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+/* line 2005, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.rotateInDownLeft {
+  -webkit-animation-name: rotateInDownLeft;
+  animation-name: rotateInDownLeft;
+}
+
+@-webkit-keyframes rotateInDownRight {
+  /* line 2011, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+
+  /* line 2019, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rotateInDownRight {
+  /* line 2029, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+
+  /* line 2039, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+/* line 2050, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.rotateInDownRight {
+  -webkit-animation-name: rotateInDownRight;
+  animation-name: rotateInDownRight;
+}
+
+@-webkit-keyframes rotateInUpLeft {
+  /* line 2056, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+
+  /* line 2064, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rotateInUpLeft {
+  /* line 2074, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform-origin: left bottom;
+    -ms-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+
+  /* line 2084, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform-origin: left bottom;
+    -ms-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+/* line 2095, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.rotateInUpLeft {
+  -webkit-animation-name: rotateInUpLeft;
+  animation-name: rotateInUpLeft;
+}
+
+@-webkit-keyframes rotateInUpRight {
+  /* line 2101, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+
+  /* line 2109, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rotateInUpRight {
+  /* line 2119, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+
+  /* line 2129, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+/* line 2140, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.rotateInUpRight {
+  -webkit-animation-name: rotateInUpRight;
+  animation-name: rotateInUpRight;
+}
+
+@-webkit-keyframes rotateOut {
+  /* line 2146, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  /* line 2154, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform: rotate(200deg);
+    transform: rotate(200deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rotateOut {
+  /* line 2164, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  /* line 2174, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform: rotate(200deg);
+    -ms-transform: rotate(200deg);
+    transform: rotate(200deg);
+    opacity: 0;
+  }
+}
+
+/* line 2185, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.rotateOut {
+  -webkit-animation-name: rotateOut;
+  animation-name: rotateOut;
+}
+
+@-webkit-keyframes rotateOutDownLeft {
+  /* line 2191, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  /* line 2199, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rotateOutDownLeft {
+  /* line 2209, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform-origin: left bottom;
+    -ms-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  /* line 2219, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform-origin: left bottom;
+    -ms-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+}
+
+/* line 2230, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.rotateOutDownLeft {
+  -webkit-animation-name: rotateOutDownLeft;
+  animation-name: rotateOutDownLeft;
+}
+
+@-webkit-keyframes rotateOutDownRight {
+  /* line 2236, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  /* line 2244, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rotateOutDownRight {
+  /* line 2254, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  /* line 2264, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+}
+
+/* line 2275, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.rotateOutDownRight {
+  -webkit-animation-name: rotateOutDownRight;
+  animation-name: rotateOutDownRight;
+}
+
+@-webkit-keyframes rotateOutUpLeft {
+  /* line 2281, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  /* line 2289, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rotateOutUpLeft {
+  /* line 2299, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform-origin: left bottom;
+    -ms-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  /* line 2309, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform-origin: left bottom;
+    -ms-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+}
+
+/* line 2320, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.rotateOutUpLeft {
+  -webkit-animation-name: rotateOutUpLeft;
+  animation-name: rotateOutUpLeft;
+}
+
+@-webkit-keyframes rotateOutUpRight {
+  /* line 2326, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  /* line 2334, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rotateOutUpRight {
+  /* line 2344, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  /* line 2354, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+}
+
+/* line 2365, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.rotateOutUpRight {
+  -webkit-animation-name: rotateOutUpRight;
+  animation-name: rotateOutUpRight;
+}
+
+@-webkit-keyframes slideInDown {
+  /* line 2371, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+
+  /* line 2377, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  /* line 2384, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    -ms-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+
+  /* line 2391, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+/* line 2398, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.slideInDown {
+  -webkit-animation-name: slideInDown;
+  animation-name: slideInDown;
+}
+
+@-webkit-keyframes slideInLeft {
+  /* line 2404, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+
+  /* line 2410, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  /* line 2417, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    -ms-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+
+  /* line 2424, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+/* line 2431, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.slideInLeft {
+  -webkit-animation-name: slideInLeft;
+  animation-name: slideInLeft;
+}
+
+@-webkit-keyframes slideInRight {
+  /* line 2437, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+
+  /* line 2443, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  /* line 2450, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    -ms-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+
+  /* line 2457, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+/* line 2464, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.slideInRight {
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
+}
+
+@-webkit-keyframes slideOutLeft {
+  /* line 2470, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  /* line 2475, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+}
+
+@keyframes slideOutLeft {
+  /* line 2483, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  /* line 2489, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+    -ms-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+}
+
+/* line 2497, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.slideOutLeft {
+  -webkit-animation-name: slideOutLeft;
+  animation-name: slideOutLeft;
+}
+
+@-webkit-keyframes slideOutRight {
+  /* line 2503, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  /* line 2508, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+}
+
+@keyframes slideOutRight {
+  /* line 2516, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  /* line 2522, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    -ms-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+}
+
+/* line 2530, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.slideOutRight {
+  -webkit-animation-name: slideOutRight;
+  animation-name: slideOutRight;
+}
+
+@-webkit-keyframes slideOutUp {
+  /* line 2536, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  /* line 2541, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+}
+
+@keyframes slideOutUp {
+  /* line 2549, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  /* line 2555, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    -ms-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+}
+
+/* line 2563, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.slideOutUp {
+  -webkit-animation-name: slideOutUp;
+  animation-name: slideOutUp;
+}
+
+@-webkit-keyframes hinge {
+  /* line 2569, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+  }
+
+  /* line 2578, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  20%, 60% {
+    -webkit-transform: rotate(80deg);
+    transform: rotate(80deg);
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+  }
+
+  /* line 2587, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  40% {
+    -webkit-transform: rotate(60deg);
+    transform: rotate(60deg);
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+  }
+
+  /* line 2596, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  80% {
+    -webkit-transform: rotate(60deg) translateY(0);
+    transform: rotate(60deg) translateY(0);
+    opacity: 1;
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+  }
+
+  /* line 2606, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: translateY(700px);
+    transform: translateY(700px);
+    opacity: 0;
+  }
+}
+
+@keyframes hinge {
+  /* line 2614, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    -webkit-transform-origin: top left;
+    -ms-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+  }
+
+  /* line 2625, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  20%, 60% {
+    -webkit-transform: rotate(80deg);
+    -ms-transform: rotate(80deg);
+    transform: rotate(80deg);
+    -webkit-transform-origin: top left;
+    -ms-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+  }
+
+  /* line 2636, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  40% {
+    -webkit-transform: rotate(60deg);
+    -ms-transform: rotate(60deg);
+    transform: rotate(60deg);
+    -webkit-transform-origin: top left;
+    -ms-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+  }
+
+  /* line 2647, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  80% {
+    -webkit-transform: rotate(60deg) translateY(0);
+    -ms-transform: rotate(60deg) translateY(0);
+    transform: rotate(60deg) translateY(0);
+    opacity: 1;
+    -webkit-transform-origin: top left;
+    -ms-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+  }
+
+  /* line 2659, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    -webkit-transform: translateY(700px);
+    -ms-transform: translateY(700px);
+    transform: translateY(700px);
+    opacity: 0;
+  }
+}
+
+/* line 2667, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.hinge {
+  -webkit-animation-name: hinge;
+  animation-name: hinge;
+}
+
+/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+@-webkit-keyframes rollIn {
+  /* line 2675, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%) rotate(-120deg);
+    transform: translateX(-100%) rotate(-120deg);
+  }
+
+  /* line 2681, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0px) rotate(0deg);
+    transform: translateX(0px) rotate(0deg);
+  }
+}
+
+@keyframes rollIn {
+  /* line 2689, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%) rotate(-120deg);
+    -ms-transform: translateX(-100%) rotate(-120deg);
+    transform: translateX(-100%) rotate(-120deg);
+  }
+
+  /* line 2696, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0px) rotate(0deg);
+    -ms-transform: translateX(0px) rotate(0deg);
+    transform: translateX(0px) rotate(0deg);
+  }
+}
+
+/* line 2704, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.rollIn {
+  -webkit-animation-name: rollIn;
+  animation-name: rollIn;
+}
+
+/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+@-webkit-keyframes rollOut {
+  /* line 2712, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0px) rotate(0deg);
+    transform: translateX(0px) rotate(0deg);
+  }
+
+  /* line 2718, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(100%) rotate(120deg);
+    transform: translateX(100%) rotate(120deg);
+  }
+}
+
+@keyframes rollOut {
+  /* line 2726, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0px) rotate(0deg);
+    -ms-transform: translateX(0px) rotate(0deg);
+    transform: translateX(0px) rotate(0deg);
+  }
+
+  /* line 2733, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(100%) rotate(120deg);
+    -ms-transform: translateX(100%) rotate(120deg);
+    transform: translateX(100%) rotate(120deg);
+  }
+}
+
+/* line 2741, /Users/Admin/projects/vwlab/app/assets/stylesheets/ani.css.scss */
+.rollOut {
+  -webkit-animation-name: rollOut;
+  animation-name: rollOut;
+}

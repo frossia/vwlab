@@ -4,8 +4,9 @@
     - @auto_brands.each do |brand|
       - brand.autos.each do |auto|
         '
-        - if request.original_url == auto_url(auto.id)
-          a.btn.btn-danger.btn-xs href='#{auto_url(auto.id)}' = auto.name
-        - else
-          a.btn.btn-info.btn-xs href='#{auto_url(auto.id)}' = auto.name
+        /- if request.original_url == auto_url(auto.id)
+        /  a.btn.btn-danger.btn-xs href='#{auto_url(auto.id)}' = auto.name
+        /- else
+        a href='#{auto_url(auto.id)}'
+          button.btn.btn-info.btn-xs = auto.name
     hr

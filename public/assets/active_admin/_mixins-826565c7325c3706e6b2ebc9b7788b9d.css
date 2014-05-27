@@ -1,0 +1,16 @@
+/* line 1, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/mixins/_icons.css.scss */
+span.icon {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+/* line 2, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/mixins/_icons.css.scss */
+span.icon svg {
+  vertical-align: baseline;
+}
+
+/* line 12, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/mixins/_icons.css.scss */
+span.icon {
+  width: 0.8em;
+  height: 0.8em;
+}

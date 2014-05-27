@@ -1,0 +1,216 @@
+/* line 1, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/mixins/_icons.css.scss */
+span.icon {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+/* line 2, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/mixins/_icons.css.scss */
+span.icon svg {
+  vertical-align: baseline;
+}
+
+/* line 12, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/mixins/_icons.css.scss */
+span.icon {
+  width: 0.8em;
+  height: 0.8em;
+}
+
+/* line 5, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header {
+  background: #6a7176;
+  background: -webkit-linear-gradient(-90deg, #6a7176, #4d5256);
+  background: -moz-linear-gradient(-90deg, #6a7176, #4d5256);
+  background: linear, -90deg, #6a7176, #4d5256;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF6A7176', endColorstr='#FF4D5256');
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF6A7176', endColorstr='#FF4D5256');
+  border-bottom: 1px solid #44484b;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+  text-shadow: black 0 1px 0;
+  display: table;
+  height: 20px;
+  width: 100%;
+  overflow: visible;
+  position: inherit;
+  padding: 5px 0;
+  z-index: 900;
+}
+/* line 17, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header h1 {
+  display: table-cell;
+  vertical-align: middle;
+  white-space: nowrap;
+  color: #cdcdcd;
+  margin-right: 20px;
+  margin-bottom: 0px;
+  padding: 3px 30px 0 30px;
+  font-size: 1.3em;
+  font-weight: normal;
+  line-height: 1.2;
+}
+/* line 29, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header h1 a {
+  text-decoration: none;
+}
+/* line 32, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header h1 a:hover {
+  color: #fff;
+}
+/* line 37, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header h1 img {
+  position: relative;
+  top: -2px;
+}
+/* line 43, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header a, #header a:link {
+  color: #cdcdcd;
+}
+/* line 45, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header .header-item {
+  top: 2px;
+  position: relative;
+  height: 20px;
+}
+/* line 51, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header ul.tabs {
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+/* line 58, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header ul.tabs > li {
+  display: inline-block;
+  margin-right: 4px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 1.0em;
+  position: relative;
+  /* Hover on li, display the ul */
+  /* Drop down menus */
+}
+/* line 66, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header ul.tabs > li a {
+  text-decoration: none;
+  padding: 6px 10px 4px 10px;
+  position: relative;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+/* line 73, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header ul.tabs > li.current > a {
+  background: #7b8389;
+  color: #fff;
+}
+/* line 78, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header ul.tabs > li.has_nested > a {
+  background: url(/assets/active_admin/nested_menu_arrow.gif) no-repeat calc(100% - 7px) 50%;
+  padding-right: 20px;
+}
+/* line 83, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header ul.tabs > li.has_nested.current > a {
+  background: #7b8389 url(/assets/active_admin/nested_menu_arrow_dark.gif) no-repeat calc(100% - 7px) 50%;
+  padding-right: 20px;
+}
+/* line 88, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header ul.tabs > li:hover > a {
+  background: #7b8389;
+  color: #fff;
+}
+/* line 93, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header ul.tabs > li.has_nested:hover > a {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  -moz-border-radius-topright: 10px;
+  -moz-border-radius-topleft: 10px;
+  -webkit-border-top-right-radius: 10px;
+  -webkit-border-top-left-radius: 10px;
+  border-bottom: 5px solid #7b8389;
+  background: #7b8389 url(/assets/active_admin/nested_menu_arrow_dark.gif) no-repeat calc(100% - 7px) 50%;
+  z-index: 1020;
+}
+/* line 102, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header ul.tabs > li:hover ul {
+  display: block;
+}
+/* line 104, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header ul.tabs > li ul {
+  background: #7b8389;
+  border-top-right-radius: 10px;
+  -moz-border-radius-topright: 10px;
+  -webkit-border-top-right-radius: 10px;
+  border-top-left-radius: 0;
+  -moz-border-radius-topleft: 0;
+  -webkit-border-top-left-radius: 0;
+  border-bottom-right-radius: 10px;
+  -moz-border-radius-bottomright: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+  box-shadow: 0 1px 3px #444444;
+  -moz-box-shadow: 0 1px 3px #444444;
+  -webkit-box-shadow: 0 1px 3px #444444;
+  position: absolute;
+  width: 120%;
+  min-width: 175px;
+  max-width: calc(100% + 20px);
+  margin-top: 5px;
+  float: left;
+  display: none;
+  padding: 3px 0px 5px 0;
+  list-style: none;
+  z-index: 1010;
+}
+/* line 119, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header ul.tabs > li ul li {
+  margin: 0px;
+}
+/* line 121, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header ul.tabs > li ul li a {
+  background: none;
+  display: block;
+}
+/* line 124, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header ul.tabs > li ul li a:hover {
+  color: #fff;
+  background: none;
+}
+/* line 128, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header ul.tabs > li ul li.current a {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+/* line 136, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header #tabs {
+  width: 100%;
+}
+/* line 140, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header #utility_nav {
+  color: #aaa;
+  display: table-cell;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  padding-right: 26px;
+  text-align: right;
+}
+/* line 149, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header #utility_nav a {
+  text-decoration: none;
+}
+/* line 150, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header #utility_nav a:hover {
+  color: #fff;
+}
+/* line 152, /Users/Admin/projects/vwlab/app/assets/stylesheets/active_admin/_header.css.scss */
+#header #utility_nav li {
+  display: inline;
+}
