@@ -1,0 +1,172 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require bootstrap
+ *= require ani
+ *= require_self
+ */
+
+body, html, .container {
+  height: 100%;
+}
+
+body > .container { height: auto; min-height: 100%; }
+
+.container {
+  padding-bottom: 4em;
+}
+
+body {
+  background: image_url('cream_pixels.png');
+}
+
+hr {
+  border-top: 1px solid #bec4c6;
+  border-bottom: 2px solid #fff;
+}
+
+h3.auto_name {
+  border-right: 10px solid #d9534f;
+//  border-radius: 5px;
+  padding-right: 10px;
+  margin-bottom: 20px;
+  margin-top: 0px;
+  text-align: right;
+}
+
+.items_table {
+  width: 100%;
+  td.image {
+    width: 100px;
+  }
+  .btn {
+    margin: 3px 0;
+  }
+  .item_img {
+    margin: 10px;
+  }
+}
+
+.item-img {
+  margin: 0 15px 10px 0;
+}
+
+
+
+
+.label-info {
+  font-size: 13px;
+  font-weight: normal;
+  border-bottom: 3px solid #3c8ba8;
+}
+
+.label-danger {
+  border-bottom: none;
+  margin-top: 3px;
+}
+
+.t-l {
+  text-align: left;
+}
+.t-r {
+  text-align: right;
+}
+.t-c {
+  text-align: center;
+}
+.t-j {
+  text-align: justify;
+}
+.f-i {
+  font-style: italic;
+}
+
+.t-uppercase {
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.t-capitalize {
+  text-transform: capitalize;
+}
+
+.light {
+  color: #757575;
+  text-shadow: 0 1px 1px #fff;
+}
+
+.btn.large {
+  font-weight: bold;
+  letter-spacing: 0.7;
+  font-size: 1.1em;
+  color: #000000;
+  text-shadow: 0 1px 1px #fff;
+//  display: block;
+  margin-left: 10px;
+}
+
+a.muted_link {
+  color: #666666;
+}
+
+#brands {
+  a.btn {
+    margin: 4px 0;
+  }
+}
+
+
+#items {
+  #item_autos.btn {
+    margin: 3px 0;
+  }
+}
+
+
+#footer {
+  background: image_url('squared_metal.png');
+  padding: 10px 0;
+  box-shadow: inset 0 3px 12px #666666;
+  clear: both;
+  position: relative;
+  z-index: 10;
+  height: 5em;
+  margin-top: -5em;
+}
+
+#catalog {
+  .depth-1 {
+    margin-left: 10px;
+  }
+  
+  .depth-2 {
+    margin-left: 20px;
+  }
+}
+
+#widget_last_viewed {
+  .tmb {
+    border-radius: 4px;
+    padding: 4px;
+    background: #fff;
+    border: 1px solid #dddddd;
+      img {
+        max-width: 200px;
+        max-height: 150px;
+//        min-width: 200px;
+//        min-height: 150px;
+      }
+//    #428bca
+//    height: 50px;
+  }
+}

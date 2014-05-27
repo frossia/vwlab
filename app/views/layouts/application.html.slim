@@ -1,0 +1,22 @@
+doctype
+html
+  head
+    = favicon_link_tag '/favicon.ico'
+    meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    / title
+      - unless yield(:title).blank?
+        = yield(:title)
+        '  ||
+      ' Официальный сайт МОСКВОРЕЧЬЕ-САБУРОВО
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"
+
+  body
+    .container
+      = yield
+    = render 'partials/footer'
+    = javascript_include_tag "anijs"
+    = javascript_include_tag "anijsscrollreveal"
+

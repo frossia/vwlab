@@ -1,0 +1,13 @@
+- unless session[:items].blank?
+  hr
+  #widget_last_viewed
+    h4 Просмотренные товары
+    .row
+      - session[:items].each do |item|
+        - i = Item.find(item)
+        .col-md-3.col-sm-2.col-xs-3
+          a.thumbnail href='#{item_url(i)}' title="#{i.name}"
+            img src="http://lorempixel.com/150/150/transport/#{item}"
+      /p
+        a href='#{item_url(i)}' = i.name
+

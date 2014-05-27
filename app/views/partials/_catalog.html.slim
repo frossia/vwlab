@@ -1,0 +1,20 @@
+#catalog
+  - if @auto
+    = image_tag @auto.car_image, :class => 'pull-left', :'data-anijs' => "if: load, on: window, do: fadeInRight animated"
+    h3.auto_name
+      b = @auto.name
+    hr
+
+  - Catalog.each_with_level(xxx) do |cat, level|
+    - if cat.depth == 0
+      h4 = cat.name
+    - else
+      p
+        - unless catalog_index
+          a.muted_link class="depth-#{cat.depth}" href='#{catalog_auto_url(cat.id, params[:id])}'
+            = cat.name
+            span.label.label-default.pull-right = items_count(cat.id, @auto.id).count
+        - else
+          a.muted_link class="depth-#{cat.depth}" href='#{catalog_url(cat.id)}'
+            = cat.name
+            span.label.label-default.pull-right = cat.items.count
