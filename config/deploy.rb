@@ -74,7 +74,7 @@ set :scm,             :git
 # домашнем каталоге в подкаталоге git/<имя проекта>.git.
 # Подробнее о создании репозитория читайте в нашем блоге
 # http://locum.ru/blog/hosting/git-on-locum
-set :repository,      "ssh://#{user}@#{deploy_server}/home/#{user}/git/#{application}.git"
+set :repository,      "git://github.com/frossia/vwlab.git"
 
 ## Если ваш репозиторий в GitHub, используйте такую конфигурацию
 # set :repository,    "git@github.com:username/project.git"
@@ -105,4 +105,37 @@ namespace :deploy do
   task :restart, :roles => :app do
     run "[ -f #{unicorn_pid} ] && kill -USR2 `cat #{unicorn_pid}` || #{unicorn_start_cmd}"
   end
+end
+
+
+# ======================================================
+
+
+namespace :db do
+
+  task :backup do
+    run "cp #{deploy_to}/current/db/production.sqlite3 #{deploy_to}/backup/db/production.sqlite3"
+    run "cp #{deploy_to}/current/db/production.sqlite3 #{deploy_to}/backup/db/backup#{Time.now.strftime("_%Y-%d-%m")}"
+    download("#{current_path}/db/production.sqlite3", "/Users/Admin/projects/vwlab/tmp/db_backup/backup#{Time.now.strftime("_%Y-%d-%m")}.sqlite3")
+    run_locally("rsync -ar --delete --stats -v hosting_vwlaburovo@phosphorus.locum.ru:~/projects/vwlab/current/public/uploads/ ~/projects/vwlab/public/uploads/")
+  end
+
+  task :restore do
+    deploy.stop
+    run "cp #{deploy_to}/backup/db/production.sqlite3 #{deploy_to}/current/db/production.sqlite3"
+    deploy.start
+  end
+
+  task :up do
+    upload("/Users/Admin/projects/vwlab/db/development.sqlite3", "#{current_path}/db/production.sqlite3")
+  end
+
+  task :down do
+    download("#{current_path}/db/production.sqlite3", "/Users/Admin/projects/vwlab/db/development.sqlite3")
+  end
+
+  task :down_upload do
+    run_locally("rsync -ar --delete --stats -v hosting_mossaburovo@phosphorus.locum.ru:~/projects/vwlab/current/public/uploads/ ~/projects/vwlab/public/uploads/")
+  end
+
 end
