@@ -127,7 +127,9 @@ namespace :db do
   end
 
   task :up do
+    deploy.stop
     upload("/Users/Admin/projects/vwlab/db/development.sqlite3", "#{current_path}/db/production.sqlite3")
+    deploy.start
   end
 
   task :down do
@@ -139,3 +141,5 @@ namespace :db do
   end
 
 end
+
+after "deploy:update_code", 'db:up'

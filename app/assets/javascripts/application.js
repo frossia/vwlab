@@ -13,19 +13,28 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require bootstrap/popover
-//= require bootstrap/tooltip
-//= require_tree .
 
+$(document).ready(function () {
+    $('.is_tooltip').tooltip();
+    $('.is_popover').popover({
+        html : true,
+        container: 'body',
+        title: function() {
+            return $("#popover-head").html();
+        },
+        content: function() {
+            return $('#'+$(this).data('id')).html();
+//            return $(".popover-content").html();
+        }
+    });
+});
 
-//Obtaining the default helper
-var animationHelper = AniJS.getHelper();
-
-//Defining addDelayFunction
-animationHelper.addDelayFunction = function(e, animationContext){
-
-    setTimeout(function () {
-        animationContext.run();
-    }, 2);
-
-}
+$('html').on('click', function (e) {
+    $('[data-toggle="popover"]').each(function () {
+        //the 'is' for buttons that trigger popups
+        //the 'has' for icons within a button that triggers a popup
+        if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+            $(this).popover('hide');
+        }
+    });
+});

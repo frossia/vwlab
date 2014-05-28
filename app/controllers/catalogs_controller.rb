@@ -1,8 +1,8 @@
 class CatalogsController < ApplicationController
 
   def index
-    @catalog_items = Item.all
     @catalog_all = Catalog.all.order(:lft)
+    @catalog_items = Item.all
   end
 
   def show

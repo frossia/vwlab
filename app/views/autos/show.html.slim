@@ -5,7 +5,7 @@
 
   .col-md-4
     = render partial: 'partials/catalog', locals: {xxx: @auto_catalog, catalog_index: false}
-    hr
+
     = render partial: 'partials/widget_last_viewed'
 
   = render partial: 'partials/items', locals: {xxx: @auto_items, cat_name: @cat_name, catalog_index: false}

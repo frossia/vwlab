@@ -15,11 +15,9 @@
         br
         small = @item.description
       .col-md-3.col-lg-3.col-xs-12
-        a href='#'
-          button.btn.btn-warning.large.pull-right
-            span.fa.fa-shopping-cart.fa-lg>
-            =' @item.price
-            |руб.
+        button.btn.btn-warning.large.pull-right
+          span.fa.fa-shopping-cart.fa-lg>
+          = number_to_currency(@item.price, locale: :ru)
       .col-md-12
         .row
           .col-md-8
@@ -27,7 +25,7 @@
             table#specification
               - 15.times do |x|
                 tr
-                  td.label
+                  td.spec-label
                     span = Faker::Commerce.product_name
                   td.value
                     span = ['да','нет'][rand(2)]
@@ -36,16 +34,18 @@
 
 
           .col-md-4
-            h5 Стоимость установки
+            h5 Цена с установкой
             table#specification
               - Item.find(params[:id]).autos.each do |auto|
                 tr
-                  td.label
+                  td.spec-label
+                    span
+                      = image_tag(auto.brand.image)
                     span = auto.name
                   td.value
                     small
-                      =' @item.price + @item.install_hours * auto.manhour
-                      |руб.
+                      b
+                        =' number_to_currency(@item.price + @item.install_hours * auto.manhour, locale: :ru)
 
         /- unless catalog_index
           p.t-r

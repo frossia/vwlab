@@ -10,27 +10,44 @@
       .row
         .col-md-9.col-lg-9.col-xs-12
           .pull-left
-            img.thumbnail.item-img src="http://lorempixel.com/100/100/transport/#{item.id}"
-          b = item.name
+            a.thumbnail.item-img href='#{item_url(item)}'
+              img src="http://lorempixel.com/100/100/transport/#{item.id}"
+          a href='#{item_url(item)}'
+            b = item.name
           br
           small = item.description
         .col-md-3.col-lg-3.col-xs-12
-          a href='#'
-            button.btn.btn-warning.large.pull-right
-              span.fa.fa-shopping-cart.fa-lg>
-              =' item.price
-              |руб.
-          - unless catalog_index
+          button.is_popover.btn.btn-warning.large.pull-right data-toggle="popover" data-placement="left" data-id='popover-content-#{item.id}'
+            span.fa.fa-shopping-cart.fa-lg>
+            = number_to_currency(item.price, locale: :ru)
+          .popover
+            #popover-head Цена с установкой
+            div id='popover-content-#{item.id}'
+              table#specification
+                - item.autos.order(:brand_id).each do |auto|
+                  tr
+                    td.spec-label
+                      i>
+                        = image_tag(auto.brand.image)
+                      span = auto.name
+                    td.value
+                      small
+                        =' number_to_currency(item.price + item.install_hours * auto.manhour, locale: :ru)
+
+
+
+
+
+          /- unless catalog_index
             p.t-r
-              b =' item.price + item.install_hours * Auto.find(params[:id]).manhour
-              | руб.
+              b =' number_to_currency(item.price + item.install_hours * Auto.find(params[:id]).manhour, locale: :ru)
               br
               small> с установкой
             /a class="depth-#{cat.depth}" href='#{catalog_auto_url(cat.id, params[:id])}'
       .row
         .col-md-12
           small
-            i> Похожие товары для:
+            i> Товар для:
           - item.autos.each do |auto|
             a href='#{catalog_auto_url(item.catalogs.first, auto)}'
               button#item_autos.btn.btn-default.btn-xs = auto.name
@@ -38,11 +55,13 @@
           /- if admin_user_signed_in?
             a#item_autos.btn.btn-danger.btn-xs.pull-right href='#{edit_admin_item_url(item)}' Редактировать
 
-          a href='#{item_url(item)}'
+          /a href='#{item_url(item)}'
             button#item_autos.btn.btn-success.btn-xs.pull-right ПОДРОБНЕЕ
+
 
           a#item_autos.btn.btn-link.btn-xs.muted_link.pull-right href='#{catalog_url(item.catalogs.first)}'
             i = item.catalogs.first.name
 
       - if item != xxx.last
         hr
+
