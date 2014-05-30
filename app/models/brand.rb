@@ -2,6 +2,6 @@ class Brand < ActiveRecord::Base
 
   has_many :autos
 
-  attr_accessible :name, :image
+  attr_accessible :name, :image, :image_32, :color
 
 end

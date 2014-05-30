@@ -19,6 +19,12 @@
 @import "bourbon";
 @import "active_admin/mixins";
 
+$html-bg: 'http://subtlepatterns.com/patterns/squairy_light.png';
+
+$info: #47acd0;
+$success: #49a945;
+$danger: #c83c3b;
+
 body, html, .container {
   height: 100%;
 }
@@ -29,22 +35,57 @@ body > .container { height: auto; min-height: 100%; }
   padding-bottom: 4em;
 }
 
+//img#logo {
+//  @include transition(background-image 0.9s ease-in-out);
+////    -webkit-transition: background-image 0.9s ease-in-out;
+////    -moz-transition: background-image 0.2s ease-in-out;
+////    -ms-transition: background-image 0.2s ease-in-out;
+////    -o-transition: background-image 0.2s ease-in-out;
+////    transition: background-image 0.2s ease-in-out;
+//  background-image: image_url('dot.png');
+//  &:hover {
+//    background-image: image_url('star.png');
+//    -webkit-background-size: cover;
+//    background-size: cover;
+////    background: #000;
+//  }
+//}
+
 body {
-  background: image_url('cream_pixels.png');
+  background: url($html-bg);
+//  background: url(http://subtlepatterns.com/patterns/notebook.png); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//  background: url(http://subtlepatterns.com/patterns/sos.png); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//  background: url(http://subtlepatterns.com/patterns/sprinkles.png);;
+//  background: url(http://subtlepatterns.com/patterns/old_moon.png);
+//  background: url(http://subtlepatterns.com/patterns/squared_metal.png);
+//  background: image_url('stardust.png');
+//  background: image_url('cream_pixels.png');
+}
+
+a {
+  color: #666;
+  &:hover {
+    color: #2b5276;
+  }
 }
 
 hr {
-  border-top: 1px solid #bec4c6;
-  border-bottom: 2px solid #fff;
+  border-top: 1px solid #a1a7a9;
+  border-bottom: 1px solid #fff;
 }
 
-h3.auto_name {
-  border-right: 10px solid #d9534f;
-//  border-radius: 5px;
-  padding-right: 10px;
-  margin-bottom: 20px;
-  margin-top: 0px;
-  text-align: right;
+hr.min {
+  border-top: 1px solid #a1a7a9;
+  border-bottom: 1px solid #fff;
+  margin: 13px 0 0 0 ;
+}
+
+hr#header-shadow {
+  width: 100%;
+  height: 13px;
+  background: image_url('header-shadow.png') no-repeat top center;
+  background-size: contain;
+  border: none;
 }
 
 .items_table {
@@ -123,6 +164,14 @@ a.muted_link {
   color: #666666;
 }
 
+a.catalog_link {
+  color: #666666;
+  font-size: .9em;
+  &:hover {
+    color: #2b5276;
+  }
+}
+
 #brands {
   a.btn {
     margin: 4px 0;
@@ -149,6 +198,14 @@ a.muted_link {
 }
 
 #catalog {
+
+  #header-cat {
+    &:hover {
+      color: #38678b;
+      cursor: pointer;
+    }
+  }
+
   .depth-1 {
     margin-left: 10px;
   }
@@ -185,7 +242,7 @@ a.muted_link {
       height: 20px;
       color: #2E2F30;
       text-align: left;
-      background: image_url('dot.gif') repeat-x 100% 1.0em;
+      background: image_url('dot.png') repeat-x 100% 1.0em;
       span {
         padding: 2px 4px 2px 0;
         background: #fff;
@@ -208,10 +265,10 @@ table#specification {
       height: 20px;
       color: #2E2F30;
       text-align: left;
-      background: image_url('dot.gif') repeat-x 100% 12px;
+      background: image_url('dot.png') repeat-x 100% 12px;
         span {
           padding: 2px 4px 2px 0;
-          background: image_url('cream_pixels.png');
+          background: image_url($html-bg);
         }
     }
 
@@ -223,7 +280,6 @@ table#specification {
 }
 
 .popover {
-  background-color: white;
   background: #fff;
   padding: 2px;
 //  box-shadow: rgba(117, 117, 117, 0.40) 0 1px 3px, #ccc 0px 1px 0px 0px inset;
@@ -231,6 +287,53 @@ table#specification {
   border-top: none;
 }
 
-#autos-list {
-  padding: 23px 0 0 0;
+
+
+table#auto-image {
+  border-spacing: 10px;
+  border-collapse: separate;
+
+    h3.auto_name {
+      //  border-radius: 5px;
+      padding-right: 10px;
+      margin: 0px;
+//      margin-top: 0px;
+      text-align: right;
+    }
+    td {
+      vertical-align: middle;
+    }
+}
+
+
+#menu {
+  white-space:nowrap;
+
+  a.menu-link {
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 1.2em;
+      color: #3988a6;
+      padding: 5px 20px 7px 20px;
+      text-decoration: none;
+      border-radius: 4px;
+      @include transition (all .1s ease-in-out);
+      background-image: image_url('transparent.png');
+        &:hover {
+          color: #fff;
+          background-image: image_url('stardust.png');
+        }
+  }
+}
+
+table#autos-list {
+  border-spacing: 3px;
+  border-collapse: separate;
+  margin: 0;
+  td {
+    padding: 0 5px;
+    vertical-align: middle;
+    a button {
+      margin: 3px 0;
+    }
+  }
 }

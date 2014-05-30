@@ -12,6 +12,9 @@ class Catalog < ActiveRecord::Base
 
   scope :autos_items, -> (id) {includes(items: :autos).where('autos_items.auto_id' => id).order(:lft)}
 
+  scope :subcat, -> (cat) {where('parent_id' => cat.id)}
+
   # scope :john_smith, lambda { where(:name => "John") | where(:lastname => "Smith")
 
-  end
+
+end

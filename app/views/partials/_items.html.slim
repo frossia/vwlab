@@ -1,12 +1,20 @@
 .col-md-8#items
   - unless xxx.any?
-    h4.t-c Извините! В разделе #{'<br>'.html_safe} "#{@cat_name.name}" нет продукции #{'<br>'.html_safe} для автомобиля #{@auto.brand.name} #{@auto.name}
+    - if controller_name == 'items' && action_name == 'index'
+      h4.t-c Извините! По вашему запросу "#{params[:search]}" ничего не найдено
   - else
-    - if @cat_name
-      h4 = @cat_name.name
+    - if controller_name == 'catalogs' && params[:id]
+      h4 = Catalog.find(params[:id]).name
+      hr
+    - elsif params[:catalog_id]
+      h4 = Catalog.find(params[:catalog_id]).name
       hr
 
-    - xxx.each do |item|
+  - if controller_name == 'items' && action_name == 'index' && params[:search] && xxx.any?
+    h4 По Вашему запросу "#{params[:search]}" #{Russian.p(xxx.count, 'найден', 'найдено', 'найдено')} #{xxx.count} #{Russian.p(xxx.count, 'товар', 'товара', 'товаров')}
+    hr
+  - xxx.each do |item|
+    .cool
       .row
         .col-md-9.col-lg-9.col-xs-12
           .pull-left
@@ -17,7 +25,7 @@
           br
           small = item.description
         .col-md-3.col-lg-3.col-xs-12
-          button.is_popover.btn.btn-warning.large.pull-right data-toggle="popover" data-placement="left" data-id='popover-content-#{item.id}'
+          button.is_popover.btn.btn-warning.large.pull-right data-toggle="popover" data-placement="left" data-id='popover-content-#{item.id}' data-anijs="if: click, do: rubberBand animated" data-container='body'
             span.fa.fa-shopping-cart.fa-lg>
             = number_to_currency(item.price, locale: :ru)
           .popover
@@ -35,21 +43,12 @@
                         =' number_to_currency(item.price + item.install_hours * auto.manhour, locale: :ru)
 
 
-
-
-
-          /- unless catalog_index
-            p.t-r
-              b =' number_to_currency(item.price + item.install_hours * Auto.find(params[:id]).manhour, locale: :ru)
-              br
-              small> с установкой
-            /a class="depth-#{cat.depth}" href='#{catalog_auto_url(cat.id, params[:id])}'
       .row
         .col-md-12
           small
             i> Товар для:
           - item.autos.each do |auto|
-            a href='#{catalog_auto_url(item.catalogs.first, auto)}'
+            a href='#{auto_url(auto)}'
               button#item_autos.btn.btn-default.btn-xs = auto.name
 
           /- if admin_user_signed_in?
@@ -58,10 +57,9 @@
           /a href='#{item_url(item)}'
             button#item_autos.btn.btn-success.btn-xs.pull-right ПОДРОБНЕЕ
 
-
-          a#item_autos.btn.btn-link.btn-xs.muted_link.pull-right href='#{catalog_url(item.catalogs.first)}'
-            i = item.catalogs.first.name
+          /- unless item.catalogs.blank?
+            a#item_autos.btn.btn-link.btn-xs.muted_link.pull-right href='#{catalog_url(item.catalogs.first)}'
+              i = item.catalogs.first.name
 
       - if item != xxx.last
         hr
-

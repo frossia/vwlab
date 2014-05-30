@@ -2,6 +2,11 @@ class ItemsController < ApplicationController
 
   before_filter :viewed_items
 
+  def index
+    @item_catalog = Catalog.all
+    @searched_items = Item.search(params[:search])
+  end
+
   def show
     @item_catalog = Catalog.all.order(:lft)
     @item = Item.find(params[:id])

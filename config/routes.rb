@@ -14,19 +14,6 @@ Rails.application.routes.draw do
       resources :autos
   end
 
-  # resources :autos do
-  #   resources :catalogs
-  # end
-
-  # resources :items
-  # namespace :admin do
-  #   get '/' => 'dashboard#index'
-  #   resources :items
-  #   resources :brands
-  #   resources :catalogs
-  #   resources :autos
-  # end
-
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

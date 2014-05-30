@@ -1,20 +1,76 @@
-#catalog
+#catalog.fadeInRight.animated
   - if @auto
-    = image_tag @auto.car_image, :class => 'pull-left', :'data-anijs' => "if: load, on: window, do: fadeInRight animated"
-    h3.auto_name
-      b = @auto.name
-    hr
+    table#auto-image style='border-right: 10px solid ##{@auto.brand.color};'
+      tr
+        td width='100%' = image_tag @auto.car_image, :class => 'pull-left auto-img fadeInRight animated'
+        td =' image_tag @auto.brand.image_32, class: 'brand-32'
+        td
+          h3.auto_name
+            b = @auto.name
+        /hr
 
-  - Catalog.each_with_level(xxx) do |cat, level|
-    - if cat.depth == 0
-      h4 = cat.name
-    - else
-      p
-        - unless catalog_index
-          a.muted_link class="depth-#{cat.depth}" href='#{catalog_auto_url(cat.id, params[:id])}'
-            = cat.name
-            span.label.label-default.pull-right = items_count(cat.id, @auto.id).count
+
+
+
+  .panel-group#accordion
+    - Catalog.where(depth: 0).each_with_index do |cat, i|
+
+      #menu-row
+
+        - if controller_name == 'autos' && params[:id]
+          - children = Catalog.includes(items: :autos).where('catalogs.parent_id' => cat.id, 'autos_items.auto_id' => params[:id])
+          - if children.any?
+            h5#header-cat data-toggle="collapse" data-parent="#accordion" href="#collapse-#{cat.id}"
+              '-
+              = cat.name
+
         - else
-          a.muted_link class="depth-#{cat.depth}" href='#{catalog_url(cat.id)}'
+          h5#header-cat data-toggle="collapse" data-parent="#accordion" href="#collapse-#{cat.id}"
+            '-
             = cat.name
-            span.label.label-default.pull-right = cat.items.count
+
+
+
+        .panel-collapse.collapse id='collapse-#{cat.id}' class='depth-#{cat.depth+1}'
+
+          - if controller_name == 'autos'
+            - children.each do |child|
+              div
+                span.fa.fa-angle-double-right>
+                a.catalog_link href='#{catalog_auto_url(child.id, params[:id])}'
+                  =' child.name
+                  span.label.label-default.pull-right = items_count(child.id, @auto.id).count
+
+          - else
+            - Catalog.subcat(cat).each do |sub|
+              div
+                span.fa.fa-angle-double-right>
+                a.catalog_link href='#{catalog_url(sub.id)}'
+                  =' sub.name
+                  span.label.label-default.pull-right = sub.items.count
+
+              - if Catalog.subcat(sub).any?
+                div class='depth-#{cat.depth+1}'
+                  - Catalog.subcat(sub).each do |sub_sub|
+                    div
+                      span.fa.fa-angle-double-right>
+                      a.catalog_link href='#{catalog_url(sub.id)}'
+                        =' sub_sub.name
+                        span.label.label-default.pull-right = sub_sub.items.count
+
+
+
+
+      /- xxx.each_with_index do |cat, i|
+    /  - if cat.depth == 0
+  /    h5 = cat.name
+  /  - else
+  /    p
+  /      - unless catalog_index
+  /        a.catalog_link class="depth-#{cat.depth}" href='#{catalog_auto_url(cat.id, params[:id])}'
+  /          = cat.name
+  /          span.label.label-default.pull-right = items_count(cat.id, @auto.id).count
+  /      - else
+  /        a.catalog_link class="depth-#{cat.depth}" href='#{catalog_url(cat.id)}'
+  /          = cat.name
+  /          span.label.label-default.pull-right = cat.items.count

@@ -9,4 +9,5 @@ class ApplicationController < ActionController::Base
     @auto_brands = Brand.all
   end
 
+
 end

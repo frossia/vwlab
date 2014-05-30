@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require bootstrap
 
+
+
 $(document).ready(function () {
     $('.is_tooltip').tooltip();
     $('.is_popover').popover({
@@ -24,9 +26,31 @@ $(document).ready(function () {
         },
         content: function() {
             return $('#'+$(this).data('id')).html();
-//            return $(".popover-content").html();
         }
     });
+
+
+    $.each($(".cool"), function(i, el){
+        $(el).css("opacity","0");
+        setTimeout(function(){
+            $(el).css('opacity', '1');
+            $(el).addClass('fadeInUp animated-05');
+        },500 + ( i * 200 ));
+
+    });
+
+
+    $.each($(".cool2"), function(i, el){
+        $(el).css("opacity","0");
+        setTimeout(function(){
+            $(el).css('opacity', '1');
+            $(el).addClass('flipInY animated');
+        },500 + ( i * 200 ));
+
+    });
+
+
+
 });
 
 $('html').on('click', function (e) {

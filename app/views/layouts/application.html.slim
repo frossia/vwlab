@@ -12,11 +12,13 @@ html
     = javascript_include_tag "application"
     = csrf_meta_tags
     link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"
+    link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300&subset=latin,cyrillic' rel='stylesheet' type='text/css'
 
   body
     .container
+      = render 'partials/header'
       = yield
     /= render 'partials/footer'
     = javascript_include_tag "anijs"
-    /= javascript_include_tag "anijsscrollreveal"
+    = javascript_include_tag "anijsscrollreveal"
 
