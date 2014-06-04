@@ -35,21 +35,17 @@ body > .container { height: auto; min-height: 100%; }
   padding-bottom: 4em;
 }
 
-//img#logo {
-//  @include transition(background-image 0.9s ease-in-out);
-////    -webkit-transition: background-image 0.9s ease-in-out;
-////    -moz-transition: background-image 0.2s ease-in-out;
-////    -ms-transition: background-image 0.2s ease-in-out;
-////    -o-transition: background-image 0.2s ease-in-out;
-////    transition: background-image 0.2s ease-in-out;
-//  background-image: image_url('dot.png');
-//  &:hover {
-//    background-image: image_url('star.png');
-//    -webkit-background-size: cover;
-//    background-size: cover;
-////    background: #000;
-//  }
-//}
+img#logo {
+  @include transition(all 0.3s ease-in-out);
+  background-image: image_url('logo_under_hover.png');
+    &:hover {
+      background-size: 100%;
+      background-image: image_url('logo_hover.png');
+
+    }
+
+}
+
 
 body {
   background: url($html-bg);
@@ -74,10 +70,13 @@ hr {
   border-bottom: 1px solid #fff;
 }
 
-hr.min {
-  border-top: 1px solid #a1a7a9;
+hr.one_border {
   border-bottom: 1px solid #fff;
-  margin: 13px 0 0 0 ;
+  border-top: none;
+}
+
+hr.min {
+  margin: 2px 0 ;
 }
 
 hr#header-shadow {
@@ -180,8 +179,8 @@ a.catalog_link {
 
 
 #items {
-  #item_autos.btn {
-//    margin: 3px 0;
+  a#item_autos {
+    margin: 2px;
   }
 }
 
@@ -279,6 +278,49 @@ table#specification {
 
 }
 
+$price_bg: 'http://subtlepatterns.com/patterns/debut_light.png';
+
+
+#prices {
+  width: 100%;
+  padding: 10px;
+  background: image_url($price_bg);
+  border-radius: 5px;
+  @include box-shadow(0 1px 8px #8e8e8e, inset 0 0 28px 1px #ffffff);
+
+  table {
+    margin: 0;
+    tr.dop {
+      td {
+        padding-bottom: 10px;
+        padding-left: 10px;
+      }
+    }
+  }
+
+  th {
+    height: 25px;
+  }
+
+  td.spec-label {
+    padding: 0;
+    width: 100%;
+    color: #2E2F30;
+    text-align: left;
+    background: image_url('dot.png') repeat-x 100% 12px;
+    small {
+      padding: 2px 4px 2px 0;
+      background: image_url($price_bg);
+    }
+  }
+
+  td.value {
+//    width: 100%;
+    white-space: nowrap;
+  }
+
+}
+
 .popover {
   background: #fff;
   padding: 2px;
@@ -307,8 +349,8 @@ table#auto-image {
 
 
 #menu {
-  white-space:nowrap;
-
+//  white-space:nowrap;
+  margin: 0 0 13px 0;
   a.menu-link {
       font-family: 'Roboto Condensed', sans-serif;
       font-size: 1.2em;

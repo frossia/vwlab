@@ -1,0 +1,18 @@
+.row
+
+  .col-md-4
+
+    = render partial: 'partials/catalog', locals: {xxx: @item_catalog, catalog_index: true}
+    = render partial: 'partials/widget_last_viewed'
+
+  .col-md-8
+    h4.pull-left = @page.title
+
+    - if admin_user_signed_in?
+      a.pull-right href='#{edit_admin_page_url(@page)}'
+        .btn.btn-danger.btn-xs.pull-right Редактировать
+
+    .clearfix
+    hr
+
+    p.t-j = @page.full

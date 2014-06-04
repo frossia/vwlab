@@ -18,16 +18,18 @@
       #menu-row
 
         - if controller_name == 'autos' && params[:id]
-          - children = Catalog.includes(items: :autos).where('catalogs.parent_id' => cat.id, 'autos_items.auto_id' => params[:id])
+          - children = Catalog.includes(items: :generations).where('catalogs.parent_id' => cat.id, 'generations.auto_id' => params[:id])
           - if children.any?
             h5#header-cat data-toggle="collapse" data-parent="#accordion" href="#collapse-#{cat.id}"
               '-
               = cat.name
 
         - else
-          h5#header-cat data-toggle="collapse" data-parent="#accordion" href="#collapse-#{cat.id}"
-            '-
-            = cat.name
+          - children = Catalog.includes(items: :generations).where('catalogs.parent_id' => cat.id)
+          - if children.any?
+            h5#header-cat data-toggle="collapse" data-parent="#accordion" href="#collapse-#{cat.id}"
+              '-
+              = cat.name
 
 
 

@@ -25,31 +25,55 @@
           br
           small = item.description
         .col-md-3.col-lg-3.col-xs-12
-          button.is_popover.btn.btn-warning.large.pull-right data-toggle="popover" data-placement="left" data-id='popover-content-#{item.id}' data-anijs="if: click, do: rubberBand animated" data-container='body'
+          button.btn.btn-warning.large.pull-right.t-r
             span.fa.fa-shopping-cart.fa-lg>
             = number_to_currency(item.price, locale: :ru)
-          .popover
-            #popover-head Цена с установкой
-            div id='popover-content-#{item.id}'
-              table#specification
-                - item.autos.order(:brand_id).each do |auto|
-                  tr
-                    td.spec-label
-                      i>
-                        = image_tag(auto.brand.image)
-                      span = auto.name
-                    td.value
-                      small
-                        =' number_to_currency(item.price + item.install_hours * auto.manhour, locale: :ru)
+            - if item.old_price?
+              br
+              /hr.one_border.min
+              small style='text-decoration:line-through; color: #ae372e; '
+                = number_to_currency(item.old_price, locale: :ru)
+
 
 
       .row
         .col-md-12
           small
             i> Товар для:
-          - item.autos.each do |auto|
-            a href='#{auto_url(auto)}'
-              button#item_autos.btn.btn-default.btn-xs = auto.name
+            - if item.generations.any?
+              - x = ''
+              - item.generations.order('auto_id').each do |g|
+                - if g.auto.name != x
+                  - x = g.auto.name
+                  a#item_autos.is_popover_auto href='#{auto_url(g.auto)}' data-trigger='hover' data-placement="top" data-toggle="popover" data-container='body' data-content="#{get_generations_html(item.id, g.auto.id).html_safe}" type="button"
+                    button.btn.btn-default.btn-xs
+                      =' image_tag(g.auto.brand.image, style:"margin: -2 0 0 0;")
+                      = x
+
+          - if admin_user_signed_in?
+            a href='#{edit_admin_item_url(item)}'
+              .btn.btn-danger.btn-xs.pull-right Редактировать
+          - unless item.catalogs.blank?
+            - if controller_name = 'autos' && params[:id]
+              a#item_autos.btn.btn-link.btn-xs.muted_link.pull-right href='#{catalog_auto_url(item.catalogs.first, params[:id])}'
+                = item.catalogs.first.name
+            - else
+              a#item_autos.btn.btn-link.btn-xs.muted_link.pull-right href='#{catalog_url(item.catalogs.first)}'
+                = item.catalogs.first.name
+
+
+              /- item.generations.each do |g|
+                - if g.auto.name != x
+                  a#item_autos.is_tooltip href='#{auto_url(g.auto)}' data-placement="top" data-toggle="tooltip" title="#{item.generations.map{|u| ["#{u.auto.name} -- #{u.name}", u.id]}}" type="button"
+                    button.btn.btn-default.btn-xs = g.auto.name
+                  - x = g.auto.name
+
+              /span.label.label-default> = g.auto.name
+            /= product_for(item.id)[:auto]
+
+          /- item.generations.each do |g|
+            a> href='#'
+              button#item_autos.btn.btn-default.btn-xs = g.name
 
           /- if admin_user_signed_in?
             a#item_autos.btn.btn-danger.btn-xs.pull-right href='#{edit_admin_item_url(item)}' Редактировать

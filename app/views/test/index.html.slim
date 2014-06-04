@@ -1,0 +1,30 @@
+- max_item = Item.maximum(:install_hours)
+- sum = Item.sum(:install_hours)
+- autos_install_sum = []
+
+
+table.table.table-striped
+
+  - Item.all.order('install_hours DESC').each do |item|
+    tr
+      td = item.name
+      td = item.install_hours*100/sum
+      td
+        - item.autos.each do |auto|
+          /- item.install_hours*100/item.autos.sum(:)
+          - install = item.install_hours * auto.manhour
+          span.label.label-warning=' auto.name + number_to_currency(install), locale: :ru)
+          - autos_install_sum <<
+
+      td text-align='vertical-align' width='350px'
+        .progress.progress-striped.active
+          - item.autos.each do |auto|
+            a.is_tooltip href='#' data-placement="left" data-toggle="tooltip" title=(auto.name) type="button"
+              .progress-bar style="width: 10%"
+
+            - unless auto == item.autos.last
+              .pull-left |
+
+        /td width='300px'
+          .progress.progress-striped.active
+            .progress-bar role="progressbar" aria-valuenow="#{item.install_hours*100/sum}" aria-valuemin="0" aria-valuemax="100" style="width: #{item.install_hours*100/sum}%"

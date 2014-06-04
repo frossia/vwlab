@@ -29,6 +29,14 @@ $(document).ready(function () {
         }
     });
 
+    $('.is_popover_auto').popover({
+        html : true,
+        container: 'body',
+        content: function() {
+            return $('#' + $(this).data('id')).html();
+        }
+    });
+
 
     $.each($(".cool"), function(i, el){
         $(el).css("opacity","0");

@@ -39,22 +39,31 @@
 #   item.save
 # end
 
+# Auto.all.each do |auto|
+#   rand(1..5).times do
+#     g = Generation.new
+#     g.name = rand(1..10).to_s + 'th generation'
+#     g.manhour = rand(300..1000)
+#     if g.save
+#       auto.generations << g
+#     end
+#   end
+#   auto.save
+# end
+
 # Item.all.each do |item|
-#   x = rand(1..Catalog.count)
-#   if Catalog.exists?(x)
-#     if Catalog.find(x).depth != 0
-#       item.catalogs = []
-#       item.catalogs << Catalog.find(x)
+#   item.generations = []
+#   rand(1..5).times do
+#     x = rand(1..Generation.count)
+#     if Generation.exists?(x)
+#       item.generations << Generation.find(x)
+#       item.generation_items.where(generation_id: x).first.dop_price = rand(500..5000)
 #       item.save
 #     end
 #   end
 # end
 
-item = Item.where(:install_hours => Item.maximum(:install_hours))
-# item = Item.max(:install_hours)
-
-puts item.pluck(:name, :install_hours)
-
-# Item.each do |item|
-#
-# end
+GenerationItem.all.each do |gi|
+  gi.dop_price = rand(500..5000)
+  gi.save
+end

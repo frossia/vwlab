@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140529131633) do
+ActiveRecord::Schema.define(version: 20140604092058) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -89,6 +89,20 @@ ActiveRecord::Schema.define(version: 20140529131633) do
     t.datetime "updated_at"
   end
 
+  create_table "generation_items", force: true do |t|
+    t.integer "generation_id"
+    t.integer "item_id"
+    t.decimal "dop_price"
+  end
+
+  create_table "generations", force: true do |t|
+    t.string   "name"
+    t.float    "manhour"
+    t.integer  "auto_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "items", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -96,6 +110,16 @@ ActiveRecord::Schema.define(version: 20140529131633) do
     t.text     "description"
     t.decimal  "price",         precision: 8, scale: 2
     t.float    "install_hours"
+    t.decimal  "old_price"
+  end
+
+  create_table "pages", force: true do |t|
+    t.string   "title"
+    t.text     "intro"
+    t.text     "full"
+    t.boolean  "pubished",   default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

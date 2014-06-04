@@ -1,7 +1,8 @@
 class CatalogsController < ApplicationController
 
   def index
-    @catalog_all = Catalog.all.order(:lft)
+    @catalog_all = Catalog.all.order(:lft).where('items.any', '1')
+
     @catalog_items = Item.all
   end
 

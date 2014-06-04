@@ -20,4 +20,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  def update
+    @item = Item.find(params[:id])
+    if @item.update_attributes(params[:item_id])
+      redirect_to :controller => "/admin/items",:action => "index"
+    else
+      redirect_to polymorphic_path([:admin, @item.owner])
+    end
+  end
+
 end

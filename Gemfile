@@ -50,9 +50,9 @@ gem 'devise'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 
-# gem 'formtastic-bootstrap'
+gem 'formtastic-bootstrap'
 
-# gem 'formtastic', :git => 'https://github.com/justinfrench/formtastic.git'
+gem 'formtastic', :git => 'https://github.com/justinfrench/formtastic.git'
 
 gem 'ckeditor'
 
@@ -82,7 +82,7 @@ gem 'russian', '~> 0.6.0'
 
 gem "rails_config"
 
-gem 'simple_form'
+# gem 'simple_form'
 
 gem 'awesome_nested_set', :git => 'https://github.com/collectiveidea/awesome_nested_set.git', :tag => 'v3.0.0.rc.5'
 

@@ -1,47 +1,62 @@
 br
 .row#brands
   .col-md-4.t-c
-    - unless controller_name == 'autos'
-      a.cool2 href='#{root_url}'
-        = image_tag('logo.png', :id => 'logo', :'data-anijs' => 'if: mouseover, do: pulse animated')
-    - else
-      a href='#{root_url}'
-        = image_tag 'logo.png'
+    /- unless controller_name == 'autos'
+    /  a.cool2 href='#{root_url}'
+    /    = image_tag('logo.png', :id => 'logo', :'data-anijs' => 'if: mouseover, do: pulse animated')
+    /- else
+    a.cool2 href='#{root_url}'
+      = image_tag 'logo.png', :id => 'logo'
     /h1 VW-Lab.ru
   .col-md-8
     .row
       .col-md-12#menu
         a.menu-link href='#{root_url}' Главная
-        a.menu-link href='#' Акции
-        a.menu-link href='#' Наши работы
-        a.menu-link href='#' История
-        a.menu-link href='#' Контакты
-        hr.min
+        - Page.all.each do |page|
+          a.menu-link href='#{page_url(page)}' = page.title
+
+    hr.min
 
     .row
       .col-md-8
         table#autos-list
-          - @auto_brands.each do |brand|
+          - @auto_brands.each_with_index do |brand, i|
             tr
               td = image_tag brand.image_32
               td.t-j
-                - brand.autos.each do |auto|
-                  '
-                  a href='#{auto_url(auto.id)}'
-                    - if brand.name == 'Volkswagen'
-                      button.btn.btn-xs.btn-info = auto.name
-                    - if brand.name == 'Skoda'
-                      button.btn.btn-xs.btn-success = auto.name
-                    - if brand.name == 'Seat'
-                      button.btn.btn-xs.btn-danger = auto.name
+                - if i == 0
+                  td
+                    a href='#{auto_url(Auto.find_by_name('T5').id)}'
+                      button.btn.btn-sm.btn-info Multivan <br> Caravelle <br> Tranporter
+                - if i > 0
+                  td colspan='2'
+                    - brand.autos.each do |auto|
+                      a> href='#{auto_url(auto.id)}'
+                        - if brand.name == 'Volkswagen'
+                          button.btn.btn-xs.btn-info = auto.name
+                        - if brand.name == 'Skoda'
+                          button.btn.btn-xs.btn-success = auto.name
+                        - if brand.name == 'Seat'
+                          button.btn.btn-xs.btn-danger = auto.name
+                - else
+                  td
+                    - brand.autos.each do |auto|
+                      - if auto.name != 'T5'
+                        a> href='#{auto_url(auto.id)}'
+                          - if brand.name == 'Volkswagen'
+                            button.btn.btn-xs.btn-info = auto.name
+                          - if brand.name == 'Skoda'
+                            button.btn.btn-xs.btn-success = auto.name
+                          - if brand.name == 'Seat'
+                            button.btn.btn-xs.btn-danger = auto.name
 
       .col-md-4
         #telefon
           h3.pull-right
-            span> style='font-size: 13px'
+            span> style='font-size: 15px'
               span.fa.fa-phone.fa-lg>
               |+7 (967)
-            |121-32-12
+            |121-5-212
         .clearfix
         #operation-time.pull-right
           small.fa.fa-clock-o>

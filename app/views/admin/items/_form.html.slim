@@ -1,0 +1,10 @@
+h1 form
+= semantic_form_for @item do |f|
+  = f.input :name
+  = f.inputs :for => :auto_items do |ai|
+    = ai.input :auto_id
+    = ai.input :partial_price
+  /= f.has_many :autos do |a_f|
+    - if a_f.object.nil?
+      = a_f.input :_destroy, :as => :boolean, :label => "Destroy?"
+  = f.actions :submit, :cancel

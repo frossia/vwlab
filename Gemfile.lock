@@ -29,6 +29,13 @@ GIT
     awesome_nested_set (3.0.0.rc.5)
       activerecord (>= 4.0.0, < 5)
 
+GIT
+  remote: https://github.com/justinfrench/formtastic.git
+  revision: 1bdf6d3642af52a1a62902f12b844a5856d0254e
+  specs:
+    formtastic (2.3.0.rc3)
+      actionpack (>= 3.2.13)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -110,8 +117,8 @@ GEM
       railties (>= 3.1.0, < 5.0)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
-    formtastic (2.3.0.rc3)
-      actionpack (>= 3.0)
+    formtastic-bootstrap (3.0.0)
+      formtastic (>= 2.2)
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -220,9 +227,6 @@ GEM
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
     seedbank (0.3.0)
-    simple_form (3.0.2)
-      actionpack (~> 4.0)
-      activemodel (~> 4.0)
     simple_oauth (0.2.0)
     slim (2.0.2)
       temple (~> 0.6.6)
@@ -297,6 +301,8 @@ DEPENDENCIES
   devise
   faker
   fancybox2-rails
+  formtastic!
+  formtastic-bootstrap
   has_scope
   jbuilder (~> 1.2)
   jquery-rails
@@ -311,7 +317,6 @@ DEPENDENCIES
   sdoc
   seedbank
   simple_captcha!
-  simple_form
   slim-rails
   sqlite3
   table_print

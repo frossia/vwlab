@@ -18,7 +18,7 @@
           = number_to_currency(@item.price, locale: :ru)
       .col-md-12
         .row
-          .col-md-8
+          .col-md-7
             h5 Характеристики
             table#specification
               - 15.times do |x|
@@ -31,23 +31,45 @@
 
 
 
-          .col-md-4
-            h5 Цена с установкой
-            table#specification
-              - Item.find(params[:id]).autos.each do |auto|
-                tr
-                  td.spec-label
-                    span
-                      = image_tag(auto.brand.image)
-                    span = auto.name
-                  td.value
-                    small
-                      b
-                        =' number_to_currency(@item.price + @item.install_hours * auto.manhour, locale: :ru)
 
-        /- unless catalog_index
-          p.t-r
-            b =' @item.price + @item.install_hours * Auto.find(params[:id]).manhour
-            | руб.
-            br
-            small> с установкой
+          .col-md-5
+            h5 Цена с установкой
+            #prices
+              table
+                - x = ''
+                - @item.generations.order('auto_id').each do |g|
+                  - if g.auto.name != x
+                    - x = g.auto.name
+                    tr
+                      th
+                        span>
+                          = image_tag(g.auto.brand.image)
+                        span = g.auto.name
+
+
+                  - get_generations(@item.id, g.id).each do |xxx|
+                    tr
+                      td.spec-label: small: b: i
+                        = xxx.generation.name
+                      td.value: small: i
+                        =' number_to_currency(@item.price + @item.install_hours * g.manhour, locale: :ru)
+                    - if xxx.dop_price?
+                      tr.dop
+                        td: small: small Доп. оборудование
+                        td.t-r.value: small: small: i = '+ ' + number_to_currency(xxx.dop_price, locale: :ru)
+
+
+
+                /- if AutoItem.where(item_id: @item.id, auto_id: auto.id).first.partial_price?
+                    tr style='height: 22px'
+                      td: small: small
+                        |Доп. оборудование
+                        hr.min
+                      td.t-r: small: small
+                        '+
+                        = number_to_currency(AutoItem.where(item_id: @item.id, auto_id: auto.id).first.partial_price, locale: :ru)
+                        hr.min
+                    tr style='height: 22px'
+                      td.t-r: small: small ИТОГО:
+                      td.t-r: small: small = number_to_currency(AutoItem.where(item_id: @item.id, auto_id: auto.id).first.partial_price + @item.price + @item.install_hours * auto.manhour,locale: :ru)
+
