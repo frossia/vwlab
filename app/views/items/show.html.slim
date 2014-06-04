@@ -57,6 +57,11 @@
                       tr.dop
                         td: small: small Доп. оборудование
                         td.t-r.value: small: small: i = '+ ' + number_to_currency(xxx.dop_price, locale: :ru)
+                      tr.dop
+                        td
+                        td.t-r: small: small
+                          hr.min
+                          = number_to_currency(xxx.dop_price + @item.price + @item.install_hours * g.manhour, locale: :ru)
 
 
 
