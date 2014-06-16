@@ -11,9 +11,13 @@ br
   .col-md-8
     .row
       .col-md-12#menu
-        a.menu-link href='#{root_url}' Главная
-        - Page.all.each do |page|
-          a.menu-link href='#{page_url(page)}' = page.title
+        table width='100%'
+          tr
+            td
+              a.menu-link href='#{root_url}' Главная
+            - Page.all.each do |page|
+              td
+                a.menu-link href='#{page_url(page)}' = page.title
 
     hr.min
 
@@ -22,37 +26,44 @@ br
         table#autos-list
           - @auto_brands.each_with_index do |brand, i|
             tr
-              td = image_tag brand.image_32
-              td.t-j
-                - if i == 0
-                  td
-                    a href='#{auto_url(Auto.find_by_name('T5').id)}'
-                      button.btn.btn-sm.btn-info Multivan <br> Caravelle <br> Tranporter
-                - if i > 0
-                  td colspan='2'
-                    - brand.autos.each do |auto|
-                      a> href='#{auto_url(auto.id)}'
-                        - if brand.name == 'Volkswagen'
-                          button.btn.btn-xs.btn-info = auto.name
-                        - if brand.name == 'Skoda'
-                          button.btn.btn-xs.btn-success = auto.name
-                        - if brand.name == 'Seat'
-                          button.btn.btn-xs.btn-danger = auto.name
-                - else
-                  td
-                    - brand.autos.each do |auto|
-                      - if auto.name != 'T5'
-                        a> href='#{auto_url(auto.id)}'
-                          - if brand.name == 'Volkswagen'
-                            button.btn.btn-xs.btn-info = auto.name
-                          - if brand.name == 'Skoda'
-                            button.btn.btn-xs.btn-success = auto.name
-                          - if brand.name == 'Seat'
-                            button.btn.btn-xs.btn-danger = auto.name
+              - if i == 0
+                td = image_tag brand.image_32
+              - else
+                td = image_tag brand.image_32
+
+              - if i == 0
+                td.t-j
+                  a> href='#{auto_url(Auto.find_by_name('T5').id)}' style='display: block; width: 100%;'
+                    button.btn.btn-sm.btn-info style='width: 100%; font-size: 15px;' Multivan, Caravelle, Transporter
+                  /br
+                  - brand.autos.each do |auto|
+                    a> href='#{auto_url(auto.id)}'
+                      - if brand.name == 'Volkswagen'
+                        button.btn.btn-xs.btn-info = auto.name
+                      - if brand.name == 'Skoda'
+                        button.btn.btn-xs.btn-success = auto.name
+                      - if brand.name == 'Seat'
+                        button.btn.btn-xs.btn-danger = auto.name
+
+              - else
+                td
+                  - brand.autos.each do |auto|
+                    a> href='#{auto_url(auto.id)}'
+                      - if brand.name == 'Volkswagen'
+                        button.btn.btn-xs.btn-info = auto.name
+                      - if brand.name == 'Skoda'
+                        button.btn.btn-xs.btn-success = auto.name
+                      - if brand.name == 'Seat'
+                        button.btn.btn-xs.btn-danger = auto.name
+
 
       .col-md-4
         #telefon
-          h3.pull-right
+          h6.t-r
+            a.pointer  data-toggle="modal" data-target="#reception"
+              i.fa.fa-envelope-o>
+              | Обратная связь
+          h3.pull-right style='margin: 0px;'
             span> style='font-size: 15px'
               span.fa.fa-phone.fa-lg>
               |+7 (967)
@@ -67,11 +78,11 @@ br
           .input-group
             div style="display:none"
               input name="utf8" type="hidden" value="✓"
-            input.form-control type="text" id="search" name="search" placeholder='Поиск'
+            input.form-control type="text" id="search" name="search" placeholder='Поиск' autocomplete="off"
               span.input-group-btn
                 button.btn.btn-default type="submit" value="Search"
                   i.fa.fa-search.fa-lg
                   span style='color: transparent' .
-
+              #search_results
 
 hr#header-shadow

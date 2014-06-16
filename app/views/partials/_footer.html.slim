@@ -1,4 +1,19 @@
 br
-.row#footer
-  .col-md-12
-    p.t-c FOOTER
+#footer.visible-lg
+  .container
+    .row
+      .col-md-7#menu
+        table width='100%'
+          tr
+            td
+              a.menu-link href='#{root_url}'
+                = image_tag('logo-mini.png')
+            - Page.all.each do |page|
+              td
+                a.menu-link href='#{page_url(page)}' = page.title
+      .col-md-5
+        h3.pull-right style='margin-top: 13px;'
+          span> style='font-size: 15px'
+            span.fa.fa-phone.fa-lg>
+            |+7 (967)
+          |121-5-212

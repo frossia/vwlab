@@ -1,89 +1,104 @@
 .col-md-8#items
-  - unless xxx.any?
-    - if controller_name == 'items' && action_name == 'index'
-      h4.t-c Извините! По вашему запросу "#{params[:search]}" ничего не найдено
-  - else
+
+  - if xxx.any?
+    / SEARCH
+    - if controller_name == 'items' && action_name == 'index' && params[:search]
+      h4 По Вашему запросу "#{params[:search]}" #{Russian.p(xxx.count, 'найден', 'найдено', 'найдено')} #{xxx.count} #{Russian.p(xxx.count, 'товар', 'товара', 'товаров')}
+      hr
+    / SEARCH
+    / Название каталока
     - if controller_name == 'catalogs' && params[:id]
       h4 = Catalog.find(params[:id]).name
       hr
     - elsif params[:catalog_id]
       h4 = Catalog.find(params[:catalog_id]).name
       hr
+    / Название каталока
 
-  - if controller_name == 'items' && action_name == 'index' && params[:search] && xxx.any?
-    h4 По Вашему запросу "#{params[:search]}" #{Russian.p(xxx.count, 'найден', 'найдено', 'найдено')} #{xxx.count} #{Russian.p(xxx.count, 'товар', 'товара', 'товаров')}
-    hr
-  - xxx.each do |item|
-    .cool
-      .row
-        .col-md-9.col-lg-9.col-xs-12
-          .pull-left
-            a.thumbnail.item-img href='#{item_url(item)}'
-              img src="http://lorempixel.com/100/100/transport/#{item.id}"
-          a href='#{item_url(item)}'
-            b = item.name
-          br
-          small = item.description
-        .col-md-3.col-lg-3.col-xs-12
-          button.btn.btn-warning.large.pull-right.t-r
-            span.fa.fa-shopping-cart.fa-lg>
-            = number_to_currency(item.price, locale: :ru)
-            - if item.old_price?
-              br
-              /hr.one_border.min
-              small style='text-decoration:line-through; color: #ae372e; '
-                = number_to_currency(item.old_price, locale: :ru)
+  - else
+    - if controller_name == 'items' && action_name == 'index'
+      h4.t-c Извините! По вашему запросу "#{params[:search]}" ничего не найдено
+    - else
+      h4.t-c Нет товаров для отображения...
 
 
 
-      .row
-        .col-md-12
-          small
-            i> Товар для:
-            - if item.generations.any?
-              - x = ''
-              - item.generations.order('auto_id').each do |g|
-                - if g.auto.name != x
-                  - x = g.auto.name
-                  a#item_autos.is_popover_auto href='#{auto_url(g.auto)}' data-trigger='hover' data-placement="top" data-toggle="popover" data-container='body' data-content="#{get_generations_html(item.id, g.auto.id).html_safe}" type="button"
-                    button.btn.btn-default.btn-xs
-                      =' image_tag(g.auto.brand.image, style:"margin: -2 0 0 0;")
-                      = x
-
-          - if admin_user_signed_in?
-            a href='#{edit_admin_item_url(item)}'
-              .btn.btn-danger.btn-xs.pull-right Редактировать
-          - unless item.catalogs.blank?
-            - if controller_name = 'autos' && params[:id]
-              a#item_autos.btn.btn-link.btn-xs.muted_link.pull-right href='#{catalog_auto_url(item.catalogs.first, params[:id])}'
-                = item.catalogs.first.name
-            - else
-              a#item_autos.btn.btn-link.btn-xs.muted_link.pull-right href='#{catalog_url(item.catalogs.first)}'
-                = item.catalogs.first.name
+  - if xxx.any?
+    - xxx.each do |item|
+      .cool
+        .row
+          .col-md-9.col-lg-9.col-xs-12
+            .pull-left
+              a.thumbnail.item-img href='#{item_url(item)}'
+                img src="http://lorempixel.com/100/100/transport/#{item.id}"
+            a href='#{item_url(item)}'
+              b = item.name
+            br
+            small = item.description
+          .col-md-3.col-lg-3.col-xs-12
+            button.btn.btn-warning.large.pull-right.t-r
+              span.fa.fa-shopping-cart.fa-lg>
+              = number_to_currency(item.price, locale: :ru)
+              - if item.old_price?
+                br
+                /hr.one_border.min
+                small style='text-decoration:line-through; color: #ae372e; '
+                  = number_to_currency(item.old_price, locale: :ru)
 
 
-              /- item.generations.each do |g|
-                - if g.auto.name != x
-                  a#item_autos.is_tooltip href='#{auto_url(g.auto)}' data-placement="top" data-toggle="tooltip" title="#{item.generations.map{|u| ["#{u.auto.name} -- #{u.name}", u.id]}}" type="button"
-                    button.btn.btn-default.btn-xs = g.auto.name
-                  - x = g.auto.name
 
-              /span.label.label-default> = g.auto.name
-            /= product_for(item.id)[:auto]
+        .row
+          .col-md-12
+            small
+              | Товар для:
+              - if item.generations.any?
+                - x = ''
+                - item.generations.order('auto_id').each do |g|
+                  - if g.auto.name != x
+                    - x = g.auto.name
+                    a#item_autos.is_popover_auto href='#{auto_url(g.auto)}' data-trigger='hover' data-placement="top" data-toggle="popover" data-container='body' data-content="#{get_generations_html(item.id, g.auto.id).html_safe}" type="button"
+                      button.btn.btn-default.btn-xs
+                        =' image_tag(g.auto.brand.image, style:"margin: -2 0 0 0;")
+                        = x
 
-          /- item.generations.each do |g|
-            a> href='#'
-              button#item_autos.btn.btn-default.btn-xs = g.name
+            - unless item.catalog.blank?
+              - if controller_name = 'autos' && params[:id]
+                a#item_autos.btn.btn-link.btn-xs.muted_link.pull-right href='#{catalog_auto_url(item.catalog, params[:id])}'
+                  i.fa.fa-tags>
+                  = item.catalog.name
+              - else
+                a#item_autos.btn.btn-link.btn-xs.muted_link.pull-right href='#{catalog_url(item.catalog.id)}'
+                  i.fa.fa-tags>
+                  = item.catalog.name
 
-          /- if admin_user_signed_in?
-            a#item_autos.btn.btn-danger.btn-xs.pull-right href='#{edit_admin_item_url(item)}' Редактировать
 
-          /a href='#{item_url(item)}'
-            button#item_autos.btn.btn-success.btn-xs.pull-right ПОДРОБНЕЕ
+        - if admin_user_signed_in?
+          .row
+            .col-md-12.t-r
+              .panel.panel-default
+                .panel-body
+                  span>
+                    /- if item.catalog
+                      = item.catalog.id
+                    - if item.catalog
+                      = select_tag :catalog_id, grouped_options_for_select(grouped_options, item.catalog.id), class: 'catalog_post', 'data-id' => "#{item.id}"
+                    - else
+                      = select_tag :catalog_id, grouped_options_for_select(grouped_options, nil, prompt: 'Выберите категорию...'), class: 'catalog_post', 'data-id' => "#{item.id}"
+                    /= select_tag :catalog_id, grouped_options_for_select(grouped_options, selected: "#{item.catalog.id if item.catalog }", :options => {:prompt => 'asdasd'}), class: 'catalog_post', 'data-id' => "#{item.id}"
 
-          /- unless item.catalogs.blank?
-            a#item_autos.btn.btn-link.btn-xs.muted_link.pull-right href='#{catalog_url(item.catalogs.first)}'
-              i = item.catalogs.first.name
 
-      - if item != xxx.last
-        hr
+                    /= semantic_nested_form_for [:admin, item], :remote => true do |f|
+                      = f.select :catalog_id, grouped_options_for_select(grouped_options)
+
+                  span.muted> ||
+
+                  span<
+                    a< href='#{edit_admin_item_url(item)}'
+                      .btn.btn-danger.btn-xs.pull-right Редактировать
+
+
+        - if item != xxx.last
+          hr
+    - if defined?(paginating) && paginating == true
+      .t-c
+        = paginate xxx

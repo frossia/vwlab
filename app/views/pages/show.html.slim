@@ -6,7 +6,10 @@
     = render partial: 'partials/widget_last_viewed'
 
   .col-md-8
-    h4.pull-left = @page.title
+    - if admin_user_signed_in?
+      h4 = best_in_place @page, :title, :type => :input, :path => [:admin, @page]
+    - else
+      h4.pull-left = @page.title
 
     - if admin_user_signed_in?
       a.pull-right href='#{edit_admin_page_url(@page)}'

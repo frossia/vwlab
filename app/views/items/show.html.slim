@@ -21,20 +21,19 @@
           .col-md-7
             h5 Характеристики
             table#specification
-              - 15.times do |x|
+              - @item.properties.each do |prop|
                 tr
-                  td.spec-label
-                    span = Faker::Commerce.product_name
-                  td.value
-                    span = ['да','нет'][rand(2)]
+                  td.spec-label: span: i = prop.name
+                  td.value: span: i = prop.value
 
 
 
 
 
           .col-md-5
-            h5 Цена с установкой
             #prices
+              h5 style='margin:0 0 10px 0' Цена с установкой
+              hr.min style='border-top: 1px solid #CFCFCF; border-bottom: 1px solid #fff; margin: 0 -11px 5px -11px;'
               table
                 - x = ''
                 - @item.generations.order('auto_id').each do |g|
@@ -51,10 +50,10 @@
                     tr
                       td.spec-label: small: b: i
                         = xxx.generation.name
-                      td.value: small: i
+                      td.value.t-r: small: i
                         =' number_to_currency(@item.price + @item.install_hours * g.manhour, locale: :ru)
                     - if xxx.dop_price?
-                      tr.dop
+                      tr
                         td: small: small Доп. оборудование
                         td.t-r.value: small: small: i = '+ ' + number_to_currency(xxx.dop_price, locale: :ru)
                       tr.dop
@@ -64,17 +63,4 @@
                           = number_to_currency(xxx.dop_price + @item.price + @item.install_hours * g.manhour, locale: :ru)
 
 
-
-                /- if AutoItem.where(item_id: @item.id, auto_id: auto.id).first.partial_price?
-                    tr style='height: 22px'
-                      td: small: small
-                        |Доп. оборудование
-                        hr.min
-                      td.t-r: small: small
-                        '+
-                        = number_to_currency(AutoItem.where(item_id: @item.id, auto_id: auto.id).first.partial_price, locale: :ru)
-                        hr.min
-                    tr style='height: 22px'
-                      td.t-r: small: small ИТОГО:
-                      td.t-r: small: small = number_to_currency(AutoItem.where(item_id: @item.id, auto_id: auto.id).first.partial_price + @item.price + @item.install_hours * auto.manhour,locale: :ru)
 

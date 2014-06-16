@@ -12,11 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require best_in_place
 //= require bootstrap
+//= require coffee
 
 
+$(document).ready(function() {
+    /* Activating Best In Place */
+    jQuery(".best_in_place").best_in_place();
+});
 
 $(document).ready(function () {
+
     $('.is_tooltip').tooltip();
     $('.is_popover').popover({
         html : true,
@@ -70,3 +77,5 @@ $('html').on('click', function (e) {
         }
     });
 });
+
+

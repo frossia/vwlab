@@ -10,9 +10,71 @@
 // Active Admin's got SASS!
 @import "active_admin/mixins";
 @import "active_admin/base";
+@import "chosen";
+// Core variables and mixins
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+// Reset and dependencies
+@import "bootstrap/normalize";
+@import "bootstrap/print";
+@import "bootstrap/glyphicons";
+
+// Core CSS
+//@import "bootstrap/scaffolding";
+@import "bootstrap/button-groups";
+@import "bootstrap/buttons";
+@import "bootstrap/utilities";
+@import "bootstrap/grid";
+@import "bootstrap/tables";
+
 @import "formtastic";
 
-// Overriding any non-variable SASS must be done after the fact.
-// For example, to change the default status-tag color:
-//
-//   .status_tag { background: #6090DB; }
+
+* {
+  @include box-sizing(border-box);
+}
+*:before,
+*:after {
+  @include box-sizing(border-box);
+}
+
+
+.col-md-6 {
+  margin-bottom: 15px;
+}
+
+.formtastic .input {
+  overflow:visible;
+}
+
+
+fieldset.inputs, fieldset.inputs.has_many_fields {
+  ol {
+    padding: 15px;
+  }
+}
+
+.best_in_place {
+  &:after {
+    content: image_url('edit_16.png');
+    visibility: hidden;
+  }
+  &:hover {
+    font-weight: bold;
+    cursor: pointer;
+    &:after {
+      content: image_url('edit_16.png');
+      visibility: visible;
+    }
+  }
+}
+
+fieldset.action, .formtastic .actions {
+  text-align: center;
+  padding: 21px;
+  ol {
+    display: block;
+    margin: 0 auto;
+  }
+}

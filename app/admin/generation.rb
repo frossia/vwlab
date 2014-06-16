@@ -1,17 +1,19 @@
 ActiveAdmin.register Generation do
 
-  
-  # See permitted parameters documentation:
-  # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #  permitted = [:permitted, :attributes]
-  #  permitted << :other if resource.something?
-  #  permitted
-  # end
-  
+  actions :all, except: [:show]
+
+  index do
+    selectable_column
+    column :name do |i|
+      best_in_place i, :name, :type => :input, :path => [:admin, i]
+    end
+    column :auto_id do |auto|
+      best_in_place auto, :auto_id, :type => :select, :path =>[:admin,auto], :collection => Auto.all.map{|i| [i.id, "#{i.name}"]}
+    end
+    column :manhour do |i|
+      best_in_place i, :manhour, :type => :input, :path => [:admin, i]
+    end
+    actions
+  end
+
 end

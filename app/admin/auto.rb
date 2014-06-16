@@ -34,7 +34,7 @@ ActiveAdmin.register Auto do
       f.input :name
       f.input :manhour
       f.input :car_image
-      f.input :generations
+      # f.input :generations
       # f.input :items, :input_html => { :size => 20}
       # f.select :catalogs, nested_set_options(Catalog) {|i| "#{'-' * i.level} #{i.name}" }
       # f.input :catalog_ids, :as => :select, :collection => nested_set_options(Catalog) {|i| "#{'-' * i.level} #{i.name}" }

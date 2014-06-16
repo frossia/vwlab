@@ -1,78 +1,76 @@
-#catalog.fadeInRight.animated
-  - if @auto
-    table#auto-image style='border-right: 10px solid ##{@auto.brand.color};'
-      tr
-        td width='100%' = image_tag @auto.car_image, :class => 'pull-left auto-img fadeInRight animated'
-        td =' image_tag @auto.brand.image_32, class: 'brand-32'
-        td
-          h3.auto_name
-            b = @auto.name
-        /hr
+#catalog
+  .fadeInRight.animated
+    - if @auto
+      table#auto-image style='border-right: 10px solid ##{@auto.brand.color};'
+        tr
+          td width='100%'
+            a data-anijs='if: mouseover, do: pulse animated' href='#{auto_url(@auto)}'
+              = image_tag @auto.car_image, :class => 'pull-left auto-img fadeInRight animated'
+          td
+            a href='#{auto_url(@auto)}'
+              =' image_tag @auto.brand.image_32, class: 'brand-32'
+          td
+            a href='#{auto_url(@auto)}' style='text-decoration: none; color: #333'
+              h3.auto_name
+                b = @auto.name
+      hr.min
 
 
+    h4.pull-left Каталог
+    .pull-right style='margin-top: 10px;'
+      small: a#collaps_in.is_tooltip.pointer  title='Развернуть'
+        i.fa.fa-plus-square style='font-size: 14px'
+      span<> |
+      small: a#collaps.is_tooltip.pointer  title='Свернуть'
+        i.fa.fa-minus-square style='font-size: 14px'
+    .clearfix
 
+    .panel-group#accordion
+      - Catalog.where(depth: 0).each_with_index do |cat, i|
 
-  .panel-group#accordion
-    - Catalog.where(depth: 0).each_with_index do |cat, i|
+        #menu-row
 
-      #menu-row
-
-        - if controller_name == 'autos' && params[:id]
-          - children = Catalog.includes(items: :generations).where('catalogs.parent_id' => cat.id, 'generations.auto_id' => params[:id])
-          - if children.any?
-            h5#header-cat data-toggle="collapse" data-parent="#accordion" href="#collapse-#{cat.id}"
-              '-
-              = cat.name
-
-        - else
-          - children = Catalog.includes(items: :generations).where('catalogs.parent_id' => cat.id)
-          - if children.any?
-            h5#header-cat data-toggle="collapse" data-parent="#accordion" href="#collapse-#{cat.id}"
-              '-
-              = cat.name
-
-
-
-        .panel-collapse.collapse id='collapse-#{cat.id}' class='depth-#{cat.depth+1}'
-
-          - if controller_name == 'autos'
-            - children.each do |child|
-              div
-                span.fa.fa-angle-double-right>
-                a.catalog_link href='#{catalog_auto_url(child.id, params[:id])}'
-                  =' child.name
-                  span.label.label-default.pull-right = items_count(child.id, @auto.id).count
+          - if controller_name == 'autos' && params[:id]
+            - children = Catalog.includes(items: :generations).where('parent_id' => cat.id, 'generations.auto_id' => params[:id])
+            - if children.any?
+              h5#header-cat data-toggle="collapse" data-parent="#accordion" href="#collapse-#{cat.id}"
+                i.fa.fa-minus-square-o> style='font-size: 13px'
+                = cat.name
 
           - else
-            - Catalog.subcat(cat).each do |sub|
-              div
-                span.fa.fa-angle-double-right>
-                a.catalog_link href='#{catalog_url(sub.id)}'
-                  =' sub.name
-                  span.label.label-default.pull-right = sub.items.count
-
-              - if Catalog.subcat(sub).any?
-                div class='depth-#{cat.depth+1}'
-                  - Catalog.subcat(sub).each do |sub_sub|
-                    div
-                      span.fa.fa-angle-double-right>
-                      a.catalog_link href='#{catalog_url(sub.id)}'
-                        =' sub_sub.name
-                        span.label.label-default.pull-right = sub_sub.items.count
+            - children = Catalog.includes(items: :generations).where('parent_id' => cat.id)
+            - if children.any?
+              h5#header-cat data-toggle="collapse" data-parent="#accordion" href="#collapse-#{cat.id}"
+                i.fa.fa-plus-square-o> style='font-size: 13px'
+                =' cat.name
 
 
+          /- asd = true
+          /.panel-collapse.collapse id='collapse-#{cat.id}' class='depth-#{cat.depth+1}'
+          .panel-collapse.collapse id='collapse-#{cat.id}' class='depth-#{cat.depth+1} #{'in' if controller_name == 'autos' && params[:id] }' data-collapspanel=''
 
+            - if controller_name == 'autos'
+              - children.each do |child|
+                div
+                  span.fa.fa-angle-double-right>
+                  a.catalog_link href='#{catalog_auto_url(child.id, params[:id])}'
+                    =' child.name
+                    /span.label.label-default.pull-right = items_count(child.id, @auto.id).count
 
-      /- xxx.each_with_index do |cat, i|
-    /  - if cat.depth == 0
-  /    h5 = cat.name
-  /  - else
-  /    p
-  /      - unless catalog_index
-  /        a.catalog_link class="depth-#{cat.depth}" href='#{catalog_auto_url(cat.id, params[:id])}'
-  /          = cat.name
-  /          span.label.label-default.pull-right = items_count(cat.id, @auto.id).count
-  /      - else
-  /        a.catalog_link class="depth-#{cat.depth}" href='#{catalog_url(cat.id)}'
-  /          = cat.name
-  /          span.label.label-default.pull-right = cat.items.count
+            - else
+              - Catalog.subcat(cat).each do |sub|
+                div
+                  span.fa.fa-angle-double-right>
+                  a.catalog_link href='#{catalog_url(sub.id)}'
+                    =' sub.name
+                    /span.label.label-default.pull-right = sub.items.count
+
+                - if Catalog.subcat(sub).any?
+                  div class='depth-#{cat.depth+1}'
+                    - Catalog.subcat(sub).each do |sub_sub|
+                      div
+                        span.fa.fa-angle-double-right>
+                        a.catalog_link href='#{catalog_url(sub.id)}'
+                          =' sub_sub.name
+                          span.label.label-default.pull-right = sub_sub.items.count
+

@@ -1,10 +1,53 @@
-h1 form
-= semantic_form_for @item do |f|
-  = f.input :name
-  = f.inputs :for => :auto_items do |ai|
-    = ai.input :auto_id
-    = ai.input :partial_price
-  /= f.has_many :autos do |a_f|
-    - if a_f.object.nil?
-      = a_f.input :_destroy, :as => :boolean, :label => "Destroy?"
-  = f.actions :submit, :cancel
+= semantic_nested_form_for [:admin, @item] do |f|
+  = f.inputs 'Товар' do
+    = f.input :catalog_id, :input_html => { :class => "chosen-input" }, :as => :select, :collection => grouped_options_for_select(grouped_options, @item.catalog.id)
+    /= f.input :catalog_id, :input_html => { :class => "chosen-input" }, :as => :select, :collection => Catalog.all.map {|i| ["#{'-' * i.level} #{i.name}", i.id] }
+    = f.input :name
+    = f.input :description, as: :text, :input_html => { :rows => 10}
+
+
+    .row
+      .col-md-4
+        = f.input :install_hours
+      .col-md-4
+        = f.input :price, :value => (number_with_precision(f.object.price, :precision => 2) || 0)
+      .col-md-4
+        = f.input :old_price
+
+    /= f.inputs :for => @item.generation_items do |g|
+      = g.input :generation_id, :input_html => { :class => "chosen-input" }, :as => :select, :collection => Generation.all.map{|u| ["#{u.auto.name} -- #{u.name}", u.id]}
+      = g.input :dop_price
+
+    table#gi
+      = f.fields_for :generation_items, :wrapper => false do |g|
+        tr.fields
+          td
+            = g.hidden_field :id
+            = g.input :generation_id, :input_html => { :class => "chosen-input" }, :as => :select, :collection => Generation.all.order('auto_id DESC').map{|u| ["#{u.auto.name} -- #{u.name}", u.id]}
+          td
+            = g.input :dop_price
+          td
+            = g.input :_destroy, :as => :boolean
+
+    div style='text-align: center'
+      = f.link_to_add "Добавить поколение", :generation_items, :data => { :target => "#gi > tbody" }, :class => "btn btn-default"
+
+    .clearfix
+    br
+    hr
+    br
+
+    table#properties
+      - if @item.properties.count == 0
+        - @item.properties.build
+      = f.fields_for :properties, :wrapper => false do |ai|
+        tr
+          td = ai.input :name
+          td = ai.input :value
+          td = ai.input :_destroy, :as => :boolean
+
+    div style='text-align: center'
+      = f.link_to_add "Добавить характеристику", :properties, :data => { :target => "#properties > tbody" }, :class => "btn btn-default"
+
+
+  = f.actions

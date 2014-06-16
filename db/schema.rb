@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140604092058) do
+ActiveRecord::Schema.define(version: 20140616173904) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -111,15 +111,64 @@ ActiveRecord::Schema.define(version: 20140604092058) do
     t.decimal  "price",         precision: 8, scale: 2
     t.float    "install_hours"
     t.decimal  "old_price"
+    t.integer  "catalog_id"
   end
 
   create_table "pages", force: true do |t|
     t.string   "title"
     t.text     "intro"
     t.text     "full"
-    t.boolean  "pubished",   default: true
+    t.boolean  "published",  default: true
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "properties", force: true do |t|
+    t.string   "name"
+    t.string   "value"
+    t.integer  "item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "receptions", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "theme"
+    t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sqlite_sp_functions", id: false, force: true do |t|
+    t.text "name"
+    t.text "text"
+  end
+
+# Could not dump table "sqlite_stat1" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+# Could not dump table "sqlite_stat4" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+  create_table "sqlite_vs_links_names", id: false, force: true do |t|
+    t.text "name"
+    t.text "alias"
+  end
+
+  create_table "sqlite_vs_properties", id: false, force: true do |t|
+    t.text "parentType"
+    t.text "parentName"
+    t.text "propertyName"
+    t.text "propertyValue"
+  end
+
+  create_table "sqlite_vsp_diagrams", id: false, force: true do |t|
+    t.text "name"
+    t.text "diadata"
+    t.text "comment"
+    t.text "preview"
   end
 
 end

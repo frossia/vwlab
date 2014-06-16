@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
+  # get 'receptions/create'
+
   get 'pages/index'
 
   get 'pages/show'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
+
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -12,6 +15,7 @@ Rails.application.routes.draw do
   get 'test/index'
   # You can have the root of your site routed with "root"
   root 'catalogs#index'
+  resources :receptions
   resources :items
   resources :pages
   resources :catalogs do

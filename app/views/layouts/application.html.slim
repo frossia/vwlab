@@ -16,9 +16,15 @@ html
 
   body
     .container
+      #notice_message
+        .col-md-12
+          .alert.alert-success
+            button type="button" class="close" data-dismiss="alert" aria-hidden="true" &times;
+            p.t-c
       = render 'partials/header'
       = yield
-    /= render 'partials/footer'
+    = render 'partials/footer'
+    = render 'partials/reception'
     = javascript_include_tag "anijs"
     = javascript_include_tag "anijsscrollreveal"
 

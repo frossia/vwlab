@@ -2,7 +2,7 @@ class Catalog < ActiveRecord::Base
 
   acts_as_nested_set
 
-  has_and_belongs_to_many :items
+  has_many :items
 
   attr_accessible :name, :parent_id
 

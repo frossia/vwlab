@@ -1,0 +1,41 @@
+#reception.modal.fade aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close aria-hidden="true" data-dismiss="modal" type="button"  &times;
+        h4#myModalLabel.modal-title Форма отправки сообщения
+      .modal-body
+        p.t-c: b.notice.text-danger
+        = form_for(@reception, remote: true, :html => { :class => 'form-horizontal', :role => 'form', :style => 'margin-bottom: 0;' }) do |f|
+          .form-group
+            label.col-sm-2.control-label for="reception_email"
+              |Email
+              b.text-danger> *
+            .col-sm-10
+              = f.text_field :email, :class => 'form-control', :placeholder=>"Email"
+
+          .form-group
+            label.col-sm-2.control-label for="reception_name"
+              |Имя
+              b.text-danger> *
+            .col-sm-10
+              = f.text_field :name, :class => 'form-control', :placeholder=>"Ваше имя"
+
+          .form-group
+            label.col-sm-2.control-label for="reception_phone"  Телефон
+            .col-sm-10
+              = f.text_field :phone, :class => 'form-control', :placeholder=>"Телефон"
+
+          .form-group
+            label.col-sm-2.control-label for="reception_message"
+              |Сообщение
+              b.text-danger> *
+            .col-sm-10
+              = f.text_area :message, :class => 'form-control', :placeholder=>"Введите Ваше сообщение..."
+
+          /= show_simple_captcha
+
+          .modal-footer
+            button.btn.btn-default data-dismiss="modal" type="button"  Отмена
+            = f.submit 'ОТПРАВИТЬ', :class => 'btn btn-primary'
+            /button#reception_submit.btn.btn-primary type="button"  ОТПРАВИТЬ

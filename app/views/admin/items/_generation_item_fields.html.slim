@@ -1,0 +1,8 @@
+tr.fields
+  td
+    = f.input :generation_id, :input_html => { :class => "chosen-input" }, :as => :select, :collection => Generation.all.map{|u| ["#{u.auto.name} -- #{u.name}", u.id]}
+  td
+    = f.input :dop_price
+  td
+    = f.input :_destroy, :as => :boolean
+

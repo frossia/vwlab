@@ -6,8 +6,11 @@
       - if session[:items].any?
         - session[:items].each do |item|
           - unless item.nil?
-            - i = Item.find(item)
-            .col-md-3.col-sm-2.col-xs-3
-              a.is_tooltip.thumbnail href='#{item_url(i)}' data-placement="top" data-toggle="tooltip" title=(i.name) type="button"
-                img src="http://lorempixel.com/150/150/transport/#{item}"
+            - unless Item.exists?(:id => item)
+              - session[:items] = []
+            - else
+              - i = Item.find(item)
+              .col-md-3.col-sm-2.col-xs-3
+                a.is_tooltip.thumbnail href='#{item_url(i)}' data-placement="top" data-toggle="tooltip" title=(i.name) type="button"
+                  img src="http://lorempixel.com/150/150/transport/#{item}"
 

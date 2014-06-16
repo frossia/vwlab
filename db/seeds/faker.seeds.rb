@@ -63,7 +63,18 @@
 #   end
 # end
 
-GenerationItem.all.each do |gi|
-  gi.dop_price = rand(500..5000)
-  gi.save
+# GenerationItem.all.each do |gi|
+#   gi.dop_price = rand(500..5000)
+#   gi.save
+# end
+
+Item.all.each do |item|
+  x = rand(1..Catalog.all.count)
+  if Catalog.exists?(x)
+    c = Catalog.find(x)
+    unless c.blank? && c.root
+      puts c.depth
+    end
+  end
+  # item.save
 end

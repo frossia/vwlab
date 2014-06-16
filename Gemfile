@@ -21,6 +21,8 @@ gem 'therubyracer', platforms: :ruby
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+gem 'jquery-ui-rails'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
@@ -50,13 +52,15 @@ gem 'devise'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 
-gem 'formtastic-bootstrap'
+gem 'formtastic', '~> 2.3.0rc3' # Rails 4.1 support
 
-gem 'formtastic', :git => 'https://github.com/justinfrench/formtastic.git'
+gem 'formtastic-bootstrap', :git => 'https://github.com/mjbellantoni/formtastic-bootstrap.git'
 
 gem 'ckeditor'
 
 gem 'carrierwave'
+
+gem 'rmagick'
 
 gem 'mini_magick'
 
@@ -68,9 +72,11 @@ gem 'fancybox2-rails'
 
 gem 'youtube_it'
 
-gem 'best_in_place'
+gem 'best_in_place', github: 'aaronchi/best_in_place'
 
-gem 'simple_captcha', :git => 'git://github.com/galetahub/simple-captcha.git'
+# gem 'simple_captcha2', require: 'simple_captcha'
+
+gem 'negative_captcha'
 
 gem 'capistrano', '~> 2.15.5'
 
@@ -82,14 +88,13 @@ gem 'russian', '~> 0.6.0'
 
 gem "rails_config"
 
-# gem 'simple_form'
-
 gem 'awesome_nested_set', :git => 'https://github.com/collectiveidea/awesome_nested_set.git', :tag => 'v3.0.0.rc.5'
 
 gem 'has_scope'
 
 gem 'faker'
 
+gem 'chosen-rails'
 
 
 

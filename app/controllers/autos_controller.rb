@@ -8,7 +8,7 @@ class AutosController < ApplicationController
     @auto = Auto.find(params[:id])
     unless params[:catalog_id].blank?
       # @auto_items = Item.includes(:catalogs).where('catalogs.id' => params[:catalog_id])
-      @auto_items = Item.joins(:catalogs, :generations).where('catalogs.id' => params[:catalog_id], 'generations.auto_id' => params[:id])
+      @auto_items = Item.includes(:generations).where('catalog_id' => params[:catalog_id], 'generations.auto_id' => params[:id])
       @cat_name = Catalog.find(params[:catalog_id])
     else
       @auto_items = Item.includes(:generations).where('generations.auto_id' => @auto.id)
