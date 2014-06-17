@@ -47,14 +47,6 @@ jQuery ->
 
 #---------------------------------------------------------------------------------------------
 
-  $('#accordion').on "show.bs.collapse", ->
-    target = $(event.target)
-    target.children('i').removeClass('fa fa-plus-square-o')
-    target.children('i').addClass('fa fa-minus-square-o')
-  $('#accordion').on "hide.bs.collapse", ->
-    target = $(event.target)
-    target.children('i').removeClass('fa fa-minus-square-o')
-    target.children('i').addClass('fa fa-plus-square-o')
 
   $('#collaps_in').click ->
     $('[data-collapspanel]').collapse('show')
