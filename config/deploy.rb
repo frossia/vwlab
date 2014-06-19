@@ -144,23 +144,17 @@ end
 
 after "deploy:update_code", 'db:up'
 
+# -----------------------------------------------------------------
 
 task :git_up do
   run_locally('rake db:seed:version')
   run_locally('git add --all .')
   run_locally('git commit -m ' + '"' + Time.now.to_s + '"')
   run_locally('git push')
-
-
-  # run_local("echo hello")
-  # run_local("abcdef")
-  # run_local("echo 'not run'")
 end
 
-# def run_local(cmd)
-#   system cmd
-#   if($?.exitstatus != 0) then
-#     puts 'exit code: ' + $?.exitstatus.to_s
-#     exit
-#   end
-# end
+task :app_deploy do
+  git_up
+  deploy
+  db.up
+end

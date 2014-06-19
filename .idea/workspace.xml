@@ -152,8 +152,8 @@
           <file leaf-file-name="deploy.rb" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/config/deploy.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.48827294" vertical-offset="2111" max-vertical-offset="2640">
-                  <caret line="151" column="23" selection-start-line="151" selection-start-column="23" selection-end-line="151" selection-end-column="23" />
+                <state vertical-scroll-proportion="0.84008527" vertical-offset="2006" max-vertical-offset="2565">
+                  <caret line="155" column="5" selection-start-line="155" selection-start-column="5" selection-end-line="155" selection-end-column="5" />
                   <folding />
                 </state>
               </provider>
@@ -1478,8 +1478,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/deploy.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48827294" vertical-offset="2111" max-vertical-offset="2640">
-          <caret line="151" column="23" selection-start-line="151" selection-start-column="23" selection-end-line="151" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.84008527" vertical-offset="2006" max-vertical-offset="2565">
+          <caret line="155" column="5" selection-start-line="155" selection-start-column="5" selection-end-line="155" selection-end-column="5" />
           <folding />
         </state>
       </provider>
