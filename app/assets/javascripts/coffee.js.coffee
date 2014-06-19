@@ -47,15 +47,22 @@ jQuery ->
 
 #---------------------------------------------------------------------------------------------
 
+  $('#accordion').collapse ->
+    toggle: false
+
+  toggleChevron = (e) ->
+    $(e.target).prev("#header-cat").find("i.indicator").toggleClass "fa-plus-square-o fa-minus-square-o"
+  $("#accordion").on "hidden.bs.collapse", toggleChevron
+  $("#accordion").on "shown.bs.collapse", toggleChevron
+
 
   $('#collaps_in').click ->
     $('[data-collapspanel]').collapse('show')
-    $('[data-toggle="collapse"]').children('i').removeClass('fa fa-plus-square-o')
-    $('[data-toggle="collapse"]').children('i').addClass('fa fa-minus-square-o')
+    $('#header-cat').attr('data-toggle', '')
   $('#collaps').click ->
     $('[data-collapspanel]').collapse('hide')
-    $('[data-toggle="collapse"]').children('i').removeClass('fa fa-minus-square-o')
-    $('[data-toggle="collapse"]').children('i').addClass('fa fa-plus-square-o')
+    $('#header-cat').attr('data-toggle', 'collapse')
+#    toggleChevron
 
 #---------------------------------------------------------------------------------------------
 

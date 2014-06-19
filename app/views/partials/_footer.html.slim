@@ -12,8 +12,12 @@ br
               td
                 a.menu-link href='#{page_url(page)}' = page.title
       .col-md-5
-        h3.pull-right style='margin-top: 13px;'
-          span> style='font-size: 15px'
-            span.fa.fa-phone.fa-lg>
-            |+7 (967)
-          |121-5-212
+        .pull-right
+          h3 style='margin-top: 13px;'
+            span> style='font-size: 15px'
+              span.fa.fa-phone.fa-lg>
+              |+7 (967)
+            |121-5-212
+          h6.t-r style='margin: 0': small
+            'Обновление системы от
+            = l @settings['version']['date']

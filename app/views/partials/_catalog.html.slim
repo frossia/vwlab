@@ -34,14 +34,14 @@
             - children = Catalog.includes(items: :generations).where('parent_id' => cat.id, 'generations.auto_id' => params[:id])
             - if children.any?
               h5#header-cat data-toggle="collapse" data-parent="#accordion" href="#collapse-#{cat.id}"
-                i.fa.fa-minus-square-o> style='font-size: 13px'
-                = cat.name
+                i.indicator.fa.fa-minus-square-o> style='font-size: 13px'
+                =' cat.name
 
           - else
             - children = Catalog.includes(items: :generations).where('parent_id' => cat.id)
             - if children.any?
               h5#header-cat data-toggle="collapse" data-parent="#accordion" href="#collapse-#{cat.id}"
-                i.fa.fa-plus-square-o> style='font-size: 13px'
+                i.indicator.fa.fa-plus-square-o> style='font-size: 13px'
                 =' cat.name
 
 

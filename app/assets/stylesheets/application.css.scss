@@ -193,6 +193,7 @@ a.catalog_link {
   color: #666666;
   text-decoration: none;
   font-size: .9em;
+  text-shadow: 0 1px 0px #fff;
   &:hover {
     color: #2b5276;
   }
@@ -263,7 +264,7 @@ a.catalog_link {
 #catalog {
 
   background: url('http://subtlepatterns.com/patterns/sos.png');
-
+  text-shadow: 0 1px #fff;
   @include box-shadow(inset 0 0 10px #999);
   border-radius: 5px;
 

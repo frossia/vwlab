@@ -48,4 +48,8 @@ module ApplicationHelper
     go
   end
 
+  def settings_save
+    File.open("config/settings.yml", 'w') { |f| YAML.dump(@settings, f) }
+  end
+
 end

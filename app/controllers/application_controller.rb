@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   before_filter :vars
 
   def vars
+    @settings = YAML.load_file "config/settings.yml"
     @auto_brands = Brand.all
     @reception   = Reception.new
     I18n.locale = params[:locale] || I18n.default_locale
