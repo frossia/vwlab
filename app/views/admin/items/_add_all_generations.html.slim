@@ -1,0 +1,14 @@
+- generations.each do |generation|
+  /- item.generation_items.build
+  = f.semantic_fields_for :generation_items, :wrapper => false do |g|
+    /- if h.object.new_record?
+    tr.fields
+      td
+        = g.hidden_field :id
+        = g.input :generation_id, :input_html => { :class => "chosen-input" }, :as => :select, :collection => @generations.map{|u| ["#{u.auto.name} -- #{u.name}", u.id]}, :selected => generation.id
+      td
+        = g.input :install_hours
+      td
+        = g.input :dop_price
+      td
+        = g.input :_destroy, :as => :boolean, :input_html => { :class => "destroy_generation" }

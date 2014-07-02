@@ -1,13 +1,15 @@
 class CatalogsController < ApplicationController
 
-  def index
-    @catalog_all = Catalog.all.order(:lft).where('items.any', '1')
+  include TheSortableTreeController::Rebuild
 
-    @catalog_items = Item.limit(10)
+  def index
+    @catalogs_all = Catalog.nested_set
+
+    @catalog_items = Item.limit(10).order('created_at DESC')
   end
 
   def show
-    @catalog_all = Catalog.all.order(:lft)
+    @catalogs_all = Catalog.nested_set
 
     @catalog_items = Catalog.find(params[:id]).items.page(params[:page])
   end

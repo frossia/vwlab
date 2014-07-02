@@ -2,9 +2,11 @@
 
   .col-md-4
 
-    = render partial: 'partials/catalog', locals: {xxx: @catalog_all, catalog_index: true}
+    = render partial: 'partials/catalog', locals: {xxx: @catalogs_all, catalog_index: true}
 
     = render partial: 'partials/widget_last_viewed', locals: {xxx: @catalog_items, catalog_index: true}
+
+    = render partial: 'partials/favorites'
 
   = render partial: 'partials/items', locals: {xxx: @catalog_items, catalog_index: true, paginating: true}
 

@@ -2,7 +2,9 @@ ActiveAdmin.register Auto do
 
   actions :all, except: [:show]
 
-  scope :all, :default => true
+  scope :all, :default => true do
+    Auto.order('brand_id ASC, id ASC')
+  end
   # scope :vw do |auto|
   #   auto.includes(:brand).where( :id => '1' ).order('created_at DESC')
   # end
@@ -20,19 +22,17 @@ ActiveAdmin.register Auto do
   end
 
 
-  # index do
-  #   selectable_column
-  #   column :id
-  #   column :name
-  #   column :brand
-  #   actions
-  # end
+  index do
+    selectable_column
+    column :name
+    column :brand
+    actions
+  end
 
   form do |f|
     f.inputs 'Autos' do
       f.input :brand
       f.input :name
-      f.input :manhour
       f.input :car_image
       # f.input :generations
       # f.input :items, :input_html => { :size => 20}

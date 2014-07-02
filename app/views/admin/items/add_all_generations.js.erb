@@ -1,0 +1,3 @@
+'<%= semantic_form_for @item do |ff|  %>'
+$('#gi').html('<%=j render partial: 'admin/items/add_all_generations', :locals => {generations:@generations, item:@item, f:ff }%>');
+'<% end %>'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140616173904) do
+ActiveRecord::Schema.define(version: 20140701104900) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20140616173904) do
     t.integer  "lft"
     t.integer  "rgt"
     t.integer  "depth"
+    t.integer  "position"
   end
 
   create_table "catalogs_items", force: true do |t|
@@ -93,12 +94,20 @@ ActiveRecord::Schema.define(version: 20140616173904) do
     t.integer "generation_id"
     t.integer "item_id"
     t.decimal "dop_price"
+    t.float   "install_hours", default: 0.0, null: false
   end
 
   create_table "generations", force: true do |t|
     t.string   "name"
-    t.float    "manhour"
+    t.float    "manhour",    default: 0.0, null: false
     t.integer  "auto_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "item_attachments", force: true do |t|
+    t.integer  "item_id"
+    t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

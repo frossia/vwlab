@@ -1,11 +1,16 @@
 class PagesController < ApplicationController
 
   def index
-    @pages = Page.all
+    redirect_to :root
   end
 
   def show
-    @page = Page.find(params[:id])
+    if Page.exists?(params[:id]) && Page.find(params[:id]).published
+      @catalogs_all = Catalog.nested_set
+      @page = Page.find(params[:id])
+    else
+      redirect_to :root
+    end
   end
 
 end

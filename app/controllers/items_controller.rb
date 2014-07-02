@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :authenticate_admin_user!, except: [:show, :index]
+  before_action :authenticate_admin_user!, only: [:new, :update, :create, :remove_image]
   before_filter :viewed_items
 
   def index
@@ -40,6 +40,42 @@ class ItemsController < ApplicationController
     end
   end
 
+  def add_to_favorites
+    session[:favorite_items] ||= []
+
+    if !session[:favorite_items].include?(params[:item].to_i)
+      @item = Item.find(params[:item])
+      session[:favorite_items] << params[:item].to_i
+    end
+
+    respond_to do |format|
+      format.json{
+        if @item
+          render json: @item.to_json
+        end
+      }
+    end
+  end
+
+  def remove_from_favorites
+    session[:favorite_items].delete(params[:item].to_i)
+    respond_to do |format|
+      format.json{
+        render :json =>  session[:favorite_items].to_json
+      }
+    end
+  end
+
+  def clear_favorites
+    session[:favorite_items] = []
+    redirect_to :root
+  end
+
+  def remove_image
+    image = ItemAttachment.find(params[:image_id])
+    image
+  end
+
   def update
     sleep 1.5
     @item = Item.find(params[:id])
@@ -68,6 +104,7 @@ class ItemsController < ApplicationController
       end
     end
   end
+
 
 
 end

@@ -4,12 +4,21 @@
 #= require best_in_place
 #= require active_admin/base
 #= require jquery_nested_form
+#= require jquery.ui.nestedSortable
+#= require sortable_tree/initializer
 
 jQuery ->
   $('.best_in_place').best_in_place()
   $('.chosen-input').chosen
     allow_single_deselect: false
     no_results_text: 'Ничего не найдено...'
+
+  $('#select_all_generations').click ->
+    $('.destroy_generation').prop("checked", true)
+  $('#deselect_all_generations').click ->
+    $('.destroy_generation').prop("checked", false)
+
+
 
 
 #window.NestedFormEvents::insertFields = (content, assoc, link) ->

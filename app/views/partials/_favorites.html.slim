@@ -1,0 +1,16 @@
+hr
+h4 Избранное
+#favorites
+  table
+    - if session[:favorite_items].blank?
+      tr#nil-tr
+        td
+          p.t-c: small: small Пока Вы ничго не добавляли...
+
+    - else
+      - session[:favorite_items].try(:each) do |item|
+        - item = Item.find(item)
+        tr id='item_row-#{item.id}' valign="middle"
+          td: a.remove_from_favorites remote='true' href='javascript:void(0)' data-item='#{item.id}': img.small-img src="http://lorempixel.com/30/30/transport/#{item.id}"
+          td: small: a href='#{item_path(item)}': small = item.name
+

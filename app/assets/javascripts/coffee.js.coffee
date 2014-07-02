@@ -31,6 +31,33 @@ jQuery ->
         $("#notice_message").delay(5800).fadeOut()
     })
 
+#---------------------------------------------------------------------------------------------
+
+  $('#show_prices').click ->
+    el = $("#prices")
+    if el.data('shown') == true
+      curHeight = el.height()
+      autoHeight = 200
+      height: autoHeight
+      $(this).find('i').removeClass('fa fa-chevron-up')
+      $(this).find('i').addClass('fa fa-chevron-down')
+      el.height(curHeight).animate
+        height: autoHeight
+      , 1000
+      el.data('shown', false)
+      console.log el.data('shown')
+
+    else
+      curHeight = el.height()
+      autoHeight = el.css("height", "auto").height()
+      $(this).find('i').removeClass('fa fa-chevron-down')
+      $(this).find('i').addClass('fa fa-chevron-up')
+      el.height(curHeight).animate
+        height: autoHeight + 20
+      , 1000
+      el.data('shown', true)
+      console.log el.data('shown')
+
 
 #---------------------------------------------------------------------------------------------
 
@@ -43,6 +70,43 @@ jQuery ->
 
   ).on "ajax:error", (e, xhr, settings, exception) ->
     $(".modal-body .notice").html("Ошибка! Проверьте правильность заполнения всех полей.")
+
+
+#---------------------------------------------------------------------------------------------
+
+  $('.add_to_favorites').click ->
+    $.ajax({
+      type: "GET",
+      url: "/items/add_to_favorites",
+      data: {item: $(this).data('item')},
+      contentType: 'json',
+      dataType: 'json',
+
+      success: (data) ->
+        console.log data
+        $('#nil-tr').fadeOut()
+        $('#favorites table').append("<tr id='item_row-#{data.id}' valign='middle'><td><a class='remove_from_favorites' data-item='#{data.id}' href='javascript:void(0)' remote='true'><img class='small-img' src='http://lorempixel.com/30/30/transport/112'></a></td><td><small><a href='/items/#{data.id}'><small>#{data.name}</small></a></small></td></tr>")
+#        $('#favorites').append("<tr valign='middle'><td><a class='remove_from_favorites' data-item='112' href='javascript:void(0)' remote='true'><img class='small-img' src='http://lorempixel.com/30/30/transport/112'></a></td><td><a class='btn btn-link muted_link' href='#'><small>громкая связь в автомобиль Jabra Drive, универсальная</small></a></td></tr>")
+    })
+
+
+  $("body").on "click", ".remove_from_favorites", (e) ->
+    parent = $(this).closest('tr')
+    $.ajax({
+      type: "GET",
+      url: "/items/remove_from_favorites",
+      data: {item: $(this).data('item')},
+      contentType: 'json',
+      dataType: 'json',
+
+      success: (data) ->
+        parent.fadeOut()
+        if data.length == 0
+          console.log data.length
+          $('#nil-tr').fadeIn()
+
+    })
+
 
 
 #---------------------------------------------------------------------------------------------
@@ -137,3 +201,26 @@ jQuery ->
             $('<h5/>', 'class': 't-c', text: 'Ничего не найдено...')
           )
       })
+
+#---------------------------------------------------------------------------------------------
+
+  $("a.fancy-group").attr("rel", "gallery").fancybox
+    helpers:
+      thumbs:
+        width: 60
+        height: 60
+        source: (current) ->
+          $(current.element).data "thumbnail"
+
+    openEffect: "elastic"
+    closeEffect: "elastic"
+    nextEffect: "elastic"
+    loop: false
+    nextSpeed: 300
+    prevSpeed: 300
+    scrolling: "visible"
+    closeBtn: false
+    mouseWheel: true
+    overlayShow: true
+
+#---------------------------------------------------------------------------------------------

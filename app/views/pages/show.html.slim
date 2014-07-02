@@ -2,20 +2,24 @@
 
   .col-md-4
 
-    = render partial: 'partials/catalog', locals: {xxx: @item_catalog, catalog_index: true}
+    = render partial: 'partials/catalog', locals: {xxx: @catalogs_all, catalog_index: true}
     = render partial: 'partials/widget_last_viewed'
 
   .col-md-8
-    - if admin_user_signed_in?
-      h4 = best_in_place @page, :title, :type => :input, :path => [:admin, @page]
-    - else
-      h4.pull-left = @page.title
 
     - if admin_user_signed_in?
+      h4.pull-left
+        =' best_in_place @page, :title, :type => :input, :path => [:admin, @page]
+        span: sub-header.text-muted> #{@page.published ? '(опубликовано)' : '(НЕ ОПУБЛИКОВАНО!!!)'}
+
       a.pull-right href='#{edit_admin_page_url(@page)}'
         .btn.btn-danger.btn-xs.pull-right Редактировать
+      .clearfix
+      hr
+      p.t-j = @page.full
 
-    .clearfix
-    hr
-
-    p.t-j = @page.full
+    - else
+      h4.pull-left = @page.title
+      .clearfix
+      hr
+      p.t-j = @page.full

@@ -29,8 +29,11 @@
         .row
           .col-md-9.col-lg-9.col-xs-12
             .pull-left
-              a.thumbnail.item-img href='#{item_url(item)}'
-                img src="http://lorempixel.com/100/100/transport/#{item.id}"
+              - if item.item_attachments.any?
+                a.thumbnail.item-img href='#{item_url(item)}'
+                  = image_tag(item.item_attachments.first.image.small_thumb)
+
+
             a href='#{item_url(item)}'
               b = item.name
             br
@@ -44,32 +47,44 @@
                 /hr.one_border.min
                 small style='text-decoration:line-through; color: #ae372e; '
                   = number_to_currency(item.old_price, locale: :ru)
-
-
+            a.add_to_favorites.btn.btn-link.btn-xs.muted_link.pull-right data-item='#{item.id}'
+              i.fa.fa-star>
+              | В избранное
 
         .row
           .col-md-12
-            small
-              | Товар для:
-              - if item.generations.any?
-                - x = ''
-                - item.generations.order('auto_id').each do |g|
-                  - if g.auto.name != x
-                    - x = g.auto.name
-                    a#item_autos.is_popover_auto href='#{auto_url(g.auto)}' data-trigger='hover' data-placement="top" data-toggle="popover" data-container='body' data-content="#{get_generations_html(item.id, g.auto.id).html_safe}" type="button"
-                      button.btn.btn-default.btn-xs
-                        =' image_tag(g.auto.brand.image, style:"margin: -2 0 0 0;")
-                        = x
+            table.custom
+              tr
+                td
+                  small: small Товар для:
+                  - if item.generations.any?
+                    - auto_name = ''
+                    - x = 0
+                    - item.generations.order('auto_id').each do |g|
+                      - if g.auto.name != auto_name && x < 5
+                        - auto_name = g.auto.name
+                        a#item_autos.is_popover_auto.small href='#{auto_url(g.auto)}' data-trigger='hover' data-placement="top" data-toggle="popover" data-container='body' data-content="#{get_generations_html(item.id, g.auto.id).html_safe}" type="button"
+                          button.btn.btn-default.btn-xs
+                            =' image_tag(g.auto.brand.image, style:"margin: -2 0 0 0;")
+                            = auto_name
+                            - x += 1
+                      - if x == 5
+                        - x = 8
+                        small>: small>: a.btn.btn-link.btn-xs.muted_link href='#{item_url(item)}' Всего #{item.generations.count} #{Russian::pluralize(item.generations.count, 'модель', 'модели', 'моделей')}
 
-            - unless item.catalog.blank?
-              - if controller_name = 'autos' && params[:id]
-                a#item_autos.btn.btn-link.btn-xs.muted_link.pull-right href='#{catalog_auto_url(item.catalog, params[:id])}'
-                  i.fa.fa-tags>
-                  = item.catalog.name
-              - else
-                a#item_autos.btn.btn-link.btn-xs.muted_link.pull-right href='#{catalog_url(item.catalog.id)}'
-                  i.fa.fa-tags>
-                  = item.catalog.name
+
+
+                td
+                  - unless item.catalog.blank?
+                    - if params[:controller] == 'autos'
+                      a#item_autos.btn.btn-link.btn-xs.muted_link.pull-right href='#{catalog_auto_url(item.catalog, params[:id])}'
+                        i.fa.fa-tags>
+                        = item.catalog.name
+                    - elsif params[:controller] == 'catalogs'
+                      a#item_autos.btn.btn-link.btn-xs.muted_link.pull-right href='#{catalog_url(item.catalog.id)}'
+                        i.fa.fa-tags>
+                        = item.catalog.name
+                        |"asdasd
 
 
         - if admin_user_signed_in?

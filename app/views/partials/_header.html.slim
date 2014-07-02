@@ -16,8 +16,9 @@ br
             td
               a.menu-link href='#{root_url}' Главная
             - Page.all.each do |page|
-              td
-                a.menu-link href='#{page_url(page)}' = page.title
+              - if page.published
+                td
+                  a.menu-link href='#{page_url(page)}' = page.title
 
     hr.min
 

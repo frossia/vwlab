@@ -6,9 +6,31 @@ Rails.application.routes.draw do
 
   get 'pages/show'
 
+  get 'items/add_to_favorites'
+  get 'items/remove_from_favorites'
+  get 'items/clear_favorites'
+  get 'items/remove_image'
+  resources :item_attachments
+
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   ActiveAdmin.routes(self)
+
+  namespace :admin do
+    resources :items do
+      collection do
+        get :add_all_generations
+      end
+    end
+
+    resources :catalogs do
+      collection do
+        get :manage
+        post :rebuild
+      end
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -22,7 +44,7 @@ Rails.application.routes.draw do
     collection do
       resources :autos
     end
-      resources :autos
+    resources :autos
   end
 
   # Example of regular route:

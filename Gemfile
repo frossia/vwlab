@@ -60,7 +60,7 @@ gem 'ckeditor'
 
 gem 'carrierwave'
 
-gem 'rmagick'
+gem 'rmagick', :require => 'RMagick'
 
 gem 'mini_magick'
 
@@ -96,5 +96,4 @@ gem 'faker'
 
 gem 'chosen-rails'
 
-
-
+gem "the_sortable_tree", "~> 2.5.0"

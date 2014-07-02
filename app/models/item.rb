@@ -1,5 +1,6 @@
 class Item < ActiveRecord::Base
 
+  has_many :item_attachments
   has_many :properties
   has_many :generation_items
   has_many :generations, through: :generation_items
@@ -7,10 +8,13 @@ class Item < ActiveRecord::Base
 
   accepts_nested_attributes_for :properties, :allow_destroy => true
   accepts_nested_attributes_for :generations
+  accepts_nested_attributes_for :item_attachments, :allow_destroy => true
   accepts_nested_attributes_for :generation_items, :allow_destroy => true
-  # accepts_nested_attributes_for :catalog
 
-  attr_accessible :name, :description, :install_hours, :price, :old_price, :partial_price, :catalog_id, :generation_ids, :generation_items_attributes, :property_ids, :properties_attributes
+  attr_accessible :name, :description, :install_hours, :price, :old_price, :partial_price, :catalog_id, :generation_ids, :generation_items_attributes, :property_ids, :properties_attributes, :item_attachments_attributes
+
+  # validates :catalog_id, :name, :
+
 
   scope :without_category, {
       :joins      => "LEFT JOIN catalogs_items ON items.id = catalogs_items.item_id",
@@ -21,7 +25,6 @@ class Item < ActiveRecord::Base
     unless search.blank?
       sss = search
       Item.where('LOWER(name) LIKE ?', "%#{sss}%") | where('LOWER(description) LIKE ?', "%#{sss}%") | joins(:generations).where('LOWER(generations.name) LIKE ?', "%#{sss}%")
-      # find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
     else
       all
     end

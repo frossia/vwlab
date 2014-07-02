@@ -2,6 +2,10 @@ ActiveAdmin.register Generation do
 
   actions :all, except: [:show]
 
+  scope :all, :default => true do
+    Generation.order('auto_id ASC')
+  end
+
   index do
     selectable_column
     column :name do |i|

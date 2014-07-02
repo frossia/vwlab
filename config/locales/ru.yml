@@ -199,6 +199,7 @@ ru:
         old_price: "Старая цена"
       generation_item:
         generation_id: "Поколение"
+        install_hours: "Время установки"
         dop_price: "Дополнительная стоимость"
         _destroy: "Удалить"
       property:

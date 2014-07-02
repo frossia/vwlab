@@ -8,7 +8,16 @@
     .row
       .col-md-9.col-lg-9.col-xs-12
         .pull-left
-          img.thumbnail.item-img src="http://lorempixel.com/150/150/transport/#{@item.id}"
+          - if @item.item_attachments.any?
+            a.thumbnail.item-img href='#{item_url(@item)}'
+              = image_tag(@item.item_attachments.first.image.thumb)
+            table.thumb-images
+              - @item.item_attachments.in_groups_of(4, false) do |img|
+                tr
+                  - img.each do |i|
+                    td
+                      a.fancy-group href='#{i.image}' data-thumbnail='#{i.image.small_thumb}'
+                        = image_tag(i.image.small_thumb, height: 40)
         b = @item.name
         br
         small = @item.description
@@ -19,19 +28,20 @@
       .col-md-12
         .row
           .col-md-7
-            h5 Характеристики
-            table#specification
-              - @item.properties.each do |prop|
-                tr
-                  td.spec-label: span: i = prop.name
-                  td.value: span: i = prop.value
+            - if @item.properties.any?
+              h5 Характеристики
+              table#specification
+                - @item.properties.each do |prop|
+                  tr
+                    td.spec-label: span: i = prop.name
+                    td.value: span: i = prop.value
 
 
 
 
 
           .col-md-5
-            #prices
+            #prices data-shown='false'
               h5 style='margin:0 0 10px 0' Цена с установкой
               hr.min style='border-top: 1px solid #CFCFCF; border-bottom: 1px solid #fff; margin: 0 -11px 5px -11px;'
               table
@@ -39,7 +49,7 @@
                 - @item.generations.order('auto_id').each do |g|
                   - if g.auto.name != x
                     - x = g.auto.name
-                    tr
+                    tr style='border-bottom: solid 5px transparent; border-top: solid 5px transparent;'
                       th
                         span>
                           = image_tag(g.auto.brand.image)
@@ -51,16 +61,22 @@
                       td.spec-label: small: b: i
                         = xxx.generation.name
                       td.value.t-r: small: i
-                        =' number_to_currency(@item.price + @item.install_hours * g.manhour, locale: :ru)
+                        /= @item.install_hours
+                        /= g.manhour
+                        /- unless @item.price.nil? || @item.install_hours.nil? || g.manhour.nil?
+                        =' number_to_currency(@item.price + xxx.install_hours * g.manhour, locale: :ru)
                     - if xxx.dop_price?
-                      tr
+                      tr style='border-bottom: solid 10px transparent;'
                         td: small: small Доп. оборудование
                         td.t-r.value: small: small: i = '+ ' + number_to_currency(xxx.dop_price, locale: :ru)
-                      tr.dop
+                      /tr.dop
                         td
                         td.t-r: small: small
                           hr.min
-                          = number_to_currency(xxx.dop_price + @item.price + @item.install_hours * g.manhour, locale: :ru)
+                          - unless @item.price.nil? || @item.install_hours.nil? || g.manhour.nil?
+                            = number_to_currency(xxx.dop_price + @item.price + @item.install_hours * g.manhour, locale: :ru)
 
+            a#show_prices href="javascript:void(0)"
+              i.fa.fa-chevron-down
 
 

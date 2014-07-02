@@ -6,6 +6,9 @@
 //
 // For example, to change the sidebar width:
 // $sidebar-width: 242px;
+//= require tree
+//= require sortable_tree
+//= require nested_options
 
 // Active Admin's got SASS!
 @import "active_admin/mixins";
@@ -44,8 +47,11 @@
   margin-bottom: 15px;
 }
 
-.formtastic .input {
+.formtastic .input, fieldset.inputs {
   overflow:visible;
+}
+.formtastic .inputs {
+  overflow: visible;
 }
 
 
@@ -77,4 +83,38 @@ fieldset.action, .formtastic .actions {
     display: block;
     margin: 0 auto;
   }
+}
+
+label.control-label {
+  margin-right: 10px;
+}
+
+table .form-group .input {
+  margin-bottom: 0;
+  td {
+    valign: middle;
+  }
+}
+
+table.images {
+  width: auto;
+  td {
+    padding: 5px;
+  }
+}
+
+.t-l {
+  text-align: left;
+}
+.t-r {
+  text-align: right;
+}
+.t-c {
+  text-align: center;
+}
+.t-j {
+  text-align: justify;
+}
+.f-i {
+  font-style: italic;
 }

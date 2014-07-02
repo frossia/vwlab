@@ -140,6 +140,10 @@ namespace :db do
     run_locally("rsync -ar --delete --stats -v hosting_mossaburovo@phosphorus.locum.ru:~/projects/vwlab/current/public/uploads/ ~/projects/vwlab/public/uploads/")
   end
 
+  task :files_up do
+    upload("/Users/Admin/projects/vwlab/public/uploads", "#{current_path}/public/uploads", :via=> :scp, :recursive => true)
+  end
+
 end
 
 after "deploy:update_code", 'db:up'
@@ -155,6 +159,6 @@ end
 
 task :app_deploy do
   git_up
-  deploy
+  run_locally('cap deploy')
   db.up
 end
