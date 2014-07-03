@@ -56,7 +56,7 @@ gem 'formtastic', '~> 2.3.0rc3' # Rails 4.1 support
 
 gem 'formtastic-bootstrap', :git => 'https://github.com/mjbellantoni/formtastic-bootstrap.git'
 
-gem 'ckeditor'
+# gem 'ckeditor'
 
 gem 'carrierwave'
 

@@ -144,6 +144,10 @@ namespace :db do
     upload("/Users/Admin/projects/vwlab/public/uploads", "#{current_path}/public/uploads", :via=> :scp, :recursive => true)
   end
 
+  task :duble do
+    run_locally('cp db/development.sqlite3 db/production.sqlite3')
+  end
+
 end
 
 after "deploy:update_code", 'db:up'

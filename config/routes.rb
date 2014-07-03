@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get 'items/add_to_favorites'
   get 'items/remove_from_favorites'
   get 'items/clear_favorites'
-  get 'items/remove_image'
   resources :item_attachments
 
   devise_for :admin_users, ActiveAdmin::Devise.config

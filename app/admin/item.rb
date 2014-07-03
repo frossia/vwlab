@@ -1,6 +1,7 @@
 ActiveAdmin.register Item do
 
   # default_scope -> { joins('autos').includes(:auto) }
+  actions :all, except: [:show]
 
   scope :all, :default => true
 
@@ -9,6 +10,12 @@ ActiveAdmin.register Item do
   end
 
   controller do
+    before_filter :remove_favorites, only: :destroy
+
+    def remove_favorites
+      session[:favorite_items].delete(params[:id].to_i)
+    end
+
     def scoped_collection
       Item.includes(generations: :auto)
     end
@@ -28,7 +35,6 @@ ActiveAdmin.register Item do
     end
   end
 
-  actions :all, except: [:show]
 
   form :partial => "form"
 

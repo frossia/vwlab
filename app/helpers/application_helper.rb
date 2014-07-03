@@ -42,7 +42,7 @@ module ApplicationHelper
     go = []
     catalog.each do |cat|
       if cat.depth == 0
-        go << [cat.name, cat.children.map { |i| ["#{i.name}", i.id] }]
+        go << [cat.name, cat.descendants.map { |i| ["#{i.name}", i.id] }]
       end
     end
     go

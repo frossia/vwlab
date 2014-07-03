@@ -1,0 +1,67 @@
+/* line 1, /Users/Admin/.rvm/gems/ruby-2.0.0-p247/gems/the_sortable_tree-2.5.0/app/assets/stylesheets/nested_options.css.scss */
+.nested_options {
+  padding: 3px;
+  font-size: 18px;
+  font-family: Arial;
+  border: 1px solid gray;
+}
+/* line 7, /Users/Admin/.rvm/gems/ruby-2.0.0-p247/gems/the_sortable_tree-2.5.0/app/assets/stylesheets/nested_options.css.scss */
+.nested_options option {
+  color: black;
+  padding: 3px;
+}
+/* line 9, /Users/Admin/.rvm/gems/ruby-2.0.0-p247/gems/the_sortable_tree-2.5.0/app/assets/stylesheets/nested_options.css.scss */
+.nested_options option.selected {
+  font-weight: bold;
+  color: red;
+}
+/* line 13, /Users/Admin/.rvm/gems/ruby-2.0.0-p247/gems/the_sortable_tree-2.5.0/app/assets/stylesheets/nested_options.css.scss */
+.nested_options .l_1 {
+  padding-left: 0px;
+  font-size: 90%;
+}
+/* line 13, /Users/Admin/.rvm/gems/ruby-2.0.0-p247/gems/the_sortable_tree-2.5.0/app/assets/stylesheets/nested_options.css.scss */
+.nested_options .l_2 {
+  padding-left: 15px;
+  font-size: 80%;
+}
+/* line 20, /Users/Admin/.rvm/gems/ruby-2.0.0-p247/gems/the_sortable_tree-2.5.0/app/assets/stylesheets/nested_options.css.scss */
+.nested_options .l_3 {
+  padding-left: 30px;
+  font-size: 70%;
+}
+/* line 20, /Users/Admin/.rvm/gems/ruby-2.0.0-p247/gems/the_sortable_tree-2.5.0/app/assets/stylesheets/nested_options.css.scss */
+.nested_options .l_4 {
+  padding-left: 45px;
+  font-size: 70%;
+}
+/* line 20, /Users/Admin/.rvm/gems/ruby-2.0.0-p247/gems/the_sortable_tree-2.5.0/app/assets/stylesheets/nested_options.css.scss */
+.nested_options .l_5 {
+  padding-left: 60px;
+  font-size: 70%;
+}
+/* line 20, /Users/Admin/.rvm/gems/ruby-2.0.0-p247/gems/the_sortable_tree-2.5.0/app/assets/stylesheets/nested_options.css.scss */
+.nested_options .l_6 {
+  padding-left: 75px;
+  font-size: 70%;
+}
+/* line 20, /Users/Admin/.rvm/gems/ruby-2.0.0-p247/gems/the_sortable_tree-2.5.0/app/assets/stylesheets/nested_options.css.scss */
+.nested_options .l_7 {
+  padding-left: 90px;
+  font-size: 70%;
+}
+/* line 20, /Users/Admin/.rvm/gems/ruby-2.0.0-p247/gems/the_sortable_tree-2.5.0/app/assets/stylesheets/nested_options.css.scss */
+.nested_options .l_8 {
+  padding-left: 105px;
+  font-size: 70%;
+}
+/* line 20, /Users/Admin/.rvm/gems/ruby-2.0.0-p247/gems/the_sortable_tree-2.5.0/app/assets/stylesheets/nested_options.css.scss */
+.nested_options .l_9 {
+  padding-left: 120px;
+  font-size: 70%;
+}
+/* line 20, /Users/Admin/.rvm/gems/ruby-2.0.0-p247/gems/the_sortable_tree-2.5.0/app/assets/stylesheets/nested_options.css.scss */
+.nested_options .l_10 {
+  padding-left: 135px;
+  font-size: 70%;
+}

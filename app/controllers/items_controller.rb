@@ -71,11 +71,6 @@ class ItemsController < ApplicationController
     redirect_to :root
   end
 
-  def remove_image
-    image = ItemAttachment.find(params[:image_id])
-    image
-  end
-
   def update
     sleep 1.5
     @item = Item.find(params[:id])

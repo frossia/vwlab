@@ -9,10 +9,11 @@
       tr
         - @item.item_attachments.each do |img|
           td
-            a.remove_image data-id='#{img.id}'
-              = image_tag(img.image.thumb)
+            = image_tag(img.image.thumb)
             br
-            .t-c = link_to "Удалить", item_attachment_path(img.id), :confirm => "Are you sure you want to delete this attachment?", :method => :delete
+            .t-c = link_to "Удалить", {:controller => "/item_attachments", :action => 'destroy', :id => img.id }, :method => :delete
+            /= link_to 'Удалить', img, :method => :delete, data: { confirm: "Are you sure?" }, :remote => true
+            /.t-c = link_to "Удалить", item_attachment_url(img), :confirm => "Are you sure you want to delete this attachment?", :method => :delete
 
     - @item.item_attachments.build
     = f.input :item_attachments_attributes, :as => :file, input_html: { multiple: true, name: "item[item_attachments_attributes][][image]"}

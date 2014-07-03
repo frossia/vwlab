@@ -9,15 +9,16 @@
       .col-md-9.col-lg-9.col-xs-12
         .pull-left
           - if @item.item_attachments.any?
-            a.thumbnail.item-img href='#{item_url(@item)}'
+            a.fancy-group.thumbnail.item-img href='#{@item.item_attachments.first.image}'
               = image_tag(@item.item_attachments.first.image.thumb)
-            table.thumb-images
-              - @item.item_attachments.in_groups_of(4, false) do |img|
-                tr
-                  - img.each do |i|
-                    td
-                      a.fancy-group href='#{i.image}' data-thumbnail='#{i.image.small_thumb}'
-                        = image_tag(i.image.small_thumb, height: 40)
+            - if @item.item_attachments.count > 1
+              table.thumb-images
+                - @item.item_attachments.in_groups_of(4, false) do |img|
+                  tr
+                    - img.each do |i|
+                      td
+                        a.fancy-group href='#{i.image}' data-thumbnail='#{i.image.small_thumb}'
+                          = image_tag(i.image.small_thumb, height: 40)
         b = @item.name
         br
         small = @item.description
