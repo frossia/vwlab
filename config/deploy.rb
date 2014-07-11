@@ -136,6 +136,10 @@ namespace :db do
     download("#{current_path}/db/production.sqlite3", "/Users/Admin/projects/vwlab/db/development.sqlite3")
   end
 
+  task :down_backup do
+    download("#{current_path}/db/production.sqlite3", "/Users/Admin/projects/vwlab/db/development_backup.sqlite3")
+  end
+
   task :down_upload do
     run_locally("rsync -ar --delete --stats -v hosting_mossaburovo@phosphorus.locum.ru:~/projects/vwlab/current/public/uploads/ ~/projects/vwlab/public/uploads/")
   end
