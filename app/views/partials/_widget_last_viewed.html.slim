@@ -1,6 +1,6 @@
 - unless session[:items].blank? || session[:items] == [nil]
   #widget_last_viewed
-    hr
+    br
     h4 Просмотренные товары
     .row
       - if session[:items].any?
@@ -12,5 +12,8 @@
               - i = Item.find(item)
               .col-md-3.col-sm-2.col-xs-3
                 a.is_tooltip.thumbnail href='#{item_url(i)}' data-placement="top" data-toggle="tooltip" title=(i.name) type="button"
-                  img src="http://lorempixel.com/150/150/transport/#{item}"
+                  - if i.item_attachments.any?
+                    img src="#{i.item_attachments.first.image.small_thumb}"
+                  - else
+                    = image_tag('item_no_image.png')
 

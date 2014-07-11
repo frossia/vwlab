@@ -19,7 +19,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '2.3.0'
 
 gem 'jquery-ui-rails'
 
@@ -97,3 +97,5 @@ gem 'faker'
 gem 'chosen-rails'
 
 gem "the_sortable_tree", "~> 2.5.0"
+
+gem 'activeadmin-settings', github: 'slate-studio/activeadmin-settings'

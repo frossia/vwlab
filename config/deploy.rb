@@ -141,7 +141,8 @@ namespace :db do
   end
 
   task :files_up do
-    upload("/Users/Admin/projects/vwlab/public/uploads", "#{current_path}/public/uploads", :via=> :scp, :recursive => true)
+    upload("/Users/Admin/projects/vwlab/public/uploads", "#{shared_path}", :via=> :scp, :recursive => true)
+    run "cd #{current_path}/public && ln -s #{shared_path}/uploads uploads"
   end
 
   task :duble do

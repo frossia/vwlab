@@ -11,7 +11,7 @@ class Item < ActiveRecord::Base
   accepts_nested_attributes_for :item_attachments, :allow_destroy => true
   accepts_nested_attributes_for :generation_items, :allow_destroy => true
 
-  attr_accessible :name, :description, :install_hours, :price, :old_price, :partial_price, :catalog_id, :generation_ids, :generation_items_attributes, :property_ids, :properties_attributes, :item_attachments_attributes
+  attr_accessible :name, :description, :install_hours, :price, :old_price, :partial_price, :catalog_id, :generation_ids, :generation_items_attributes, :property_ids, :properties_attributes, :item_attachments_attributes, :keywords
 
   # validates :catalog_id, :name, :
 

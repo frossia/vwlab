@@ -1,3 +1,4 @@
+//= require activeadmin_settings
 // SASS variable overrides must be declared before loading up Active Admin's styles.
 //
 // To view the variables that Active Admin provides, take a look at
@@ -117,4 +118,13 @@ table.images {
 }
 .f-i {
   font-style: italic;
+}
+
+.text-danger {
+  color: red;
+}
+
+#setting_string_input {
+  padding: 1em 0 1em 1em;
+  margin: 0;
 }

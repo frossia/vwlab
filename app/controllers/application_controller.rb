@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
   before_filter :vars
 
   def vars
+    Settings.title ||= 'VWLab.ru'
+
     @settings = YAML.load_file "config/settings.yml"
     @auto_brands = Brand.all
     @reception   = Reception.new

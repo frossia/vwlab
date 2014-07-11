@@ -2,6 +2,8 @@ ActiveAdmin.register Generation do
 
   actions :all, except: [:show]
 
+  menu :priority => 5
+
   scope :all, :default => true do
     Generation.order('auto_id ASC')
   end

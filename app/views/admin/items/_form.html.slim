@@ -1,27 +1,32 @@
-= semantic_nested_form_for [:admin, @item], :html => {:multipart => true} do |f|
+- if @item.errors.any?
+  .t-c: h3.text-danger Не сохранено! Исправьте все ошибки!
+= semantic_nested_form_for([:admin, @item], :html => {:multipart => true}) do |f|
   = f.inputs 'Товар' do
     = f.input :catalog_id, :input_html => { :class => "chosen-input" }, :as => :select, :collection => grouped_options_for_select(grouped_options, (@item.catalog.id if @item.catalog))
     /= f.input :catalog_id, :input_html => { :class => "chosen-input" }, :as => :select, :collection => Catalog.all.map {|i| ["#{'-' * i.level} #{i.name}", i.id] }
     = f.input :name
 
     /= @item.item_attachments.to_a
-    table.images
-      tr
-        - @item.item_attachments.each do |img|
-          td
-            = image_tag(img.image.thumb)
-            br
-            .t-c = link_to "Удалить", {:controller => "/item_attachments", :action => 'destroy', :id => img.id }, :method => :delete
-            /= link_to 'Удалить', img, :method => :delete, data: { confirm: "Are you sure?" }, :remote => true
+    - if !@item.errors.any?
+      table.images
+        tr
+          - @item.item_attachments.each do |img|
+            td
+              = image_tag(img.image.small_thumb)
+              br
+              .t-c = link_to "Удалить", item_attachment_url(img.id), :method => :delete
+            /.t-c = link_to 'Удалить', img, :method => :delete
             /.t-c = link_to "Удалить", item_attachment_url(img), :confirm => "Are you sure you want to delete this attachment?", :method => :delete
 
-    - @item.item_attachments.build
+    - @item.item_attachments.build if @item.item_attachments.blank?
     = f.input :item_attachments_attributes, :as => :file, input_html: { multiple: true, name: "item[item_attachments_attributes][][image]"}
 
     /= f.semantic_fields_for :item_attachments do |ia|
       = ia.input :image, :as => :file, :input_html => { :multiple => true }, name: "item_attachments[][image]"
 
     = f.input :description, as: :text, :input_html => { :rows => 10}
+
+    = f.input :keywords, :hint => 'Заполните 2-3 ключивых слова по теме'
 
     .row
       /.col-md-4

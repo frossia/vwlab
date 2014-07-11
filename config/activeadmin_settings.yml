@@ -1,0 +1,36 @@
+# ================================================================================
+#   activeadmin_settings.yml
+#   ---configuration file v1.0---
+# ================================================================================
+#
+# This file is used to store a list of activeadmin settings. Settings are split
+# into groups like this:
+# 
+# Here is a setting template:
+#   General Group:
+#     Setting Title:
+#       type:            string (default) / text / file / link
+#       description:     setting one sentence description
+#       default_value:   default value is used when setting value is blank
+#
+# Type details: 
+#   Link setting value expected to be in a format of: (link title) http://link.url
+#
+# ================================================================================
+Общие:
+  E-mail:
+    description:    Адрес для получения сообщений
+    default_value:  info@vw-lab.ru
+
+SEO:
+  Название сайта:
+    description:    Отображается в заголовках всех страниц
+    default_value:  VWLab.ru
+  Описание:
+    description:    Необходимо кратко сформулировать, о чем сайт
+    default_value:  VWLab.ru
+  Ключевые слова:
+    description:    Введите набор различных слов через ПРОБЕЛ, которые чаще всего встречаются на сайте
+    default_value:  VWLab.ru
+
+

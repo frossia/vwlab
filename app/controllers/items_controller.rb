@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   before_filter :viewed_items
 
   def index
+    @catalogs_all = Catalog.nested_set.order('lft ASC')
     @item_catalog = Catalog.all
     @searched_items = Item.search(params[:search])
     @ajax_search = []
@@ -28,8 +29,11 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item_catalog = Catalog.all.order(:lft)
+    @catalogs_all = Catalog.nested_set.order('lft ASC')
     @item = Item.find(params[:id])
+    if params[:auto_id]
+      @auto = Auto.find(params[:auto_id])
+    end
   end
 
   def viewed_items
@@ -45,13 +49,15 @@ class ItemsController < ApplicationController
 
     if !session[:favorite_items].include?(params[:item].to_i)
       @item = Item.find(params[:item])
+      @item.item_attachments.any? ? (image = @item.item_attachments.first.image.url(:small_thumb)) : image = '/assets/item_no_image.png'
       session[:favorite_items] << params[:item].to_i
     end
 
     respond_to do |format|
       format.json{
         if @item
-          render json: @item.to_json
+          render json: {id: @item.id, name: @item.name, :image => image}
+          # render @item.to_json(:only => [:id,:name], :image => @item.item_attachments.first.image.small_thumb)
         end
       }
     end

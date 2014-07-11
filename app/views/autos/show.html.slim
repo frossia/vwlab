@@ -1,9 +1,9 @@
-.row
+/.row
 
-  .col-md-4
-    = render partial: 'partials/catalog', locals: {xxx: @auto_catalogs, catalog_index: false}
+  /.col-md-4
+  /  = render partial: 'partials/catalog', locals: {xxx: @auto_catalogs, catalog_index: false}
+  /
+  /  = render partial: 'partials/widget_last_viewed'
 
-    = render partial: 'partials/widget_last_viewed'
-
-  = render partial: 'partials/items', locals: {xxx: @auto_items, cat_name: @cat_name, catalog_index: false}
+= render partial: 'partials/items', locals: {xxx: @auto_items, cat_name: @cat_name, catalog_index: false, paginating: true}
 

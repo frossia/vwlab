@@ -1,16 +1,11 @@
-hr
-h4 Избранное
-#favorites
+#favorites class='#{'hidden' if session[:favorite_items].blank?}'
+  hr
+  h4 Избранное
   table
-    - if session[:favorite_items].blank?
-      tr#nil-tr
-        td
-          p.t-c: small: small Пока Вы ничго не добавляли...
-
-    - else
+    - if !session[:favorite_items].blank?
       - session[:favorite_items].try(:each) do |item|
         - item = Item.find(item)
         tr id='item_row-#{item.id}' valign="middle"
-          td: a.remove_from_favorites remote='true' href='javascript:void(0)' data-item='#{item.id}': img.small-img src="http://lorempixel.com/30/30/transport/#{item.id}"
+          td: a.remove_from_favorites remote='true' href='javascript:void(0)' data-item='#{item.id}': img.small-img height='40' src="#{item.item_attachments.any? ? item.item_attachments.first.image.small_thumb : '/assets/item_no_image.png'}"
           td: small: a href='#{item_path(item)}': small = item.name
 

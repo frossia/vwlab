@@ -1,5 +1,7 @@
 ActiveAdmin.register Catalog do
 
+  menu :priority => 6
+
   config.sort_order = "id_asc"
 
   index do

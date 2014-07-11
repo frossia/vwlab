@@ -1,5 +1,6 @@
 ActiveAdmin.register Brand do
 
+  menu :priority => 3
 
   index do
     selectable_column

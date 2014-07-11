@@ -1,4 +1,4 @@
-.col-md-8#items
+#items
 
   - if xxx.any?
     / SEARCH
@@ -30,16 +30,16 @@
           .col-md-9.col-lg-9.col-xs-12
             .pull-left
               - if item.item_attachments.any?
-                a.thumbnail.item-img href='#{item_url(item)}'
+                a.thumbnail.item-img href='#{params[:controller] == 'autos' ? auto_item_url(params[:id], item) : item_url(item)}'
                   = image_tag(item.item_attachments.first.image.small_thumb)
 
 
-            a href='#{item_url(item)}'
+            a href='#{params[:controller] == 'autos' ? auto_item_url(params[:id], item) : item_url(item)}'
               b = item.name
             br
             small = item.description
           .col-md-3.col-lg-3.col-xs-12
-            a.btn.btn-warning.large.pull-right.t-r href='#{item_url(item)}'
+            a.btn.btn-warning.large.pull-right.t-r href='#{params[:controller] == 'autos' ? auto_item_url(params[:id], item) : item_url(item)}'
               span.fa.fa-shopping-cart.fa-lg>
               = number_to_currency(item.price, locale: :ru)
               - if item.old_price?
@@ -84,7 +84,6 @@
                       a#item_autos.btn.btn-link.btn-xs.muted_link.pull-right href='#{catalog_url(item.catalog.id)}'
                         i.fa.fa-tags>
                         = item.catalog.name
-                        |"asdasd
 
 
         - if admin_user_signed_in?

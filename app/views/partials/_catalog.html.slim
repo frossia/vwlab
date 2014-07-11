@@ -26,13 +26,14 @@
     .clearfix
 
     .panel-group#accordion
-      - if xxx.any?
-        - xxx.each_with_index do |cat, i|
+      - if @catalogs_all.any?
+        - @catalogs_all.each_with_index do |cat, i|
 
           #menu-row
 
-            - if controller_name == 'autos' && params[:id]
-              - children = Catalog.includes(items: :generations).where('parent_id' => cat.id, 'generations.auto_id' => params[:id]).order('lft ASC')
+            /= params
+            - if ( controller_name == 'autos' && params[:id] ) || ( params[:auto_id] && params[:id] )
+              - children = Catalog.includes(items: :generations).where('parent_id' => cat.id, 'generations.auto_id' => params[:auto_id] ? params[:auto_id] : params[:id] ).order('lft ASC')
             - else
               - children = Catalog.includes(items: :generations).where('parent_id' => cat.id).order('lft ASC')
 

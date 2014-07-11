@@ -1,5 +1,7 @@
 ActiveAdmin.register Auto do
 
+  menu :priority => 4
+
   actions :all, except: [:show]
 
   scope :all, :default => true do

@@ -1,8 +1,9 @@
 #= require jquery
+#= require jquery-ui
 #= require jquery_ujs
 #= require chosen-jquery
 #= require best_in_place
-#= require active_admin/base
+#= require activeadmin_settings
 #= require jquery_nested_form
 #= require jquery.ui.nestedSortable
 #= require sortable_tree/initializer

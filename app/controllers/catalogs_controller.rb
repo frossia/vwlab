@@ -3,7 +3,7 @@ class CatalogsController < ApplicationController
   include TheSortableTreeController::Rebuild
 
   def index
-    @catalogs_all = Catalog.nested_set
+    @catalogs_all = Catalog.nested_set.order('lft ASC')
 
     @catalog_items = Item.limit(10).order('created_at DESC')
   end

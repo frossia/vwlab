@@ -1,13 +1,12 @@
 br
 .row#brands
   .col-md-4.t-c
-    /- unless controller_name == 'autos'
     /  a.cool2 href='#{root_url}'
     /    = image_tag('logo.png', :id => 'logo', :'data-anijs' => 'if: mouseover, do: pulse animated')
     /- else
+    /- unless controller_name == 'autos'
     a.cool2 href='#{root_url}'
       = image_tag 'logo.png', :id => 'logo'
-    /h1 VW-Lab.ru
   .col-md-8
     .row
       .col-md-12#menu
@@ -23,7 +22,7 @@ br
     hr.min
 
     .row
-      .col-md-8
+      .col-md-7.col-lg-8
         table#autos-list
           - @auto_brands.each_with_index do |brand, i|
             tr
@@ -58,7 +57,7 @@ br
                         button.btn.btn-xs.btn-danger = auto.name
 
 
-      .col-md-4
+      .col-md-5.col-lg-4
         #telefon
           h6.t-r
             a.pointer  data-toggle="modal" data-target="#reception"

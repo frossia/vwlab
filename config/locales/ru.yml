@@ -154,10 +154,10 @@ ru:
         many:  "Авто"
         other: "Авто"
       brand:
-        one:   "Бренд"
-        few:   "Брендов"
-        many:  "Брендов"
-        other: "Бренды"
+        one:   "Марка"
+        few:   "Марок"
+        many:  "Марок"
+        other: "Марки"
       catalog:
         one:   "Категория"
         few:   "Категорий"
@@ -183,6 +183,19 @@ ru:
 
 
     attributes:
+      auto:
+        name: "Название"
+        brand: "Марка"
+      brand:
+        name: "Название"
+      catalog:
+        parent_id: 'Родительский каталог'
+        name: "Название"
+        items: "Товары в категории"
+      generation:
+        name: "Поколение"
+        auto_id: "Марка"
+        manhour: "Нормо-час в рублях"
       page:
         title: "Заголовок"
         published: "Опубликовано"
@@ -195,8 +208,10 @@ ru:
         name: "Название"
         description: "Описание"
         install_hours: "Время установки"
+        keywords: "Ключевые слова"
         price: "Цена"
         old_price: "Старая цена"
+        item_attachments_attributes: "Изображения товара"
       generation_item:
         generation_id: "Поколение"
         install_hours: "Время установки"

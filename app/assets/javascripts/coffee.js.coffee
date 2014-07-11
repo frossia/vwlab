@@ -83,10 +83,9 @@ jQuery ->
       dataType: 'json',
 
       success: (data) ->
-        console.log data
-        $('#nil-tr').fadeOut()
-        $('#favorites table').append("<tr id='item_row-#{data.id}' valign='middle'><td><a class='remove_from_favorites' data-item='#{data.id}' href='javascript:void(0)' remote='true'><img class='small-img' src='http://lorempixel.com/30/30/transport/112'></a></td><td><small><a href='/items/#{data.id}'><small>#{data.name}</small></a></small></td></tr>")
-#        $('#favorites').append("<tr valign='middle'><td><a class='remove_from_favorites' data-item='112' href='javascript:void(0)' remote='true'><img class='small-img' src='http://lorempixel.com/30/30/transport/112'></a></td><td><a class='btn btn-link muted_link' href='#'><small>громкая связь в автомобиль Jabra Drive, универсальная</small></a></td></tr>")
+        $('#favorites').removeClass('hidden')
+        $('#favorites').fadeIn()
+        $('#favorites table').append("<tr id='item_row-#{data.id}' valign='middle'><td><a class='remove_from_favorites' data-item='#{data.id}' href='javascript:void(0)' remote='true'><img class='small-img' height='40' src='#{data.image}'> </a></td><td><small><a href='/items/#{data.id}'><small>#{data.name}</small></a></small></td></tr>")
     })
 
 
@@ -102,8 +101,8 @@ jQuery ->
       success: (data) ->
         parent.fadeOut()
         if data.length == 0
-          console.log data.length
-          $('#nil-tr').fadeIn()
+          $('#favorites').addClass('hidden')
+          $('#favorites').fadeOut()
 
     })
 

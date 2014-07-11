@@ -8,10 +8,10 @@ class AutosController < ApplicationController
     @auto = Auto.find(params[:id])
     if params[:catalog_id]
       # @auto_items = Item.includes(:catalogs).where('catalogs.id' => params[:catalog_id])
-      @auto_items = Item.includes(:generations).where('catalog_id' => params[:catalog_id], 'generations.auto_id' => params[:id])
+      @auto_items = Item.includes(:generations).where('catalog_id' => params[:catalog_id], 'generations.auto_id' => params[:id]).page(params[:page])
       @cat_name = Catalog.find(params[:catalog_id])
     else
-      @auto_items = Item.includes(:generations).where('generations.auto_id' => @auto.id)
+      @auto_items = Item.includes(:generations).where('generations.auto_id' => @auto.id).page(params[:page])
     end
 
     # @auto_catalog = Catalog.all.order(:lft)
@@ -23,7 +23,7 @@ class AutosController < ApplicationController
     #     children.each do |child| @auto_catalog << child end
     #   end
     # end
-    @auto_catalogs = Catalog.nested_set.order('lft ASC')
+    @catalogs_all = Catalog.nested_set.order('lft ASC')
   end
 
 

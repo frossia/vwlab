@@ -2,12 +2,10 @@ doctype
 html
   head
     = favicon_link_tag '/favicon.ico'
+    title = content_for?(:title) ? content_for(:title) : settings_value('Название сайта').value
+    meta name='description' content='#{content_for?(:description) ? content_for(:description) : settings_value('Описание').value}'
+    meta name='keywords' content='#{content_for?(:keywords) ? content_for(:keywords) : settings_value('Ключевые слова').value}'
     meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    / title
-      - unless yield(:title).blank?
-        = yield(:title)
-        '  ||
-      ' Официальный сайт МОСКВОРЕЧЬЕ-САБУРОВО
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application"
     = csrf_meta_tags
@@ -22,7 +20,13 @@ html
             button type="button" class="close" data-dismiss="alert" aria-hidden="true" &times;
             p.t-c
       = render 'partials/header'
-      = yield
+      .row
+        .col-md-4
+          = render 'partials/catalog'
+          = render 'partials/widget_last_viewed'
+          = render 'partials/favorites'
+        .col-md-8
+          = yield
     br
     = render 'partials/footer'
     = render 'partials/reception'

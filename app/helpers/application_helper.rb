@@ -52,4 +52,22 @@ module ApplicationHelper
     File.open("config/settings.yml", 'w') { |f| YAML.dump(@settings, f) }
   end
 
+  def title(page_title = nil)
+    if page_title.present?
+      content_for :title, settings_value('Название сайта', :ru).value.to_s + ' -- ' + page_title.to_s
+    else
+      content_for :title, Settings.title.to_s
+    end
+  end
+
+  def description(content)
+    content_for :description, sanitize(content.gsub(/<code[^<]*<\/code>/, ""), :tags => %w(), :attributes => %w()).gsub(/[\r\n?]/, " ").squeeze(" ").gsub(/\"/, "'")[0..250].strip
+  end
+
+  def keywords(content)
+    if content
+      %w[#{content}]
+    end
+  end
+
 end
