@@ -363,7 +363,6 @@ DEPENDENCIES
   jquery-rails (= 2.3.0)
   jquery-ui-rails
   meta_request
-  mini_magick
   negative_captcha
   nested_form
   protected_attributes

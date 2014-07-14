@@ -54,7 +54,7 @@ set :login,           "avfrancev"
 set :use_sudo,        false
 set :deploy_to,       "/home/#{user}/projects/#{application}"
 set :unicorn_conf,    "/etc/unicorn/#{application}.#{login}.rb"
-set :unicorn_pid,     "/var/run/unicorn/#{application}.#{login}.pid"
+set :unicorn_pid,     "/var/run/unicorn/#{user}/#{application}.#{login}.pid"
 set :bundle_dir,      File.join(fetch(:shared_path), 'gems')
 role :web,            deploy_server
 role :app,            deploy_server
@@ -153,9 +153,17 @@ namespace :db do
     run_locally('cp db/development.sqlite3 db/production.sqlite3')
   end
 
+  task :tmp do
+    run "rm -r #{current_path}/public/uploads"
+    # run "cd #{current_path}/public && ln -s #{shared_path}/uploads uploads"
+  end
+
 end
 
-after "deploy:update_code", 'db:up'
+# after "deploy:update_code", 'db:up'
+
+set :keep_releases, 1
+after "deploy:update", "deploy:cleanup"
 
 # -----------------------------------------------------------------
 

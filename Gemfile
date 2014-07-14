@@ -62,7 +62,7 @@ gem 'carrierwave'
 
 gem 'rmagick', :require => 'RMagick'
 
-gem 'mini_magick'
+# gem 'mini_magick'
 
 gem 'bourbon'
 
