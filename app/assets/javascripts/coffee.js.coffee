@@ -74,7 +74,7 @@ jQuery ->
 
 #---------------------------------------------------------------------------------------------
 
-  $('.add_to_favorites').click ->
+  $("body").on "click", ".add_to_favorites", (e) ->
     $.ajax({
       type: "GET",
       url: "/items/add_to_favorites",
@@ -83,14 +83,16 @@ jQuery ->
       dataType: 'json',
 
       success: (data) ->
+        $('[data-item="'+data.id+'"] i').addClass('in_favorites')
+        $('[data-item="'+data.id+'"]').removeClass('add_to_favorites')
+        $('[data-item="'+data.id+'"]').addClass('remove_from_favorites')
         $('#favorites').removeClass('hidden')
         $('#favorites').fadeIn()
-        $('#favorites table').append("<tr id='item_row-#{data.id}' valign='middle'><td><a class='remove_from_favorites' data-item='#{data.id}' href='javascript:void(0)' remote='true'><img class='small-img' height='40' src='#{data.image}'> </a></td><td><small><a href='/items/#{data.id}'><small>#{data.name}</small></a></small></td></tr>")
+        $('#favorites table').append("<tr id='item_row-#{data.id}' valign='middle'><td><a class='tr remove_from_favorites' data-item='#{data.id}' href='javascript:void(0)' remote='true'><img class='small-img' height='40' src='#{data.image}'> </a></td><td><small><a href='/items/#{data.id}'><small>#{data.name}</small></a></small></td></tr>")
     })
 
 
   $("body").on "click", ".remove_from_favorites", (e) ->
-    parent = $(this).closest('tr')
     $.ajax({
       type: "GET",
       url: "/items/remove_from_favorites",
@@ -99,8 +101,14 @@ jQuery ->
       dataType: 'json',
 
       success: (data) ->
-        parent.fadeOut()
-        if data.length == 0
+        tr = $('tr#item_row-'+data.id)
+        btn = $('a.favorite_btn[data-item="'+data.id+'"]')
+        btn_i = $('a.favorite_btn[data-item="'+data.id+'"] i')
+        btn_i.removeClass('in_favorites')
+        btn.removeClass('remove_from_favorites')
+        btn.addClass('add_to_favorites')
+        tr.fadeOut()
+        if data.items.length == 0
           $('#favorites').addClass('hidden')
           $('#favorites').fadeOut()
 
@@ -223,3 +231,6 @@ jQuery ->
     overlayShow: true
 
 #---------------------------------------------------------------------------------------------
+
+
+

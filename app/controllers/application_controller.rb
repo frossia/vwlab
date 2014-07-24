@@ -13,6 +13,13 @@ class ApplicationController < ActionController::Base
     @auto_brands = Brand.all
     @reception   = Reception.new
     I18n.locale = params[:locale] || I18n.default_locale
+
+    @links = [
+        { name: 'test1', url: '/pages/1' },
+        { name: 'test2', url: '/pages/2' }
+    ]
+
+    session[:favorite_items] ||= []
   end
 
 

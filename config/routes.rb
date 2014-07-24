@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   mount_activeadmin_settings()
   # get 'receptions/create'
 
-  get 'pages/index'
+  # get 'pages/index'
 
-  get 'pages/show'
+  # get 'pages/show'
 
   get 'items/add_to_favorites'
   get 'items/remove_from_favorites'
@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   resources :receptions
   resources :items
   resources :pages
+  resources :posts
   resources :item_attachments
   resources :catalogs do
     collection do

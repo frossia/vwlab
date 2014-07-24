@@ -22,6 +22,7 @@
 //@import "active_admin/mixins";
 @import "chosen";
 
+
 #notice_message {
   position: fixed;
   top: 20px;
@@ -40,6 +41,12 @@
     text-align: left;
   }
 
+}
+
+table#item {
+  font-size: 1em;
+  border-collapse: separate;
+  border-spacing: 3px;
 }
 
 $html-bg: 'http://subtlepatterns.com/patterns/squairy_light.png';
@@ -156,6 +163,12 @@ hr#header-shadow {
 .f-i {
   font-style: italic;
 }
+.fl-l {
+  float: left;
+}
+.fl-r {
+  float: right;
+}
 
 .t-uppercase {
   text-transform: uppercase;
@@ -179,6 +192,16 @@ hr#header-shadow {
   color: #000000;
   text-shadow: 0 1px 1px #fff;
 //  display: block;
+  margin-left: 10px;
+}
+
+.btn.large-promo {
+  font-weight: bold;
+  letter-spacing: 0.7;
+  font-size: 1.1em;
+  color: #ffffff;
+  text-shadow: 0 1px 1px #535353;
+  //  display: block;
   margin-left: 10px;
 }
 
@@ -305,11 +328,17 @@ a.catalog_link {
   }
 }
 
+#widget_last_news {
+  text-shadow: 0 1px 0px #fff;
+}
 
-a.remove_from_favorites{
-  background: image_url('delete_icon.png') no-repeat 50% 50%;
-  margin: 0 5px 5px 0;
-  display: block;
+
+#favorites {
+  a.remove_from_favorites {
+    background: image_url('delete_icon.png') no-repeat 50% 50%;
+    margin: 0 5px 5px 0;
+    display: block;
+  }
 }
 
 img.small-img {
@@ -434,8 +463,14 @@ a#show_prices {
 }
 
 
+@media (max-width: 1200px) {
+  img.auto-img {
+    width: 100px;
+  }
+}
 
 table#auto-image {
+
   border-spacing: 10px;
   border-collapse: separate;
 
@@ -588,3 +623,42 @@ table.thumb-images {
 }
 
 
+span.page {
+  padding: 5px;
+  border-radius: 3px;
+  background: #fff;
+  &.current {
+    color: #aeaeae;
+    font-weight: bold;
+  }
+}
+
+.nowrap {
+  white-space:nowrap;
+}
+
+.btn-group {
+  white-space: nowrap;
+}
+
+.price_block {
+  white-space: nowrap;
+  .btn {
+    float: none;
+    display: inline-block;
+  }
+
+  a {
+    height: 53px;
+    &.favorite_btn i {
+      margin-top: 12px;
+    }
+    & i.in_favorites {
+      color: yellow;
+    }
+  }
+}
+
+.fa.fa-star {
+  text-shadow: 0 0 1px #000;
+}

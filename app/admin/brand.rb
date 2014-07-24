@@ -1,6 +1,7 @@
 ActiveAdmin.register Brand do
 
-  menu :priority => 3
+  menu :parent => "Автомобили"
+  # menu :priority => 1
 
   index do
     selectable_column

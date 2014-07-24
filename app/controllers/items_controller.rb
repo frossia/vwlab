@@ -4,27 +4,36 @@ class ItemsController < ApplicationController
   before_filter :viewed_items
 
   def index
-    @catalogs_all = Catalog.nested_set.order('lft ASC')
-    @item_catalog = Catalog.all
-    @searched_items = Item.search(params[:search])
-    @ajax_search = []
-    @searched_items.each_with_index do |item, i|
-      ii = item.attributes
-      ii['catalog'] = item.catalog.name
-      @ajax_search << ii
-    end
-    if @ajax_search
-      respond_to do |format|
-        format.html
+    if params[:promo].present?
+      @item_catalog = Item.all
+      @item_catalog = Catalog.all
+      @catalogs_all = Catalog.nested_set.order('lft ASC')
+      @searched_items = Item.where.not(old_price: nil)
+    elsif params[:search].present?
+      @item_catalog = Catalog.all
+      @catalogs_all = Catalog.nested_set.order('lft ASC')
+      @searched_items = Item.search(params[:search])
+      @ajax_search = []
+      if @searched_items.any?
+        @searched_items.each_with_index do |item, i|
+          ii = item.attributes
+          ii['catalog'] = item.catalog.name if item.catalog
+          @ajax_search << ii
+        end
+      end
+      if @ajax_search
+        respond_to do |format|
+          format.html
+          format.json{
+            render :json => @ajax_search.to_json
+          }
+        end
+
+      else
         format.json{
-          render :json => @ajax_search.to_json
+          render :status => "Something went wrong with your upload!", :error => "Something went wrong with your upload!"
         }
       end
-
-    else
-      format.json{
-        render :status => "Something went wrong with your upload!", :error => "Something went wrong with your upload!"
-      }
     end
   end
 
@@ -67,7 +76,7 @@ class ItemsController < ApplicationController
     session[:favorite_items].delete(params[:item].to_i)
     respond_to do |format|
       format.json{
-        render :json =>  session[:favorite_items].to_json
+        render :json =>  {id: params[:item].to_i, items: session[:favorite_items]}.to_json
       }
     end
   end

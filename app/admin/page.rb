@@ -1,5 +1,7 @@
 ActiveAdmin.register Page do
 
+  menu :parent => "Контент"
+
   actions :all, except: [:show]
 
   index do
@@ -10,5 +12,6 @@ ActiveAdmin.register Page do
     column :updated_at
     actions
   end
+
   
 end

@@ -7,6 +7,7 @@
 #= require jquery_nested_form
 #= require jquery.ui.nestedSortable
 #= require sortable_tree/initializer
+#= require activeadmin-sortable
 
 jQuery ->
   $('.best_in_place').best_in_place()

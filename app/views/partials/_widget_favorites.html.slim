@@ -6,6 +6,6 @@
       - session[:favorite_items].try(:each) do |item|
         - item = Item.find(item)
         tr id='item_row-#{item.id}' valign="middle"
-          td: a.remove_from_favorites remote='true' href='javascript:void(0)' data-item='#{item.id}': img.small-img height='40' src="#{item.item_attachments.any? ? item.item_attachments.first.image.small_thumb : '/assets/item_no_image.png'}"
+          td: a.tr.remove_from_favorites remote='true' href='javascript:void(0)' data-item='#{item.id}': img.small-img height='40' src="#{item.item_attachments.any? ? item.item_attachments.first.image.small_thumb : '/assets/item_no_image.png'}"
           td: small: a href='#{item_path(item)}': small = item.name
 

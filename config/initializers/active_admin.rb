@@ -5,7 +5,7 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "Vwlab"
+  config.site_title = "Vwlab.ru"
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -240,4 +240,8 @@ ActiveAdmin.setup do |config|
   #
   # config.filters = true
 
+end
+
+module ActiveAdmin::ViewHelpers
+  include ApplicationHelper
 end

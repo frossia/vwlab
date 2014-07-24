@@ -12,9 +12,12 @@ br
       .col-md-12#menu
         table width='100%'
           tr
-            td
+            - Menu.all.each do |m|
+              - if m.published
+                td: a.menu-link href='#{m.url}' = m.title
+            /td
               a.menu-link href='#{root_url}' Главная
-            - Page.all.each do |page|
+            /- Page.all.each do |page|
               - if page.published
                 td
                   a.menu-link href='#{page_url(page)}' = page.title

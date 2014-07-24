@@ -128,6 +128,7 @@ namespace :db do
 
   task :up do
     deploy.stop
+    db.down_backup
     upload("/Users/Admin/projects/vwlab/db/development.sqlite3", "#{current_path}/db/production.sqlite3")
     deploy.start
   end
@@ -137,7 +138,7 @@ namespace :db do
   end
 
   task :down_backup do
-    download("#{current_path}/db/production.sqlite3", "/Users/Admin/projects/vwlab/db/development_backup.sqlite3")
+    download("#{current_path}/db/production.sqlite3", "/Users/Admin/projects/vwlab/db/production_backup_"+Date.to_s+".sqlite3")
   end
 
   task :down_upload do
@@ -160,7 +161,7 @@ namespace :db do
 
 end
 
-# after "deploy:update_code", 'db:up'
+after "deploy:update_code", 'db:up'
 
 set :keep_releases, 1
 after "deploy:update", "deploy:cleanup"

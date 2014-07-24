@@ -99,3 +99,7 @@ gem 'chosen-rails'
 gem "the_sortable_tree", "~> 2.5.0"
 
 gem 'activeadmin-settings', github: 'slate-studio/activeadmin-settings'
+
+gem 'acts_as_list'
+
+gem 'activeadmin-sortable'

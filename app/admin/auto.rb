@@ -1,6 +1,7 @@
 ActiveAdmin.register Auto do
 
-  menu :priority => 4
+  menu :parent => "Автомобили"
+  # menu :priority => 2
 
   actions :all, except: [:show]
 

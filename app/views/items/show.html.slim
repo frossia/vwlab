@@ -10,57 +10,97 @@
 /
 /  .col-md-8
 .row
-  .col-md-8.col-lg-9.col-xs-12
-    .pull-left
-      - if @item.item_attachments.any?
-        a.fancy-group.thumbnail.item-img href='#{@item.item_attachments.first.image}' data-thumbnail='#{@item.item_attachments.first.image.small_thumb}'
-          = image_tag(@item.item_attachments.first.image.thumb)
-        - if @item.item_attachments.count > 1
-          table.thumb-images
-            - @item.item_attachments[1..@item.item_attachments.count].in_groups_of(4, false) do |img|
-              tr
-                - img.each do |i|
-                  td
-                    a.fancy-group href='#{i.image}' data-thumbnail='#{i.image.small_thumb}'
-                      = image_tag(i.image.small_thumb, height: 38)
-    b = @item.name
-    br
-    small = @item.description
-  .col-md-4.col-lg-3.col-xs-12
-    - if params[:auto_id]
-      - auto = Auto.find(params[:auto_id])
-      button.btn.btn-warning.large.pull-right
-        span.fa.fa-shopping-cart.fa-lg>
-        = number_to_currency(@item.price, locale: :ru)
-        - if @item.old_price?
+  .col-md-12
+    table#item
+      tr
+        td width='100%'
+          .pull-left
+            - if @item.item_attachments.any?
+              a.fancy-group.thumbnail.item-img href='#{@item.item_attachments.first.image}' data-thumbnail='#{@item.item_attachments.first.image.small_thumb}'
+                = image_tag(@item.item_attachments.first.image.thumb)
+              - if @item.item_attachments.count > 1
+                table.thumb-images
+                  - @item.item_attachments[1..@item.item_attachments.count].in_groups_of(4, false) do |img|
+                    tr
+                      - img.each do |i|
+                        td
+                          a.fancy-group href='#{i.image}' data-thumbnail='#{i.image.small_thumb}'
+                            = image_tag(i.image.small_thumb, height: 38)
+          b = @item.name
           br
-          .t-r.small style='text-decoration:line-through; color: #ae372e; '
-            = number_to_currency(@item.old_price, locale: :ru)
-      a.add_to_favorites.btn.btn-link.btn-xs.muted_link.pull-right data-item='#{@item.id}'
-        i.fa.fa-star>
-        | В избранное
+          small = @item.description
+        td style='vertical-align:top'
+          - if @item.old_price?
+            .price_block.btn-group
+              a type="button" class="btn btn-danger large-promo t-r" href='#{params[:controller] == 'autos' ? auto_item_url(params[:id], @item) : item_url(@item)}'
+                span.fa.fa-shopping-cart.fa-lg>
+                = number_to_currency(@item.price, locale: :ru)
+                br
+                /hr.one_border.min
+                small style='text-decoration:line-through; color: #505050; text-shadow:none; '
+                  = number_to_currency(@item.old_price, locale: :ru)
+              a data-item='#{@item.id}' type="button" class="favorite_btn btn btn-danger #{session[:favorite_items].include?(@item.id) ? 'remove_from_favorites' : 'add_to_favorites' }"
+                i.fa.fa-star class="#{'in_favorites' if session[:favorite_items].include?(@item.id)}"
+          - else
+            .price_block.btn-group
+              a type="button" class="btn btn-warning large-promo t-r" href='#{params[:controller] == 'autos' ? auto_item_url(params[:id], @item) : item_url(@item)}' style='padding-top: 14px'
+                span.fa.fa-shopping-cart.fa-lg>
+                = number_to_currency(@item.price, locale: :ru)
+                br
+                /hr.one_border.min
+                small style='text-decoration:line-through; color: #505050; text-shadow:none; '
+                  = number_to_currency(@item.old_price, locale: :ru)
+              a data-item='#{@item.id}' type="button" class="favorite_btn btn btn-warning #{session[:favorite_items].include?(@item.id) ? 'remove_from_favorites' : 'add_to_favorites' }"
+                i.fa.fa-star class="#{'in_favorites' if session[:favorite_items].include?(@item.id)}"
 
-      .t-r: small
-        .clearfix
-        br
-        span УСТАНОВКА:
-        hr.min
-        table width='100%'
-          - auto.generations.each do |g|
-            tr
-              td: small: small = g.name
-              td.t-r: small: small: b = number_to_currency(g.manhour, locale: :ru)
-    - else
-      button.btn.btn-warning.large.pull-right
-        span.fa.fa-shopping-cart.fa-lg>
-        = number_to_currency(@item.price, locale: :ru)
-        - if @item.old_price?
-          br
-          .t-r.small style='text-decoration:line-through; color: #ae372e; '
-            = number_to_currency(@item.old_price, locale: :ru)
-      a.add_to_favorites.btn.btn-link.btn-xs.muted_link.pull-right data-item='#{@item.id}'
-        i.fa.fa-star>
-        | В избранное
+
+          - if params[:auto_id]
+            - auto = Auto.find(params[:auto_id])
+            .t-r: small
+              .clearfix
+              br
+              span УСТАНОВКА:
+              hr.min
+              table width='100%'
+                - auto.generations.each do |g|
+                  tr
+                    td: small: small = g.name
+                    td.t-r: small: small: b = number_to_currency(g.manhour, locale: :ru)
+
+          /- if params[:auto_id]
+          /  - auto = Auto.find(params[:auto_id])
+          /  button.btn.btn-warning.large.pull-right
+          /    span.fa.fa-shopping-cart.fa-lg>
+          /    = number_to_currency(@item.price, locale: :ru)
+          /    - if @item.old_price?
+          /      br
+          /      .t-r.small style='text-decoration:line-through; color: #ae372e; '
+          /        = number_to_currency(@item.old_price, locale: :ru)
+          /  a.add_to_favorites.btn.btn-link.btn-xs.muted_link.pull-right data-item='#{@item.id}'
+          /    i.fa.fa-star>
+          /    | В избранное
+          /
+          /  .t-r: small
+          /    .clearfix
+          /    br
+          /    span УСТАНОВКА:
+          /    hr.min
+          /    table width='100%'
+          /      - auto.generations.each do |g|
+          /        tr
+          /          td: small: small = g.name
+          /          td.t-r: small: small: b = number_to_currency(g.manhour, locale: :ru)
+          /- else
+          /  button.btn.btn-warning.large.pull-right
+          /    span.fa.fa-shopping-cart.fa-lg>
+          /    = number_to_currency(@item.price, locale: :ru)
+          /    - if @item.old_price?
+          /      br
+          /      .t-r.small style='text-decoration:line-through; color: #ae372e; '
+          /        = number_to_currency(@item.old_price, locale: :ru)
+          /  a.add_to_favorites.btn.btn-link.btn-xs.muted_link.pull-right data-item='#{@item.id}'
+          /    i.fa.fa-star>
+          /    | В избранное
 
 
   .col-md-12
@@ -97,7 +137,7 @@
 
               - get_generations(@item.id, g.id).each do |xxx|
                 tr
-                  td.spec-label: small: b: i
+                  td.spec-label: small
                     = xxx.generation.name
                   td.value.t-r: small: i
                     /= @item.install_hours
@@ -117,5 +157,3 @@
 
         a#show_prices href="javascript:void(0)"
           i.fa.fa-chevron-down
-
-

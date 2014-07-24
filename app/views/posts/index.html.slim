@@ -1,0 +1,5 @@
+- @posts.each do |post|
+  h4: a href='#{post_url(post)}' = post.title
+  p = truncate(post.body, :length => 150 )
+  - if post != Post.last
+    hr

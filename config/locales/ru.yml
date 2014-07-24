@@ -178,6 +178,17 @@ ru:
         few:   "Обращений"
         many:  "Обращений"
         other: "Обращения"
+      post:
+        one:   "Новость"
+        few:   "Новостей"
+        many:  "Новостей"
+        other: "Новости"
+      menu:
+        one:   "Меню"
+        few:   "Меню"
+        many:  "Меню"
+        other: "Меню"
+
 
 
 
@@ -212,6 +223,7 @@ ru:
         price: "Цена"
         old_price: "Старая цена"
         item_attachments_attributes: "Изображения товара"
+        without_categories: 'as'
       generation_item:
         generation_id: "Поколение"
         install_hours: "Время установки"
@@ -221,6 +233,16 @@ ru:
         name: "Характеристика"
         value: "Значение"
         _destroy: "Удалить"
+      post:
+        title: "Заголовок"
+        body: "Текст статьи"
+        published: "Опубликовано"
+        created_at: "Создано"
+        updated_at: "Обновлено"
+      menu:
+        title: "Название"
+        published: "Отображается"
+        position: "Позиция"
 
 
 

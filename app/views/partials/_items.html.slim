@@ -2,7 +2,7 @@
 
   - if xxx.any?
     / SEARCH
-    - if controller_name == 'items' && action_name == 'index' && params[:search]
+    - if params[:search]
       h4 По Вашему запросу "#{params[:search]}" #{Russian.p(xxx.count, 'найден', 'найдено', 'найдено')} #{xxx.count} #{Russian.p(xxx.count, 'товар', 'товара', 'товаров')}
       hr
     / SEARCH
@@ -14,6 +14,9 @@
       h4 = Catalog.find(params[:catalog_id]).name
       hr
     / Название каталока
+    - if params[:promo]
+      h4 Товары со скидкой
+      hr
 
   - else
     - if controller_name == 'items' && action_name == 'index'
@@ -26,31 +29,46 @@
   - if xxx.any?
     - xxx.each do |item|
       .cool
-        .row
-          .col-md-9.col-lg-9.col-xs-12
-            .pull-left
-              - if item.item_attachments.any?
-                a.thumbnail.item-img href='#{params[:controller] == 'autos' ? auto_item_url(params[:id], item) : item_url(item)}'
-                  = image_tag(item.item_attachments.first.image.small_thumb)
+        table#item
+          tr
+            td width='100%'
+              .pull-left
+                - if item.item_attachments.any?
+                  a.thumbnail.item-img href='#{params[:controller] == 'autos' ? auto_item_url(params[:id], item) : item_url(item)}'
+                    = image_tag(item.item_attachments.first.image.small_thumb)
 
 
-            a href='#{params[:controller] == 'autos' ? auto_item_url(params[:id], item) : item_url(item)}'
-              b = item.name
-            br
-            small = item.description
-          .col-md-3.col-lg-3.col-xs-12
-            a.btn.btn-warning.large.pull-right.t-r href='#{params[:controller] == 'autos' ? auto_item_url(params[:id], item) : item_url(item)}'
-              span.fa.fa-shopping-cart.fa-lg>
-              = number_to_currency(item.price, locale: :ru)
+              a href='#{params[:controller] == 'autos' ? auto_item_url(params[:id], item) : item_url(item)}'
+                b = item.name
+              br
+              small = item.description
+            td style='vertical-align:top'
               - if item.old_price?
-                br
-                /hr.one_border.min
-                small style='text-decoration:line-through; color: #ae372e; '
-                  = number_to_currency(item.old_price, locale: :ru)
-            a.add_to_favorites.btn.btn-link.btn-xs.muted_link.pull-right data-item='#{item.id}'
-              i.fa.fa-star>
-              | В избранное
+                .price_block.btn-group
+                  a type="button" class="btn btn-danger large-promo t-r" href='#{params[:controller] == 'autos' ? auto_item_url(params[:id], item) : item_url(item)}'
+                    span.fa.fa-shopping-cart.fa-lg>
+                    = number_to_currency(item.price, locale: :ru)
+                    br
+                    /hr.one_border.min
+                    small style='text-decoration:line-through; color: #505050; text-shadow:none; '
+                      = number_to_currency(item.old_price, locale: :ru)
+                  a data-item='#{item.id}' type="button" class="favorite_btn btn btn-danger #{session[:favorite_items].include?(item.id) ? 'remove_from_favorites' : 'add_to_favorites' }"
+                    i.fa.fa-star class="#{'in_favorites' if session[:favorite_items].include?(item.id)}"
+              - else
+                .price_block.btn-group
+                  a type="button" class="btn btn-warning large-promo t-r" href='#{params[:controller] == 'autos' ? auto_item_url(params[:id], item) : item_url(item)}' style='padding-top: 14px'
+                    span.fa.fa-shopping-cart.fa-lg>
+                    = number_to_currency(item.price, locale: :ru)
+                    br
+                    /hr.one_border.min
+                    small style='text-decoration:line-through; color: #505050; text-shadow:none; '
+                      = number_to_currency(item.old_price, locale: :ru)
+                  a data-item='#{item.id}' type="button" class="favorite_btn btn btn-warning #{session[:favorite_items].include?(item.id) ? 'remove_from_favorites' : 'add_to_favorites' }"
+                    i.fa.fa-star class="#{'in_favorites' if session[:favorite_items].include?(item.id)}"
 
+
+
+        br
         .row
           .col-md-12
             table.custom

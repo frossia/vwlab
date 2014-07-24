@@ -1,6 +1,6 @@
 ActiveAdmin.register_page "Settings" do
 
-  menu :priority => 70
+  menu :priority => 2
 
   content do    
     # Mergin db settings objects and default values

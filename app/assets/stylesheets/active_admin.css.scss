@@ -10,6 +10,7 @@
 //= require tree
 //= require sortable_tree
 //= require nested_options
+//= require activeadmin-sortable
 
 // Active Admin's got SASS!
 @import "active_admin/mixins";
@@ -127,4 +128,22 @@ table.images {
 #setting_string_input {
   padding: 1em 0 1em 1em;
   margin: 0;
+}
+
+ul#tabs {
+  overflow: visible;
+}
+
+.price-label {
+  padding: 4px;
+  border-radius: 3px;
+  white-space: nowrap;
+  background: #D8D8D8;
+  text-shadow: 0 1px 1px #fff;
+}
+
+.small_thumb {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
 }

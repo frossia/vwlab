@@ -1,0 +1,11 @@
+- posts = Post.limit(5)
+- if posts
+  br
+  #widget_last_news
+    h4 Наши новости
+    - posts.each do |post|
+      h6
+        i.fa.fa-angle-double-right>
+        a href='#{post_url(post)}' = post.title
+
+    .t-r: small: a.btn.btn-default.btn-xs href='#{posts_url}' Все новости
